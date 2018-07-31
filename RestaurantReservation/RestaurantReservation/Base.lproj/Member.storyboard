@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k8B-92-8Zh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Message_Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Message_Home" id="BYZ-38-t0r" customClass="MemberViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_pot" translatesAutoresizingMaskIntoConstraints="NO" id="fOj-e4-T49">
+                                <rect key="frame" x="-68.5" y="86" width="512" height="128"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MwT-8i-5z0">
+                                <rect key="frame" x="94" y="247.5" width="187" height="172"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ueq-xQ-aGs">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="172"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓        名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKq-OV-7gs">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稱        謂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4V-gL-oT1">
+                                                <rect key="frame" x="0.0" y="50.5" width="70" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳        號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h81-5x-zGh">
+                                                <rect key="frame" x="0.0" y="101" width="70" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手機號碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJt-W6-mB2">
+                                                <rect key="frame" x="0.0" y="151.5" width="70" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yFY-sT-gAc">
+                                        <rect key="frame" x="100" y="0.0" width="87" height="172"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY0-QR-MXC">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5Y-Gm-SSM">
+                                                <rect key="frame" x="0.0" y="50.5" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNw-fh-Z2i">
+                                                <rect key="frame" x="0.0" y="101" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kz-oa-9Zg">
+                                                <rect key="frame" x="0.0" y="151.5" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Sx-tsb" customClass="CornerRadiusButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                <rect key="frame" x="86" y="457" width="203" height="43"/>
+                                <color key="backgroundColor" red="0.36862745098039218" green="0.5725490196078431" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="K4O-Sx-tsb" secondAttribute="height" multiplier="203:43" id="JCb-vx-XN9"/>
+                                </constraints>
+                                <state key="normal" title="修改會員資料">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reviseBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2P-Vd-XOK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K4O-Sx-tsb" secondAttribute="trailing" constant="86" id="J2E-72-4Pv"/>
+                            <constraint firstItem="fOj-e4-T49" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="XAG-nB-8l4"/>
+                            <constraint firstItem="fOj-e4-T49" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z6F-Ub-qmz"/>
+                            <constraint firstItem="MwT-8i-5z0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="i75-xL-9Se"/>
+                            <constraint firstItem="K4O-Sx-tsb" firstAttribute="top" secondItem="MwT-8i-5z0" secondAttribute="bottom" constant="37.5" id="jFk-qm-jaf"/>
+                            <constraint firstItem="MwT-8i-5z0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lMb-yF-4Hb"/>
+                            <constraint firstItem="MwT-8i-5z0" firstAttribute="top" secondItem="fOj-e4-T49" secondAttribute="bottom" constant="33.5" id="nhs-Fi-r2V"/>
+                            <constraint firstItem="K4O-Sx-tsb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="oB5-u7-q9t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="會員中心" id="Zu5-6K-Xja">
+                        <barButtonItem key="rightBarButtonItem" title="登出" id="DPJ-fR-xY3">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="wZs-tY-KVg" kind="unwind" unwindAction="logoutWithSender:" id="8ve-7q-Bua"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailLabel" destination="WNw-fh-Z2i" id="VTl-tI-pum"/>
+                        <outlet property="nameLabel" destination="XY0-QR-MXC" id="A0h-HI-38Y"/>
+                        <outlet property="phoneLabel" destination="1kz-oa-9Zg" id="4i9-hK-bWU"/>
+                        <outlet property="sexLabel" destination="P5Y-Gm-SSM" id="0Gf-KQ-unO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="wZs-tY-KVg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3152.8000000000002" y="-834.33283358320841"/>
+        </scene>
+        <!--會員中心-->
+        <scene sceneID="L0y-c5-1X1">
+            <objects>
+                <viewController storyboardIdentifier="MemberReviseViewController" id="rNd-gT-mx0" customClass="MemberReviseViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2hu-8A-Q5N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_pot" translatesAutoresizingMaskIntoConstraints="NO" id="zB9-lj-IOW">
+                                <rect key="frame" x="67" y="86" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zB9-lj-IOW" secondAttribute="height" multiplier="15:8" id="Rbj-vS-PuT"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="j5Q-Uy-oLV">
+                                <rect key="frame" x="30" y="261" width="315" height="351"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r74-q4-3jQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓         名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xex-8t-kNt">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzE-K1-3yk">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pnn-eW-gLL">
+                                        <rect key="frame" x="0.0" y="53" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稱         謂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03e-eJ-YvQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-lt-Bmh" customClass="SSRadioButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                                <rect key="frame" x="108.5" y="0.0" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="先生">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRe-PG-WeG" customClass="SSRadioButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                                <rect key="frame" x="216.5" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="小姐"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4sm-lt-Bmh" firstAttribute="width" secondItem="03e-eJ-YvQ" secondAttribute="width" id="QaV-rL-aJg"/>
+                                            <constraint firstItem="CRe-PG-WeG" firstAttribute="width" secondItem="03e-eJ-YvQ" secondAttribute="width" id="dcg-WK-67D"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cH3-Nw-9V5">
+                                        <rect key="frame" x="0.0" y="106" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳         號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXe-A1-QAP">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVW-5P-jJG">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fAA-Xm-9nU">
+                                        <rect key="frame" x="0.0" y="159" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舊  密  碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-Sl-wKv">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入舊密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfj-jC-12v">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jih-Lv-l0l">
+                                        <rect key="frame" x="0.0" y="212" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新  密  碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkU-TR-8vm">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼(4-8字元)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewu-mh-EtK">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vyu-Jr-ber">
+                                        <rect key="frame" x="0.0" y="265" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HiQ-8o-762">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請再次輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2p-RT-dSG">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="efz-m0-iPB">
+                                        <rect key="frame" x="0.0" y="318" width="315" height="33"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手機號碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X0-Wz-jdl">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入手機號碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmp-m3-aTI">
+                                                <rect key="frame" x="108.5" y="0.0" width="206.5" height="33"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fAA-Xm-9nU" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="7sj-76-A6J"/>
+                                    <constraint firstItem="0X0-Wz-jdl" firstAttribute="width" secondItem="HiQ-8o-762" secondAttribute="width" id="CH3-hD-Fe4"/>
+                                    <constraint firstItem="Pnn-eW-gLL" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="HVs-IB-dJ8"/>
+                                    <constraint firstItem="r74-q4-3jQ" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="JO3-vZ-1AM"/>
+                                    <constraint firstItem="xex-8t-kNt" firstAttribute="width" secondItem="HiQ-8o-762" secondAttribute="width" id="K36-Pz-73Y"/>
+                                    <constraint firstItem="Vyu-Jr-ber" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="Mmr-pZ-gtg"/>
+                                    <constraint firstItem="lXe-A1-QAP" firstAttribute="width" secondItem="HiQ-8o-762" secondAttribute="width" id="Q5l-B9-QdQ"/>
+                                    <constraint firstItem="03e-eJ-YvQ" firstAttribute="width" secondItem="HiQ-8o-762" secondAttribute="width" id="RSh-oG-uPH"/>
+                                    <constraint firstItem="efz-m0-iPB" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="Yw0-a2-vaM"/>
+                                    <constraint firstItem="ZkU-TR-8vm" firstAttribute="width" secondItem="HiQ-8o-762" secondAttribute="width" id="i6R-IY-mbb"/>
+                                    <constraint firstItem="cH3-Nw-9V5" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="pQh-M9-rby"/>
+                                    <constraint firstItem="Jih-Lv-l0l" firstAttribute="width" secondItem="j5Q-Uy-oLV" secondAttribute="width" id="rj2-wb-VTW"/>
+                                    <constraint firstItem="fhe-Sl-wKv" firstAttribute="width" secondItem="ZkU-TR-8vm" secondAttribute="width" id="wc9-72-cGL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C2s-lm-Wa4" firstAttribute="trailing" secondItem="zB9-lj-IOW" secondAttribute="trailing" constant="68" id="AUI-d8-siq"/>
+                            <constraint firstItem="C2s-lm-Wa4" firstAttribute="bottom" secondItem="j5Q-Uy-oLV" secondAttribute="bottom" constant="55" id="Bjw-Zy-Yhy"/>
+                            <constraint firstItem="zB9-lj-IOW" firstAttribute="top" secondItem="C2s-lm-Wa4" secondAttribute="top" constant="22" id="Eoc-Hx-Zz0"/>
+                            <constraint firstItem="C2s-lm-Wa4" firstAttribute="trailing" secondItem="j5Q-Uy-oLV" secondAttribute="trailing" constant="30" id="Omq-RE-0xZ"/>
+                            <constraint firstItem="j5Q-Uy-oLV" firstAttribute="leading" secondItem="C2s-lm-Wa4" secondAttribute="leading" constant="30" id="Q6S-ck-Dbf"/>
+                            <constraint firstItem="zB9-lj-IOW" firstAttribute="leading" secondItem="C2s-lm-Wa4" secondAttribute="leading" constant="67" id="m6G-bW-EBn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C2s-lm-Wa4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="會員中心" id="GgP-Cy-WfC">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="M4D-EW-vtf">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancelBtnPressed:" destination="rNd-gT-mx0" id="hnK-Ts-Qjq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="儲存" id="JmW-h4-RMe">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="saveBtnPressed:" destination="rNd-gT-mx0" id="vQj-so-K5B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="againPasswordTextField" destination="S2p-RT-dSG" id="XUf-ll-DQx"/>
+                        <outlet property="bottonConstraint" destination="Bjw-Zy-Yhy" id="Oia-wg-Ooj"/>
+                        <outlet property="emailLabel" destination="yVW-5P-jJG" id="Rfb-bf-jee"/>
+                        <outlet property="imageView" destination="zB9-lj-IOW" id="jEy-CA-fip"/>
+                        <outlet property="manButton" destination="4sm-lt-Bmh" id="C4R-ZG-oEn"/>
+                        <outlet property="nameTextField" destination="qzE-K1-3yk" id="clY-hP-1wa"/>
+                        <outlet property="newPasswordTextField" destination="ewu-mh-EtK" id="BC0-qD-Jet"/>
+                        <outlet property="oldPasswordTextField" destination="mfj-jC-12v" id="28S-85-bRJ"/>
+                        <outlet property="phoneTextField" destination="dmp-m3-aTI" id="cgI-Po-Fjb"/>
+                        <outlet property="womanButton" destination="CRe-PG-WeG" id="ah3-pZ-nx2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zee-8g-wdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4900" y="-834.33283358320841"/>
+        </scene>
+        <!--會員中心-->
+        <scene sceneID="RyK-y0-Fj9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k8B-92-8Zh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="會員中心" image="btn_tab_member" selectedImage="btn_tab_member" id="0G8-tD-HzD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ClK-Ht-v18">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.36862745099999999" green="0.57254901960000004" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Plc-xq-RPg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6h9-IM-r7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2213.5999999999999" y="-834.33283358320841"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PWs-jQ-gDa">
+            <objects>
+                <navigationController storyboardIdentifier="ReviseMember" automaticallyAdjustsScrollViewInsets="NO" id="Hb3-2q-1dE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C4p-ku-UbH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.36862745099999999" green="0.57254901960000004" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rNd-gT-mx0" kind="relationship" relationship="rootViewController" id="IeK-xq-b2Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PM1-a0-2Zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3960.8000000000002" y="-834.33283358320841"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_tab_member" width="28" height="28"/>
+        <image name="pic_pot" width="512" height="512"/>
+    </resources>
+</document>

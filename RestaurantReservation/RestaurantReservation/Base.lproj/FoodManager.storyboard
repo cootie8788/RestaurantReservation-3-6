@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DrO-hO-cNa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2Zm-RW-r21">
+            <objects>
+                <viewController id="nCB-8u-S9q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b5o-NR-5iM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eyr-Ku-4nR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Rb-zM-Qsp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWf-bz-cxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8913" y="1567"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UWv-xw-7za">
+            <objects>
+                <viewController id="gWc-wv-nwM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dlp-RO-4Yc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="q4W-w1-5Qg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJ2-pT-xjv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9897" y="1534"/>
+        </scene>
+        <!--食材管理-->
+        <scene sceneID="udR-Ny-KAw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DrO-hO-cNa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="食材管理" image="btn_tab_food" id="pQo-cg-vtY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARp-ZB-vR2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nCB-8u-S9q" kind="relationship" relationship="rootViewController" id="pyq-Om-64c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SvM-eT-o2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8055" y="1567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_tab_food" width="28" height="28"/>
+    </resources>
+</document>

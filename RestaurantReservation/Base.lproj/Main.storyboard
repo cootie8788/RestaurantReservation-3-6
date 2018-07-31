@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CkY-g9-xb7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="bOt-Ff-eZ8">
+            <objects>
+                <viewController storyboardIdentifier="loginViewController" id="tz3-0p-cLI" customClass="LoginViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="60x-kY-ryg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="WyJ-cQ-TtM">
+                                <rect key="frame" x="30" y="287" width="315" height="250"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nFB-sr-o1U">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="110"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入e-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVD-q9-9Ru">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼(4-8字元)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6c-tn-bif">
+                                                <rect key="frame" x="0.0" y="40" width="315" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忘記密碼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smY-Hr-zLd">
+                                                <rect key="frame" x="133" y="80" width="49.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="p6c-tn-bif" firstAttribute="width" secondItem="nFB-sr-o1U" secondAttribute="width" id="Kcm-Q6-LRH"/>
+                                            <constraint firstItem="HVD-q9-9Ru" firstAttribute="width" secondItem="nFB-sr-o1U" secondAttribute="width" id="XjD-Xr-F32"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nXI-NY-NDH">
+                                        <rect key="frame" x="0.0" y="140" width="315" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1E-6U-KpQ" customClass="CornerRadiusButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="55"/>
+                                                <color key="backgroundColor" red="0.36862745098039218" green="0.5725490196078431" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="登入">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginBtn:" destination="tz3-0p-cLI" eventType="touchUpInside" id="9Xx-13-gtv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeP-99-Z24">
+                                                <rect key="frame" x="126.5" y="55" width="62" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="註冊新帳戶">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="fMm-DT-mDG" kind="show" id="756-yS-nzv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="C1E-6U-KpQ" firstAttribute="width" secondItem="nXI-NY-NDH" secondAttribute="width" id="Y4i-cs-BPz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nFB-sr-o1U" firstAttribute="leading" secondItem="WyJ-cQ-TtM" secondAttribute="leading" id="5kG-ct-Ue8"/>
+                                    <constraint firstAttribute="trailing" secondItem="nFB-sr-o1U" secondAttribute="trailing" id="Nv8-uI-ASB"/>
+                                    <constraint firstItem="nXI-NY-NDH" firstAttribute="width" secondItem="WyJ-cQ-TtM" secondAttribute="width" id="VC6-5b-uSm"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="pic_pot" translatesAutoresizingMaskIntoConstraints="NO" id="bXw-BB-NtY">
+                                <rect key="frame" x="102" y="77" width="171" height="182"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zTy-3L-cfi" firstAttribute="trailing" secondItem="bXw-BB-NtY" secondAttribute="trailing" constant="102" id="Gzw-GS-LzZ"/>
+                            <constraint firstItem="WyJ-cQ-TtM" firstAttribute="leading" secondItem="zTy-3L-cfi" secondAttribute="leading" constant="30" id="Hjh-dz-Fbe"/>
+                            <constraint firstItem="bXw-BB-NtY" firstAttribute="leading" secondItem="zTy-3L-cfi" secondAttribute="leading" constant="102" id="LiN-ge-CCm"/>
+                            <constraint firstItem="zTy-3L-cfi" firstAttribute="trailing" secondItem="WyJ-cQ-TtM" secondAttribute="trailing" constant="30" id="O1I-xP-Eoj"/>
+                            <constraint firstItem="zTy-3L-cfi" firstAttribute="bottom" secondItem="WyJ-cQ-TtM" secondAttribute="bottom" constant="130" id="Pa4-ad-nA6"/>
+                            <constraint firstItem="bXw-BB-NtY" firstAttribute="top" secondItem="zTy-3L-cfi" secondAttribute="top" constant="13" id="UTy-2s-2RM"/>
+                            <constraint firstItem="WyJ-cQ-TtM" firstAttribute="top" secondItem="bXw-BB-NtY" secondAttribute="bottom" constant="28" id="pEl-zq-aOJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zTy-3L-cfi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ET-5r-Q59"/>
+                    <connections>
+                        <outlet property="emailTextFiedl" destination="HVD-q9-9Ru" id="ycH-uo-zlh"/>
+                        <outlet property="passwordTextField" destination="p6c-tn-bif" id="0vB-98-ywG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yh9-xC-Lkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4055.1999999999998" y="133.5832083958021"/>
+        </scene>
+        <!--會員中心-->
+        <scene sceneID="FyK-6F-let">
+            <objects>
+                <viewController id="fMm-DT-mDG" customClass="RegisterViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B0X-nY-JNu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CQJ-FL-f9w">
+                                <rect key="frame" x="30" y="287" width="315" height="280"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hch-0Y-UeG">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓          名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pX-Zx-KcO">
+                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-yn-WHm">
+                                                <rect key="frame" x="95.5" y="0.0" width="219.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O5n-eG-HeQ">
+                                        <rect key="frame" x="0.0" y="50" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稱          謂" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2W-aJ-wj6">
+                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-fL-ViZ" customClass="SSRadioButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                                <rect key="frame" x="108.5" y="0.0" width="98" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="先生"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1i-K5-Ari" customClass="SSRadioButton" customModule="RestaurantReservation" customModuleProvider="target">
+                                                <rect key="frame" x="216.5" y="0.0" width="98.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="小姐"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Gzv-fL-ViZ" firstAttribute="width" secondItem="a2W-aJ-wj6" secondAttribute="width" id="eTd-Is-Dx5"/>
+                                            <constraint firstItem="f1i-K5-Ari" firstAttribute="width" secondItem="Gzv-fL-ViZ" secondAttribute="width" id="q1t-Mn-d2l"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CWv-tC-1JP">
+                                        <rect key="frame" x="0.0" y="100" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳         號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf5-e8-NDl">
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-RD-j0C">
+                                                <rect key="frame" x="91" y="0.0" width="224" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-cc-HvT">
+                                        <rect key="frame" x="0.0" y="150" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密         碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L14-2e-87y">
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼(4-8字元)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CWT-tp-RBc">
+                                                <rect key="frame" x="91" y="0.0" width="224" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F3o-Z6-kmJ">
+                                        <rect key="frame" x="0.0" y="200" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqN-3c-vlG">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請再次輸入密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MEa-DZ-U7y">
+                                                <rect key="frame" x="92" y="0.0" width="223" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="me7-Tc-PON">
+                                        <rect key="frame" x="0.0" y="250" width="315" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手機號碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-F6-FUS">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入手機號碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4L-Wg-sNq">
+                                                <rect key="frame" x="92" y="0.0" width="223" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="CWv-tC-1JP" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="ODu-X7-mGX"/>
+                                    <constraint firstItem="F3o-Z6-kmJ" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="W9d-qR-yIA"/>
+                                    <constraint firstItem="Oe0-cc-HvT" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="b2F-Oc-Cwm"/>
+                                    <constraint firstItem="O5n-eG-HeQ" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="eS8-Bf-VAw"/>
+                                    <constraint firstItem="hch-0Y-UeG" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="gJf-xD-2dP"/>
+                                    <constraint firstItem="me7-Tc-PON" firstAttribute="width" secondItem="CQJ-FL-f9w" secondAttribute="width" id="ufZ-CZ-pYS"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_pot" translatesAutoresizingMaskIntoConstraints="NO" id="VUZ-nz-fSO">
+                                <rect key="frame" x="102" y="77" width="171" height="182"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VUZ-nz-fSO" firstAttribute="top" secondItem="Fu9-rx-tno" secondAttribute="top" constant="13" id="0HO-hu-qLi"/>
+                            <constraint firstItem="Fu9-rx-tno" firstAttribute="bottom" secondItem="CQJ-FL-f9w" secondAttribute="bottom" constant="100" id="ZKK-C4-qtW"/>
+                            <constraint firstItem="Fu9-rx-tno" firstAttribute="trailing" secondItem="CQJ-FL-f9w" secondAttribute="trailing" constant="30" id="Zl3-UB-dWg"/>
+                            <constraint firstItem="Fu9-rx-tno" firstAttribute="trailing" secondItem="VUZ-nz-fSO" secondAttribute="trailing" constant="102" id="gqZ-uB-eB7"/>
+                            <constraint firstItem="VUZ-nz-fSO" firstAttribute="leading" secondItem="Fu9-rx-tno" secondAttribute="leading" constant="102" id="ryA-f5-tg5"/>
+                            <constraint firstItem="CQJ-FL-f9w" firstAttribute="top" secondItem="VUZ-nz-fSO" secondAttribute="bottom" constant="28" id="tyJ-rK-BFn"/>
+                            <constraint firstItem="CQJ-FL-f9w" firstAttribute="leading" secondItem="Fu9-rx-tno" secondAttribute="leading" constant="30" id="vBO-FG-MNm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fu9-rx-tno"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="會員中心" id="Pha-N0-eN2">
+                        <barButtonItem key="rightBarButtonItem" title="註冊" id="U4r-ow-fxP">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="registerBtnPressed:" destination="fMm-DT-mDG" id="KSG-0v-5oP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="againPasswordTextField" destination="MEa-DZ-U7y" id="UDZ-qi-xZP"/>
+                        <outlet property="bottonConstraint" destination="ZKK-C4-qtW" id="kOD-Db-Ylt"/>
+                        <outlet property="emailTextField" destination="rZN-RD-j0C" id="rcT-ED-gDv"/>
+                        <outlet property="imageView" destination="VUZ-nz-fSO" id="o0s-RW-tee"/>
+                        <outlet property="manButton" destination="Gzv-fL-ViZ" id="pkb-3V-4na"/>
+                        <outlet property="nameTextField" destination="GFr-yn-WHm" id="khJ-ZM-rvp"/>
+                        <outlet property="passwordTextField" destination="CWT-tp-RBc" id="amf-UN-4Kp"/>
+                        <outlet property="phoneTextField" destination="c4L-Wg-sNq" id="Ypu-7o-oD4"/>
+                        <outlet property="womanButton" destination="f1i-K5-Ari" id="7lC-1V-9sK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZa-a7-YOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4933.6000000000004" y="133.5832083958021"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ibj-vB-4jt">
+            <objects>
+                <tabBarController storyboardIdentifier="MainStroryboard" automaticallyAdjustsScrollViewInsets="NO" id="04O-Y2-mOB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XN0-hu-6mN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RN7-yp-jcL" kind="relationship" relationship="viewControllers" id="84Q-vg-b0v"/>
+                        <segue destination="inU-N0-1UO" kind="relationship" relationship="viewControllers" id="1Vw-Ee-FTw"/>
+                        <segue destination="lWx-GA-F3u" kind="relationship" relationship="viewControllers" id="lVJ-Rg-rgu"/>
+                        <segue destination="BlG-2V-lUE" kind="relationship" relationship="viewControllers" id="lvx-f2-QKd"/>
+                        <segue destination="0dV-dF-dFM" kind="relationship" relationship="viewControllers" id="qVG-wi-v7L"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRs-7f-sc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5772" y="133.5832083958021"/>
+        </scene>
+        <!--Member-->
+        <scene sceneID="kfW-YN-l8H">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Member" id="0dV-dF-dFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="會員中心" image="btn_tab_member" selectedImage="btn_tab_member" id="ruU-R7-bCf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QsV-OI-neV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6480" y="-163.71814092953525"/>
+        </scene>
+        <!--Order-->
+        <scene sceneID="crI-5e-URg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Order" id="lWx-GA-F3u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="訂單查詢" image="btn_tab_order" selectedImage="btn_tab_order" id="8PO-Yo-kYX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XrZ-SE-RiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6468" y="-40.479760119940032"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="l6u-dU-DHe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="inU-N0-1UO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="點餐" image="btn_tab_menu" selectedImage="btn_tab_menu" id="z84-mB-tQy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JY5-rV-Jz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6465.6000000000004" y="132.23388305847078"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="Ghy-33-bNm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Message" id="RN7-yp-jcL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="優惠訊息" image="btn_tab_message" id="SRv-fE-5aF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHo-Zf-xI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6481.6000000000004" y="276.1619190404798"/>
+        </scene>
+        <!--Rating-->
+        <scene sceneID="ApC-dY-sCl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Rating" id="BlG-2V-lUE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="評分" image="btn_tab_rating" selectedImage="btn_tab_rating" id="ePI-9w-UX4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Dt-Jp-2uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6472" y="393.10344827586209"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8F2-qA-Kuo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CkY-g9-xb7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0mQ-LL-uai">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.36862745099999999" green="0.57254901960000004" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tz3-0p-cLI" kind="relationship" relationship="rootViewController" id="Fz5-8O-bAG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdn-o7-WAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3116" y="133.5832083958021"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4fN-3U-1p8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JH1-N0-vo5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zcd-L0-4vk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="IBY-fi-0hD" kind="relationship" relationship="viewControllers" id="mEf-bM-5Dv"/>
+                        <segue destination="uje-me-6pX" kind="relationship" relationship="viewControllers" id="Iso-kL-7jx"/>
+                        <segue destination="WlD-R2-1LS" kind="relationship" relationship="viewControllers" id="LhU-Yf-kSH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gv5-1T-i3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5772" y="836"/>
+        </scene>
+        <!--Member-->
+        <scene sceneID="UUo-Mw-IDJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Member" id="WlD-R2-1LS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="會員中心" image="btn_tab_member" id="1ff-JY-jlf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A7J-37-ClJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6398" y="1051"/>
+        </scene>
+        <!--Waiter-->
+        <scene sceneID="rOB-0O-VWO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Waiter" id="IBY-fi-0hD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="點餐" image="btn_tab_order" id="LF6-XB-Pyk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grz-ec-ous" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6389" y="619"/>
+        </scene>
+        <!--Service-->
+        <scene sceneID="5jH-1a-eu7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Service" id="uje-me-6pX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="服務鈴" image="icon-ring" id="9zK-H8-J37"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vrl-DJ-SvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6395" y="835"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CNW-59-TdL">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NYN-lU-G7R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8RY-R3-sOT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mwE-F9-4Kz" kind="relationship" relationship="viewControllers" id="Poa-zz-1gG"/>
+                        <segue destination="vx2-dr-Fqv" kind="relationship" relationship="viewControllers" id="jx9-UV-4Bd"/>
+                        <segue destination="fFI-4h-oop" kind="relationship" relationship="viewControllers" id="L7Z-eH-Kz9"/>
+                        <segue destination="W33-e3-Kiy" kind="relationship" relationship="viewControllers" id="KEX-Rd-FgC"/>
+                        <segue destination="6wM-Ts-iaW" kind="relationship" relationship="viewControllers" id="sYv-Ao-Vdf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbR-4m-eXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5772" y="1568"/>
+        </scene>
+        <!--FoodManager-->
+        <scene sceneID="lV9-us-b8l">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodManager" id="mwE-F9-4Kz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="食材管理" image="btn_tab_food" id="Kll-MU-fDg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23A-df-2wE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6423" y="1251"/>
+        </scene>
+        <!--MenuManager-->
+        <scene sceneID="ViK-Md-23R">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MenuManager" id="vx2-dr-Fqv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="菜單管理" image="btn_tab_menu_m" id="Ukn-XK-xLy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2K-gm-gZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6426" y="1415"/>
+        </scene>
+        <!--MessageManager-->
+        <scene sceneID="bGF-Ws-brk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessageManager" id="fFI-4h-oop" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="優惠管理" image="btn_tab_message_m" id="6tv-wE-alt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-vM-dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6442" y="1567"/>
+        </scene>
+        <!--RatingManager-->
+        <scene sceneID="vg9-nT-S4n">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RatingManager" id="W33-e3-Kiy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="意見管理" image="btn_tab_rating_m" id="y4f-Al-I3k"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ia-wK-iP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6430" y="1714"/>
+        </scene>
+        <!--Member-->
+        <scene sceneID="ESF-JJ-tG9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Member" id="6wM-Ts-iaW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="會員中心" image="btn_tab_member" id="oGi-E4-kqa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Al-Ys-G2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6397" y="1855"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_tab_food" width="28" height="28"/>
+        <image name="btn_tab_member" width="28" height="28"/>
+        <image name="btn_tab_menu" width="28" height="28"/>
+        <image name="btn_tab_menu_m" width="28" height="28"/>
+        <image name="btn_tab_message" width="28" height="28"/>
+        <image name="btn_tab_message_m" width="28" height="28"/>
+        <image name="btn_tab_order" width="28" height="28"/>
+        <image name="btn_tab_rating" width="28" height="28"/>
+        <image name="btn_tab_rating_m" width="28" height="28"/>
+        <image name="icon-ring" width="24" height="24"/>
+        <image name="pic_pot" width="512" height="512"/>
+    </resources>
+</document>

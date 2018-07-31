@@ -1,0 +1,20 @@
+PODS:
+  - Cosmos (16.0.0)
+  - Starscream (3.0.5)
+
+DEPENDENCIES:
+  - Cosmos (~> 16.0)
+  - Starscream
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Cosmos
+    - Starscream
+
+SPEC CHECKSUMS:
+  Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
+
+PODFILE CHECKSUM: 9a00eb02a96d9b094670216864cb0f700f137484
+
+COCOAPODS: 1.5.2
