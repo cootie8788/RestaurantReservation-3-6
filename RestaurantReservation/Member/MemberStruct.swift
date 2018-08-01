@@ -39,5 +39,7 @@ enum MemberAction: String {
 
 enum MemberKey: String {
     case MemberID = "memberId"
+    case Authority_id = "authority_id"
+    case MemberName = "memberName"
     case TableNumber = "tableNumber"
 }
