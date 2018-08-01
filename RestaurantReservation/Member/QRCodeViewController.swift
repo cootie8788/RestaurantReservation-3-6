@@ -14,6 +14,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     var captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    var alertController: UIAlertController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,15 +83,21 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             
             if let metaObj = metadataObj.stringValue {
                 UserDefaults.standard.set(metaObj, forKey: MemberKey.TableNumber.rawValue)
-                let controller = UIAlertController(title: "桌號", message: "第\(metaObj)桌", preferredStyle: .alert)
+                if alertController == nil {
+                alertController = UIAlertController(title: "桌號", message: "第\(metaObj)桌", preferredStyle: .alert)
                 let action = UIAlertAction(title: "確定", style: .default) { (action) in
 //                    let controller = self.tabBarController?.viewControllers?.first as? UINavigationController
 //                    self.present(controller!, animated: true, completion: nil)
-                    self.tabBarController?.selectedIndex = 1
+                    guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "OrderMenu") as? UINavigationController else {
+                        return
+                    }
+                    controller.modalPresentationStyle = .currentContext
+                    self.present(controller, animated: true)
+//                    self.tabBarController?.selectedIndex = 1
                 }
-                controller.addAction(action)
-                present(controller, animated: true, completion: nil)
-                
+                alertController!.addAction(action)
+                present(alertController!, animated: true, completion: nil)
+                }
             }
             
         }
