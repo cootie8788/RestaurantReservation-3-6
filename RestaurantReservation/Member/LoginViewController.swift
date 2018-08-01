@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Starscream
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,6 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let memberAPI = MemberAPI()
     let userDeafult = UserDefaults.standard
+    
+    let socket = SocketClient.chatWebSocketClient
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +66,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     assertionFailure("controller can't find!!")
                     return
                 }
+                if self.socket.socket.delegate == nil{
+                    print("socket 連線")
+                    self.socket.startLinkServer()
+                }
+                self.userDeafult.removeObject(forKey: MemberKey.TableNumber.rawValue)
+                self.userDeafult.removeObject(forKey: "person")
+                self.userDeafult.removeObject(forKey: "date")
+                
                 self.userDeafult.set(login.memberId, forKey: MemberKey.MemberID.rawValue)
                 self.present(controller, animated: true)
             } else {

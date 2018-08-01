@@ -18,7 +18,8 @@ typealias Handler = (_ control:UITableViewController?, _ error:Error?,_ result:D
 
 class Downloader {
     
-    static let BASEURL = "http://localhost:8080/RestaurantReservationApp_Web"
+//    static let BASEURL = "http://localhost:8080/RestaurantReservationApp_Web"
+    static let BASEURL = HOST_URL
     
     let Menu_URL = BASEURL + "/MenuServlet"
     let CheckOrder_URL = BASEURL + "/CheckOrderServlet"

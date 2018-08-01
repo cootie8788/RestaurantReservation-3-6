@@ -51,13 +51,26 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     let downloader = Downloader.shared
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
-    
+    let userDefault = UserDefaults()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        tableView.reloadData()
+        let TableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
         
+        
+        switch TableNumber {
+        case "5":
+            self.navigationItem.title = "外帶"  //有tableMember
+        case "預訂點餐":
+            self.navigationItem.title = "預訂點餐"  
+        default:
+            self.navigationItem.title = "內用 \(TableNumber)號桌"  //有tableMember
+        }
+        
+        
+        
+        tableView.reloadData()
         
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
@@ -65,7 +78,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadList()
+//        downloadList()
         
         // 建立 NotificationCenter 的 接收器
         NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)

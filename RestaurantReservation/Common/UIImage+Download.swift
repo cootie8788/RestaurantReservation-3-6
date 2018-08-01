@@ -23,21 +23,22 @@ extension UIImageView{
             print("A exist task is canceled.")
         }
         
+        let filename = String(format: "Cache_%ld", url.hashValue)//hashValue會拿出int （唯一的數字當檔名）
+//        print("想看 \(filename)\n" )
         
-        
-//        guard let cashesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first// urls是陣列 取得第一個（因該也只有一個）
-//            else {//for 這邊指會搜尋
-//                return
-//        }
-//        
-//        let fullFileURL = cashesURL.appendingPathComponent(self.description) //（完整路徑）硬碟某個檔案的路徑
-//        //        print("Cashes:  \(cashesURL)" )
-//        
-//        if let image = UIImage(contentsOfFile: fullFileURL.path){
-//            
-//            self.image=image
-//            return
-//        }//有圖上面載入   沒圖下方產生
+        guard let cashesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first// urls是陣列 取得第一個（因該也只有一個）
+            else {//for 這邊指會搜尋
+                return
+        }
+
+        let fullFileURL = cashesURL.appendingPathComponent(self.description) //（完整路徑）硬碟某個檔案的路徑
+//                print("\n Cashes:  \(fullFileURL)\n" )
+
+        if let image = UIImage(contentsOfFile: fullFileURL.path){
+
+            self.image=image
+            return
+        }//有圖上面載入   沒圖下方產生
         
         
         
@@ -84,7 +85,7 @@ extension UIImageView{
             }
            
             //Save data as cashes file.
-//            try? data.write(to: fullFileURL)  //只想知道 成功或失敗 失敗會回傳nil
+            try? data.write(to: fullFileURL)  //只想知道 成功或失敗 失敗會回傳nil
             
             
             

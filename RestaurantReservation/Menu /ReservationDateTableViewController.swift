@@ -159,6 +159,9 @@ class ReservationDateTableViewController: UITableViewController {
 //            let continueAction = UIAlertAction(title: "繼續點餐", style: .default, handler: nil)
             let continueAction = UIAlertAction(title: "繼續點餐", style: .default) { (action) in
                 
+                self.userDefault.setValue("預訂點餐", forKey: MemberKey.TableNumber.rawValue)
+                self.userDefault.synchronize()
+                
                 guard let OrderMenu =
                     self.storyboard?.instantiateViewController(withIdentifier: "OrderMenu")as? UINavigationController else {
                         return

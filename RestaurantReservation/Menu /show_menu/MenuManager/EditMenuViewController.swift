@@ -90,8 +90,10 @@ class EditMenuViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(true)
         
-        menu_name.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].name
-        menu_money.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].price
+//        menu_name.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].name
+//        menu_money.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].price
+        menu_name.text = app.menuList[MenuTableC_sw][MenuTableC_index].name
+        menu_money.text = app.menuList[MenuTableC_sw][MenuTableC_index].price
         var type = app.menuList[MenuTableC_sw][MenuTableC_index].type
         type -= 1
         kind.selectedSegmentIndex = type

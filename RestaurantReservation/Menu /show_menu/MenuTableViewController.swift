@@ -13,6 +13,7 @@ class MenuTableViewController: UITableViewController {
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
     
+    
     let socket = SocketClient.chatWebSocketClient
     
     @IBAction
@@ -35,12 +36,14 @@ class MenuTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+
+        
         downloadList()
         
-        if socket.socket.delegate == nil{
-            print("socket 連線")
-            socket.startLinkServer()
-        }
+//        if socket.socket.delegate == nil{
+//            print("socket 連線")
+//            socket.startLinkServer()
+//        }
         
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }

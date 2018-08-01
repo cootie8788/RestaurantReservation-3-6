@@ -103,7 +103,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             let memberID =
                 self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
 //
-//            let table_member = self.userDefault.string(forKey: "table_member")
+            let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
             let person = self.userDefault.string(forKey: "person") ?? "0"
             let date = self.userDefault.string(forKey: "date") ?? ""
             
@@ -117,7 +117,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                 }
             
 //            let memberID = "1"
-            let table_member = "8"
+//            let table_member = "8"
 //            let person = "7"
 //            let date = Date()
 //            let dateFormatter = DateFormatter()
@@ -130,7 +130,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             }
             
         
-            if  table_member == "7"{
+            if  table_member != "預訂點餐"{   // tableMemeber 這邊可能是抓不到
                 
                 
                 self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, table_member: table_member, doneHandler: { (error, data) in

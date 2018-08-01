@@ -412,7 +412,7 @@
             </objects>
             <point key="canvasLocation" x="5095.1999999999998" y="-173.16341829085459"/>
         </scene>
-        <!--菜單-->
+        <!--Order Menu Table View Controller-->
         <scene sceneID="pS2-gt-Eid">
             <objects>
                 <tableViewController id="wsR-1Y-YCm" customClass="OrderMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
@@ -534,7 +534,7 @@
                             <outlet property="delegate" destination="wsR-1Y-YCm" id="wZS-M4-gkl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="菜單" id="RAu-X4-Qsm">
+                    <navigationItem key="navigationItem" id="RAu-X4-Qsm">
                         <barButtonItem key="rightBarButtonItem" title="下一步" id="rlL-4H-egB">
                             <connections>
                                 <segue destination="KKE-1y-YDl" kind="show" id="c8B-ir-6of"/>
