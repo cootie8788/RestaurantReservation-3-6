@@ -23,6 +23,25 @@ extension UIImageView{
             print("A exist task is canceled.")
         }
         
+        
+        
+//        guard let cashesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first// urls是陣列 取得第一個（因該也只有一個）
+//            else {//for 這邊指會搜尋
+//                return
+//        }
+//        
+//        let fullFileURL = cashesURL.appendingPathComponent(self.description) //（完整路徑）硬碟某個檔案的路徑
+//        //        print("Cashes:  \(cashesURL)" )
+//        
+//        if let image = UIImage(contentsOfFile: fullFileURL.path){
+//            
+//            self.image=image
+//            return
+//        }//有圖上面載入   沒圖下方產生
+        
+        
+        
+        
         let loadingView = perpareLoadingView()
         
         let config = URLSessionConfiguration.default
