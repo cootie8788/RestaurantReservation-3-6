@@ -14,7 +14,7 @@ class MessageViewController: UIViewController {
     var array: [MessageInfo] = []
     var array_img: [UIImage] = []
     var member_name: String?
-    var member_id: Int?
+    var member_authority_id: Int?
     
     @IBOutlet weak var messageShowTableView: UITableView!
     
@@ -22,12 +22,31 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
         
         member_name = "hello!"
-        member_id = 1
+        member_authority_id = 3
+        
+//        let memberID = userDeafult.string(forKey: MemberKey.MemberID.rawValue)
+//        let memberName = UserDefaults.strin(value(forKey: MemberKey.))
         
         messageShowTableView.refreshControl = UIRefreshControl()
         messageShowTableView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         
+        if member_authority_id == 1 {
+            navigationItem.title = "優惠訊息"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: nil, action: nil)
+
+        } else if member_authority_id == 3 {
+            navigationItem.title = "優惠管理"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose , target: nil, action: nil)
+            
+        }
+        
     }
+    
+//    func Nam1BarBtnKlkFnc(BtnPsgVar: UIBarButtonItem)
+//    {
+//        print("Nam1BarBtnKlk")
+//    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         getData()

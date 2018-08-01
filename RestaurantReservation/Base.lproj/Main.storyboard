@@ -471,15 +471,15 @@
             </objects>
             <point key="canvasLocation" x="6426" y="1415"/>
         </scene>
-        <!--MessageManager-->
+        <!--Message-->
         <scene sceneID="bGF-Ws-brk">
             <objects>
-                <viewControllerPlaceholder storyboardName="MessageManager" id="fFI-4h-oop" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Message" id="fFI-4h-oop" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="優惠管理" image="btn_tab_message_m" id="6tv-wE-alt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-vM-dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6442" y="1567"/>
+            <point key="canvasLocation" x="6400" y="1567"/>
         </scene>
         <!--RatingManager-->
         <scene sceneID="vg9-nT-S4n">

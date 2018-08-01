@@ -23,7 +23,7 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         member_name = "hello!"
-        member_id = 1
+        member_id = 3
         
         ratingShowTableView.refreshControl = UIRefreshControl()
         ratingShowTableView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)

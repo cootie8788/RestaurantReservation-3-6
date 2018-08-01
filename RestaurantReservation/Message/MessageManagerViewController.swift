@@ -8,11 +8,27 @@
 
 import UIKit
 
-class MessageManagerViewController: UIViewController {
+class MessageManagerViewController: UIViewController, UITextFieldDelegate{
 
+    @IBOutlet weak var messageNewTitleTextField: UITextField!
+    @IBOutlet weak var messageNewStartTextField: UITextField!
+    @IBOutlet weak var messageNewEndTextField: UITextField!
+    @IBOutlet weak var messageNewDiscountTextField: UITextField!
+    @IBOutlet weak var messageNewContentTextField: UITextField!
+    @IBOutlet weak var messageNewImageView: UIImageView!
+    
+    
+    var radioButtonController: SSRadioButtonsController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        messageNewImageView.image = #imageLiteral(resourceName: "pic_pot")
+        messageNewTitleTextField.setBottomBorder()
+        messageNewStartTextField.setBottomBorder()
+        messageNewEndTextField.setBottomBorder()
+        messageNewDiscountTextField.setBottomBorder()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,16 +37,9 @@ class MessageManagerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func messageAddImageBtnPress(_ sender: Any) {
+        
     }
-    */
+    
 
 }
-
