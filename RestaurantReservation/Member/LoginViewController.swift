@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             if login.isUserValid {
                 print("登入成功")
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStroryboard") else{
+                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") else{
                     assertionFailure("controller can't find!!")
                     return
                 }

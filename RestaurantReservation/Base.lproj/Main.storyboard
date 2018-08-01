@@ -289,7 +289,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ibj-vB-4jt">
             <objects>
-                <tabBarController storyboardIdentifier="MainStroryboard" automaticallyAdjustsScrollViewInsets="NO" id="04O-Y2-mOB" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="04O-Y2-mOB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XN0-hu-6mN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -382,7 +382,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="4fN-3U-1p8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JH1-N0-vo5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SecondStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="JH1-N0-vo5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zcd-L0-4vk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

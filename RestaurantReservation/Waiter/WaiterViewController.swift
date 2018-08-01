@@ -7,11 +7,39 @@
 //
 
 import UIKit
+import Starscream
 
-class WaiterViewController: UIViewController {
+class WaiterViewController: UIViewController,WebSocketDelegate {
+    let socket = WebSocket(url: URL(string: "http://127.0.0.1:8080/RestaurantReservationApp_Web/CheckOrderWebSocket/amy")!)
+
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("websocket is websocketDidConnect")
+
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("websocket is websocketDidDisconnect")
+
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("websocket is websocketDidReceiveMessage")
+
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("websocket is websocketDidReceiveData")
+
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print("aaaaaaaa")
+        
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +49,19 @@ class WaiterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnPressed(_ sender: Any) {
+        socket.delegate = self
+        socket.connect()
+
+    }
+    
+    @IBAction func btnCheck(_ sender: Any) {
+        if socket.isConnected {
+            // do cool stuff.
+            print("連到")
+        }
+
+    }
     /*
     // MARK: - Navigation
 
