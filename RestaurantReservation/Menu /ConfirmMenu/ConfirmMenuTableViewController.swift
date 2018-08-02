@@ -26,6 +26,20 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     @IBAction func bar_Bt_action(_ sender: UIBarButtonItem) {
         
+        
+        guard  app.cart.count > 0 else{
+            
+            let alert2 = UIAlertController(title: "錯誤提示", message: "目前購物車為空", preferredStyle: .alert)
+            
+            let item2 = UIAlertAction(title: "確定", style: .default)
+            alert2.addAction(item2)
+            
+            present(alert2, animated: true, completion: nil)
+            
+            return
+        }
+        
+        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -53,6 +67,10 @@ class ConfirmMenuTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        if self.socket.socket.delegate == nil{
+            print("socket 連線")
+            self.socket.startLinkServer()
+        }
 //        socket.startLinkServer()
         
         var total = 0
@@ -156,6 +174,9 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
+                            
+                            self.socket.sendMessage("105")
+                            
                             self.nextpresent()
                         })
                         
@@ -200,6 +221,9 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
+                            
+                            self.socket.sendMessage("105")
+                            
                             self.nextpresent()
                         })
                         

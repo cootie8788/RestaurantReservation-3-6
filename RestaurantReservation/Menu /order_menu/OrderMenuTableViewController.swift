@@ -40,8 +40,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     @IBAction
     func reflush() {
         downloadList()
+        //        tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
     }
    
     
@@ -95,11 +95,12 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
             assertionFailure("Notification parse Fail")
             return
         }
-        print("通知收到 \(message)")
+        print("OrderMenu 通知收到 \(message)")
         
         if message == "105"{
-            //            reflush()
-            app.downloadMenuList(self)
+//                        reflush()
+            tableView.reloadData()
+//            app.downloadMenuList(self)
         }
     }
     

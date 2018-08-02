@@ -84,7 +84,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-//        socket.stopLinkServer()
+        socket.stopLinkServer()
     }
     
     override func didReceiveMemoryWarning() {

@@ -1,6 +1,7 @@
 
 import UIKit
 import Photos
+import Starscream
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,6 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var menuList = [[Menu]]()
     var cart = [Int:OrderMenu]()
     
+    let socket = SocketClient.chatWebSocketClient
+    
+    private let cashesURL :URL =
+    {
+        //大概以後 會加入其他程式碼 先習慣吧   默認路徑一定拿得到 ！！！
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }()
     
     //通用型的 下載menuList task
     func downloadMenuList(_ tableViewContoler:UITableViewController?)  {
@@ -29,12 +37,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return}
             
             DispatchQueue.main.async {
+                
+                let filemanager = FileManager.default
+                
+                if let results = try?filemanager.contentsOfDirectory(atPath: self.cashesURL.path){
+                    
+                    for item in results{
+                        //                        let remove =  try? filemanager.removeItem(atPath:target)
+                        let url = self.cashesURL.appendingPathComponent(item)
+                        print("item: \(url)")
+                        let remove =  try? filemanager.removeItem(at: url)
+                    }
+                }
+                
                 tableviewcontrol.tableView.reloadData()
             }
         }
     }
     
     
+    
+ 
+    
+   
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -43,6 +68,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Ask user's permission to access photos library.
         PHPhotoLibrary.requestAuthorization { (status) in
             print("PHPhotoLibrary.requestAuthorization: \(status.rawValue)")
+            
+            
+            if self.socket.socket.delegate == nil{
+                print("socket 連線")
+                self.socket.startLinkServer()
+            }
+            
         }
         
         return true

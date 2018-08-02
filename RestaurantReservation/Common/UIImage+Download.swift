@@ -4,6 +4,7 @@ import UIKit
 extension UIImageView{
     
     
+//    static var currentTask = [String:URLSessionDataTask]()  //用String 來區別Task
     static var currentTask = [String:URLSessionDataTask]()  //用String 來區別Task
     
     func showImage(urlString:String, id:Int) {
@@ -16,10 +17,10 @@ extension UIImageView{
 //        print("self.description:\(self.description) ")
         
         //Ckeck if we should canecl exist download task.
-        if let existTask = UIImageView.currentTask[self.description] {//
+        if let existTask = UIImageView.currentTask["\(id)"] {//
             
             existTask.cancel()
-            UIImageView.currentTask.removeValue(forKey: self.description)
+            UIImageView.currentTask.removeValue(forKey: "\(id)")
             print("A exist task is canceled.")
         }
         
@@ -31,7 +32,7 @@ extension UIImageView{
                 return
         }
 
-        let fullFileURL = cashesURL.appendingPathComponent(self.description) //（完整路徑）硬碟某個檔案的路徑
+        let fullFileURL = cashesURL.appendingPathComponent("\(id)") //（完整路徑）硬碟某個檔案的路徑
 //                print("\n Cashes:  \(fullFileURL)\n" )
 
         if let image = UIImage(contentsOfFile: fullFileURL.path){
@@ -90,9 +91,9 @@ extension UIImageView{
             
             
             //Remove task from currentTask.
-            if let existTask1 = UIImageView.currentTask[self.description] {//
+            if let existTask1 = UIImageView.currentTask["\(id)"] {//
                 
-                UIImageView.currentTask.removeValue(forKey: self.description)  //結束任務時 清除字典
+                UIImageView.currentTask.removeValue(forKey: "\(id)" )  //結束任務時 清除字典
             }
             
             

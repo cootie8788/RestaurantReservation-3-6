@@ -25,6 +25,21 @@ class EditMenuViewController: UIViewController {
     
     var socket = SocketClient.chatWebSocketClient
     
+    
+    private let cashesURL :URL =
+    {
+        //大概以後 會加入其他程式碼 先習慣吧   默認路徑一定拿得到 ！！！
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }()
+    
+    private func RemoveRetrieveFileNames(_ id:Int){
+//        print("CashesURL: \(cashesURL)")
+        
+        let filemanager = FileManager.default
+        let fullFileURL = cashesURL.appendingPathComponent("\(id)")
+        
+        let remove =  try? filemanager.removeItem(at: fullFileURL)
+    }
 
     @IBAction func dismissKeybroad()  {
         view.endEditing(true) //收鍵盤
@@ -64,9 +79,12 @@ class EditMenuViewController: UIViewController {
             
             }
             
+            RemoveRetrieveFileNames(id)
+            
+            self.socket.sendMessage("105")
+            
             deleteSW = true
             self.performSegue(withIdentifier: "goback", sender: nil)
-            self.socket.sendMessage("105")
             //更新 所以app的menuList
         }//if
         
@@ -103,6 +121,11 @@ class EditMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let cashesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first// urls是陣列 取得第一個（因該也只有一個）
+            else {return assertionFailure("get cashesURL Fail") }
+        
+//        self.cashesURL = cashesURL
         
         //註冊收鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
@@ -165,6 +188,8 @@ class EditMenuViewController: UIViewController {
                     
                     print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
                     
+                    self.RemoveRetrieveFileNames(id)
+                    
                     self.socket.sendMessage("105")
                     //更新 所以app的menuList
                 }
@@ -175,7 +200,7 @@ class EditMenuViewController: UIViewController {
                 let menu = Menu(id: id, name: name, price: price, type: type, note: "", stock: 0)
                 
                 downloader.menuUpdata(fileName:#file,menu) { (error, data) in
-                  
+                
                     print("menuUpdata: \(String(describing: String(data: data, encoding: .utf8)))")
                     
                     self.socket.sendMessage("105")

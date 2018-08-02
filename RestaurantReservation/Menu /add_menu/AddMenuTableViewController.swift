@@ -10,8 +10,9 @@ class AddMenuTableViewController: UITableViewController {
     @IBAction
     func reflush() {
         app.downloadMenuList(self)
+//        tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
+        
     }
  
 
@@ -40,11 +41,12 @@ class AddMenuTableViewController: UITableViewController {
             assertionFailure("Notification parse Fail")
             return
         }
-        print("通知收到 \(message)")
+        print("AddMenu 通知收到 \(message)")
         
         if message == "105"{
-            //            reflush()
-            app.downloadMenuList(self)
+//            reflush()
+//            app.downloadMenuList(self)
+            tableView.reloadData()
         }
     }
     

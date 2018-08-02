@@ -24,8 +24,9 @@ class MenuTableViewController: UITableViewController {
     @IBAction
     func reflush() {
         downloadList()
+//        tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
+        
     }
     
     func downloadList(){
@@ -36,14 +37,13 @@ class MenuTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-
         
         downloadList()
         
-//        if socket.socket.delegate == nil{
-//            print("socket 連線")
-//            socket.startLinkServer()
-//        }
+        if socket.socket.delegate == nil{
+            print("socket 連線")
+            socket.startLinkServer()
+        }
         
         tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
@@ -69,11 +69,13 @@ class MenuTableViewController: UITableViewController {
             assertionFailure("Notification parse Fail")
             return
         }
-        print("通知收到 \(message)")
+        print("MenuTable 通知收到 \(message)")
         
         if message == "105"{
+            
+            tableView.reloadData()
 //            reflush()
-            app.downloadMenuList(self)
+//            app.downloadMenuList(self)
         }
     }
     

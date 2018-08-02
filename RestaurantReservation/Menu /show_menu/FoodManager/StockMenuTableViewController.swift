@@ -31,9 +31,9 @@ class StockMenuTableViewController: UITableViewController  {
     @IBAction
     func reflush() {
         app.downloadMenuList(self)
-        
+//        tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,11 +58,12 @@ class StockMenuTableViewController: UITableViewController  {
             assertionFailure("Notification parse Fail")
             return
         }
-        print("通知收到 \(message)")
+        print("StockMenu 通知收到 \(message)")
         
         if message == "105"{
 //            reflush()
-            app.downloadMenuList(self)
+            tableView.reloadData()
+//            app.downloadMenuList(self)
         }
     }
     
