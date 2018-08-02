@@ -20,7 +20,7 @@ class NewOrderTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         print("ggggggggg\(newOrderTableViewControllerOrderID)")
-        let action = ActionOrder(action: "findById", memberId: 2, orderId: newOrderTableViewControllerOrderID)
+        let action = ActionOrder(action: "findById", memberId: 3, orderId: newOrderTableViewControllerOrderID)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
         guard let uploadData = try? econder.encode(action) else {

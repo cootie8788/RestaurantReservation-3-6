@@ -70,6 +70,7 @@
 		CEA07DED21051317004032CA /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */; };
 		CEF7D4F521082B99007CBE91 /* MemberStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F421082B99007CBE91 /* MemberStruct.swift */; };
 		CEF7D4F721082BFA007CBE91 /* MemberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */; };
+		CEF90E9D21118F75001E64C7 /* WatiterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF90E9C21118F75001E64C7 /* WatiterStruct.swift */; };
 		CEFDF6B12109A12600F98E14 /* MemberReviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDF6B02109A12600F98E14 /* MemberReviseViewController.swift */; };
 		EAF3CFB4210F09B5004EF568 /* NewOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB3210F09B5004EF568 /* NewOrderTableViewController.swift */; };
 		EAF3CFB6210F09FC004EF568 /* OldOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB5210F09FC004EF568 /* OldOrderTableViewController.swift */; };
@@ -150,6 +151,7 @@
 		CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		CEF7D4F421082B99007CBE91 /* MemberStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStruct.swift; sourceTree = "<group>"; };
 		CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAPI.swift; sourceTree = "<group>"; };
+		CEF90E9C21118F75001E64C7 /* WatiterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatiterStruct.swift; sourceTree = "<group>"; };
 		CEFDF6B02109A12600F98E14 /* MemberReviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberReviseViewController.swift; sourceTree = "<group>"; };
 		EAF3CFB3210F09B5004EF568 /* NewOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOrderTableViewController.swift; sourceTree = "<group>"; };
 		EAF3CFB5210F09FC004EF568 /* OldOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldOrderTableViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				38256D1F21108D470035FABA /* WaiterViewController.swift */,
 				38256D2C2110907E0035FABA /* ServiceViewController.swift */,
+				CEF90E9C21118F75001E64C7 /* WatiterStruct.swift */,
 			);
 			path = Waiter;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */,
 				380399CA210F61C00039F41F /* StockMenuTableViewController.swift in Sources */,
 				BFCF5A0620F865C9008E2A34 /* ViewController.swift in Sources */,
+				CEF90E9D21118F75001E64C7 /* WatiterStruct.swift in Sources */,
 				380399C9210F61C00039F41F /* popViewController.swift in Sources */,
 				BF10EA332110A752005BD225 /* RatingViewController.swift in Sources */,
 				380399D3210F61C00039F41F /* Menu.swift in Sources */,
