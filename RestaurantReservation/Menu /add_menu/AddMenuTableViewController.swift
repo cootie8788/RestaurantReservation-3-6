@@ -82,13 +82,15 @@ class AddMenuTableViewController: UITableViewController {
 
         cell.orderMenu_cell_Image.showImage(urlString: downloader.Menu_URL,id: id)
         cell.orderMenu_cell_item.text = name
-        cell.orderMenu_cell_money.text = price
+        cell.orderMenu_cell_money.text = "$\(price)"
         
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
         cell.cellID = id          //給cell  所對應的orderMenu id
         cell.cellName = name
-        cell.cellPrice = "$\(price)"
+        cell.cellPrice = price
         cell.cellStock = stock
+        cell.type = 3
+        
         
         return cell
     }

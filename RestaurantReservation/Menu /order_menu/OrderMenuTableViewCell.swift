@@ -126,7 +126,7 @@ class OrderMenuTableViewCell: UITableViewCell {
             if findOederMenu.quantity < 9 && stock > findOederMenu.quantity {
                 
                 findOederMenu.quantity += 1
-//                orderMenu_cell_num.text = "\(findOederMenu.quantity)"
+                orderMenu_cell_num.text = "\(findOederMenu.quantity)"
                 
                 app.cart[id] = findOederMenu  //更新內容
 //                print("\(app.cart)\n")
