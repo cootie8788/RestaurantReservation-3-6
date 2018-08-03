@@ -126,7 +126,7 @@ class OrderMenuTableViewCell: UITableViewCell {
             if findOederMenu.quantity < 9 && stock > findOederMenu.quantity {
                 
                 findOederMenu.quantity += 1
-                orderMenu_cell_num.text = "\(findOederMenu.quantity)"
+//                orderMenu_cell_num.text = "\(findOederMenu.quantity)"
                 
                 app.cart[id] = findOederMenu  //更新內容
 //                print("\(app.cart)\n")
@@ -141,7 +141,7 @@ class OrderMenuTableViewCell: UITableViewCell {
             orderMenu_cell_num.text = "\(1)"
             var struc = OrderMenu(id: id, name: name, price: price, type: type, note: "", stock: stock, quantity: 1)
             app.cart[id] = struc
-            print("\n\(app.cart)\n")
+//            print("\n\(app.cart)\n")
         }
         
         reflushLabel()

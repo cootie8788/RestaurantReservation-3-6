@@ -166,6 +166,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         cell.cellStock = stock
         cell.type = orderMenuSwitch.selectedSegmentIndex + 1
         
+        cell.backgroundColor = UIColor.white
+        
         return cell
     }
     
