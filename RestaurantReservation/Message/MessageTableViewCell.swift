@@ -9,18 +9,21 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var messageImageView: UIImageView!
     @IBOutlet weak var messageContentLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        messageImageView.image = #imageLiteral(resourceName: "pic_pot")
         // Initialization code
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

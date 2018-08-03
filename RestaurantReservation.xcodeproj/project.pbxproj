@@ -45,6 +45,9 @@
 		38256D3B211099210035FABA /* MessageManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D39211099210035FABA /* MessageManager.storyboard */; };
 		38256D3D21109B990035FABA /* MessageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3C21109B990035FABA /* MessageManagerViewController.swift */; };
 		38256D3F21109BB70035FABA /* RatingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3E21109BB70035FABA /* RatingManagerViewController.swift */; };
+		38CF4D8D211337C70059C185 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8C211337C60059C185 /* UITabBarController.swift */; };
+		38CF4D9021142EFA0059C185 /* UIImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */; };
+		38CF4D9121142EFA0059C185 /* UIImage+FixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */; };
 		6DF877989A63D04D0396B682 /* Pods_RestaurantReservation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */; };
 		BF10EA332110A752005BD225 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10EA322110A752005BD225 /* RatingViewController.swift */; };
 		BF10EA352110A767005BD225 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10EA342110A767005BD225 /* MessageViewController.swift */; };
@@ -123,6 +126,9 @@
 		38256D3A211099210035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MessageManager.storyboard; sourceTree = "<group>"; };
 		38256D3C21109B990035FABA /* MessageManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManagerViewController.swift; sourceTree = "<group>"; };
 		38256D3E21109BB70035FABA /* RatingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingManagerViewController.swift; sourceTree = "<group>"; };
+		38CF4D8C211337C60059C185 /* UITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
+		38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCropper.swift; sourceTree = "<group>"; };
+		38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FixOrientation.swift"; sourceTree = "<group>"; };
 		4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantReservation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7386EDF1085AFA5FCFE9DC /* Pods-RestaurantReservation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantReservation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation.debug.xcconfig"; sourceTree = "<group>"; };
 		BF10EA322110A752005BD225 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				380399BD210F61C00039F41F /* Downloader_post.swift */,
 				380399BE210F61C00039F41F /* Menu.swift */,
 				380399C0210F61C00039F41F /* Socket.swift */,
+				38CF4D8C211337C60059C185 /* UITabBarController.swift */,
 				380399A9210F61C00039F41F /* ConfirmMenu */,
 				380399C1210F61C00039F41F /* add_menu */,
 				380399AE210F61C00039F41F /* order_menu */,
@@ -389,6 +396,8 @@
 				BFDA831F20F86CCD0050C738 /* CardView.swift */,
 				BF92A2AD20FE28A400406C20 /* Communicator.swift */,
 				BF92A2AF20FE2A3C00406C20 /* Common.swift */,
+				38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */,
+				38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */,
 				380399A5210F61B20039F41F /* UIImage+Download.swift */,
 				380399A4210F61B20039F41F /* UIImage+Resize.swift */,
 				38256D1621108C3D0035FABA /* Action.swift */,
@@ -536,6 +545,7 @@
 				38256D3F21109BB70035FABA /* RatingManagerViewController.swift in Sources */,
 				BF10EA352110A767005BD225 /* MessageViewController.swift in Sources */,
 				EAF3CFC2210F0A3E004EF568 /* NewOrderDetalViewController.swift in Sources */,
+				38CF4D9121142EFA0059C185 /* UIImage+FixOrientation.swift in Sources */,
 				EAF3CFBA210F0A0F004EF568 /* CommonOrder.swift in Sources */,
 				CEA07DED21051317004032CA /* SSRadioButtonsController.swift in Sources */,
 				CEA07DE12104CA0B004032CA /* CornerRadiusButton.swift in Sources */,
@@ -543,6 +553,7 @@
 				CEF7D4F521082B99007CBE91 /* MemberStruct.swift in Sources */,
 				380399CE210F61C00039F41F /* EditMenuPhoto.swift in Sources */,
 				BF92A2AE20FE28A400406C20 /* Communicator.swift in Sources */,
+				38CF4D8D211337C70059C185 /* UITabBarController.swift in Sources */,
 				380399CC210F61C00039F41F /* MenuTableViewController.swift in Sources */,
 				380399D4210F61C00039F41F /* Socket.swift in Sources */,
 				EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */,
@@ -571,6 +582,7 @@
 				38256D1321108BD20035FABA /* MessageTableViewCell.swift in Sources */,
 				380399C8210F61C00039F41F /* OrderMenuTableViewCell.swift in Sources */,
 				CEF7D4F721082BFA007CBE91 /* MemberAPI.swift in Sources */,
+				38CF4D9021142EFA0059C185 /* UIImageCropper.swift in Sources */,
 				EAF3CFC0210F0A2C004EF568 /* OldOrderDetailViewController.swift in Sources */,
 				BFDA833E20F87E240050C738 /* MemberViewController.swift in Sources */,
 				380399A7210F61B20039F41F /* UIImage+Download.swift in Sources */,

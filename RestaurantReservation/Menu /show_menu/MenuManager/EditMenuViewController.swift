@@ -38,7 +38,7 @@ class EditMenuViewController: UIViewController {
         let filemanager = FileManager.default
         let fullFileURL = cashesURL.appendingPathComponent("\(id)")
         
-        let remove =  try? filemanager.removeItem(at: fullFileURL)
+        let _ =  try? filemanager.removeItem(at: fullFileURL)
     }
 
     @IBAction func dismissKeybroad()  {
@@ -122,11 +122,7 @@ class EditMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let cashesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first// urls是陣列 取得第一個（因該也只有一個）
-            else {return assertionFailure("get cashesURL Fail") }
-        
-//        self.cashesURL = cashesURL
-        
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
         //註冊收鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
         view.addGestureRecognizer(tap)
@@ -146,7 +142,7 @@ class EditMenuViewController: UIViewController {
         let alert = UIAlertController(title: "輸入錯誤警告", message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "確定", style: .default)
-        let cancel = UIAlertAction(title: "取消", style: .cancel)
+//        let cancel = UIAlertAction(title: "取消", style: .cancel)
         alert.addAction(ok)
 //        alert.addAction(cancel)
         
@@ -159,7 +155,7 @@ class EditMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //觸發儲存時 要做的事情
-        if let MenuTableViewController = segue.destination as? MenuTableViewController {
+        if segue.destination is MenuTableViewController {
             
             //不讓delete功能 做輸入判斷
             guard  deleteSW == false else {
@@ -173,7 +169,7 @@ class EditMenuViewController: UIViewController {
             guard let name = menu_name.text , !name.isEmpty  else {
                 showAlert("名字格式錯誤")
                 return  }
-            var type = self.kind.selectedSegmentIndex + 1
+            let type = self.kind.selectedSegmentIndex + 1
             guard let price = menu_money.text , !price.isEmpty  else {
                 showAlert("價錢格式錯誤")
                 return  }

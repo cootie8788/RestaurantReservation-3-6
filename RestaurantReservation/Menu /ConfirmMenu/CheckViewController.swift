@@ -36,9 +36,23 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
     var socket = SocketClient.chatWebSocketClient
     
+    
+    
+    @IBAction func returnAction(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        navigationItem.hidesBackButton = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.hidesBackButton = true
+        
+//        definesPresentationContext = true
         
         let app = UIApplication.shared.delegate as! AppDelegate
         
@@ -85,6 +99,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
     override func viewDidDisappear(_ animated: Bool) {
         socket.stopLinkServer()
+        
     }
     
     override func didReceiveMemoryWarning() {

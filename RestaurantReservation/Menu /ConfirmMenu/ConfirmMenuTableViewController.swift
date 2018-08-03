@@ -40,6 +40,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         }
         
         
+        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -88,11 +89,19 @@ class ConfirmMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        definesPresentationContext = true
+        
         for (_ ,value) in app.cart {
             array.append(value)
         }
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,13 +111,20 @@ class ConfirmMenuTableViewController: UITableViewController {
 //        let checkvc =
 //            self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as! UINavigationController
         
-        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
-            assertionFailure("Fail present")
-            return  }
+//        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
+//            assertionFailure("Fail present")
+//            return  }
+//        
+//        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
+//        //上面是 CheckViewController 前的 UINavigationController
+//        self.present(checkvc, animated: true, completion: nil)
         
-        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
-        //上面是 CheckViewController 前的 UINavigationController
-        self.present(checkvc, animated: true, completion: nil)
+        
+        performSegue(withIdentifier: "CheckView", sender: nil)
+        
+        
+//        navigationController?.popToRootViewController(animated: <#T##Bool#>)
+        
     }
     
     func showAlert(){
@@ -154,14 +170,14 @@ class ConfirmMenuTableViewController: UITableViewController {
                 self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, table_member: table_member, doneHandler: { (error, data) in
                     
                     
-                    print("\(String(data: data, encoding: .utf8))")
+                    print("\(String(describing: String(data: data, encoding: .utf8)))")
 //                     string.data(using: .utf8)
         
                     let de = JSONDecoder()  //解碼可以解外面是String的"json格式"
 
                     guard let respone = try? de.decode(respone_orderId.self, from: data)  else {
                         assertionFailure("Fail orderInsert")
-                        return  }
+                        return  }   //de.decode 會失敗 閃退 ？？
 
                     print(respone.orderId)
                     
@@ -202,7 +218,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                 
                 self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, person: person, data: date, doneHandler: { (error, data) in
                     
-                    print("\(String(data: data, encoding: .utf8))")
+                    print("\(String(describing: String(data: data, encoding: .utf8)))")
                     
                     let decdoe = JSONDecoder()  //解碼可以解外面是String的"json格式"
                     
@@ -251,8 +267,8 @@ class ConfirmMenuTableViewController: UITableViewController {
             
         
         }
-        let item2 = UIAlertAction(title: "項目2", style: .default)
-        let item3 = UIAlertAction(title: "項目3", style: .default)
+//        let item2 = UIAlertAction(title: "項目2", style: .default)
+//        let item3 = UIAlertAction(title: "項目3", style: .default)
         let cancel = UIAlertAction(title: "取消", style: .cancel)
         
         alert.addAction(item1)

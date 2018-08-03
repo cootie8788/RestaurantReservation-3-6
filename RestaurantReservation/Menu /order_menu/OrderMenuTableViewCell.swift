@@ -47,12 +47,10 @@ class OrderMenuTableViewCell: UITableViewCell {
     
     @IBAction func remove(_ sender: UIButton) {
         
-        var tryy = delegate?.jim()
-        tryy?.name
-        tryy?.name
+//        var tryy = delegate?.jim()
         
         
-        let index = self.tag
+//        let index = self.tag
         
 //        guard let something = delegate?.getSomething(self) else {
 //            assertionFailure("get nil ")
@@ -106,7 +104,7 @@ class OrderMenuTableViewCell: UITableViewCell {
     @IBAction func add(_ sender: UIButton) {
 
 
-        let index = self.tag   //array index
+//        let index = self.tag   //array index
     
 //        guard let something = delegate?.getSomething(self) else {
 //            assertionFailure("get nil ")
@@ -153,10 +151,10 @@ class OrderMenuTableViewCell: UITableViewCell {
     func reflushLabel()  {
         var total = 0
         
-        guard var menu_count = menu_count else {
+        guard let menu_count = menu_count else {
             return  }
         
-        guard var money_total = money_total else {
+        guard let money_total = money_total else {
             return  }
         
         for (_ ,value) in app.cart {

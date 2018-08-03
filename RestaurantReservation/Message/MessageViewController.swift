@@ -14,19 +14,41 @@ class MessageViewController: UIViewController {
     var array: [MessageInfo] = []
     var array_img: [UIImage] = []
     var member_name: String?
-    var member_id: Int?
+    var member_authority_id: Int?
+    let userDefault = UserDefaults.standard
     
     @IBOutlet weak var messageShowTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        member_name = "hello!"
-        member_id = 1
+        //        getData()
+        let member_authority_id = userDefault.string(forKey: MemberKey.Authority_id.rawValue)
         
         messageShowTableView.refreshControl = UIRefreshControl()
         messageShowTableView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         
+        if member_authority_id == "1" {
+            navigationItem.title = "優惠訊息"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: nil, action: nil)
+            
+        }
+        
+        if member_authority_id == "4" {
+            navigationItem.title = "優惠管理"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose , target: self, action: #selector(newMessageBarBtnFnc))
+            
+        }
+    }
+    
+    @objc func newMessageBarBtnFnc(){
+        userDefault.set("new", forKey: "messageEdit")
+        userDefault.synchronize()
+        
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "messageEditStoryboard") else{
+            assertionFailure("messageEditStoryboard can't find!!")
+            return
+        }
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,9 +57,12 @@ class MessageViewController: UIViewController {
     }
     
     @objc func handleRefresh(){
+        array = []
+        array_img = []
         getData()
-        messageShowTableView.refreshControl?.endRefreshing()
         messageShowTableView.reloadData()
+        messageShowTableView.refreshControl?.endRefreshing()
+        
     }
     
     func getData(){
@@ -45,12 +70,13 @@ class MessageViewController: UIViewController {
             guard let data = data else{
                 return
             }
+            
             guard let output = try? JSONDecoder().decode([MessageInfo].self, from: data) else {
                 assertionFailure("get output fail")
                 return
             }
             
-            print("array.count: \(self.array.count)")
+            //            print("array.count: \(self.array.count)")
             self.array = output
             self.getImage()
         }
@@ -98,7 +124,11 @@ extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageTableViewCell", for: indexPath) as! MessageTableViewCell
         let messageContent = array[indexPath.row].message_content
         if array_img.count == array.count{
-            //            print("Array Image Count : \(array_img.count),IndexPathRow : \(indexPath.row)")
+            let imageData = UIImageJPEGRepresentation(array_img[indexPath.row], 100)
+            let base64Data = imageData?.base64EncodedString()
+            
+            //            print("array_img (base64Data): \(base64Data)")
+            print("Array Image Count : \(array_img.count),IndexPathRow : \(indexPath.row)")
             let messageImage = array_img[indexPath.row]
             cell.messageImageView.image = messageImage
         }

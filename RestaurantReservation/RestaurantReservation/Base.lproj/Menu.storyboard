@@ -15,7 +15,7 @@
         <!--點餐-->
         <scene sceneID="lGg-UK-TNW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Doa-1j-ti4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="menu" automaticallyAdjustsScrollViewInsets="NO" id="Doa-1j-ti4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="點餐" image="btn_tab_menu" selectedImage="btn_tab_menu" id="xZS-ac-Jph"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="evE-zX-blS">
@@ -34,7 +34,7 @@
         <!--Title-->
         <scene sceneID="kui-Fl-77d">
             <objects>
-                <tableViewController id="W2T-Mw-jNm" customClass="ReservationDateTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="hun" id="W2T-Mw-jNm" customClass="ReservationDateTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QUG-Kd-ixv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,6 +181,7 @@
                         <outlet property="dateTextField" destination="xzJ-mi-TPA" id="mY1-OD-Euw"/>
                         <outlet property="numberOfTextField" destination="xmd-dk-gND" id="LIt-0c-jD8"/>
                         <outlet property="timeTextField" destination="uK8-fZ-Dj2" id="vsE-Md-oAB"/>
+                        <segue destination="wsR-1Y-YCm" kind="show" identifier="OrderMenu" id="D1G-UG-IZn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EpH-jA-jbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,7 +327,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5sl-Z4-rbb">
-                                    <rect key="frame" x="146" y="8" width="83" height="29"/>
+                                    <rect key="frame" x="87.5" y="8" width="200" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="XQf-JF-wZv"/>
+                                    </constraints>
                                     <segments>
                                         <segment title="主餐"/>
                                         <segment title="副餐"/>
@@ -379,7 +383,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="2Ha-Kx-SV9" secondAttribute="trailing" id="23N-ol-vNE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="2Ha-Kx-SV9" secondAttribute="bottom" id="34c-Ba-tPx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2Ha-Kx-SV9" secondAttribute="bottom" priority="999" id="34c-Ba-tPx"/>
                                         <constraint firstItem="2Ha-Kx-SV9" firstAttribute="top" secondItem="47A-wm-cSc" secondAttribute="topMargin" id="PwU-VY-zHb"/>
                                         <constraint firstItem="2Ha-Kx-SV9" firstAttribute="leading" secondItem="47A-wm-cSc" secondAttribute="leadingMargin" id="p7i-oG-1OX"/>
                                     </constraints>
@@ -425,7 +429,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="89O-xi-6vp">
-                                    <rect key="frame" x="146" y="8" width="83" height="29"/>
+                                    <rect key="frame" x="87.5" y="8" width="200" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="t92-w6-B84"/>
+                                    </constraints>
                                     <segments>
                                         <segment title="主餐"/>
                                         <segment title="副餐"/>
@@ -455,7 +462,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="555" translatesAutoresizingMaskIntoConstraints="NO" id="1QZ-bo-6Xl">
                                                     <rect key="frame" x="0.0" y="1" width="142" height="78"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="78" id="n93-x1-Jhm"/>
+                                                        <constraint firstAttribute="height" priority="902" constant="78" id="n93-x1-Jhm"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-y0-1Gx">
@@ -563,7 +570,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="555" translatesAutoresizingMaskIntoConstraints="NO" id="SXE-HW-1u8">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="78"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="78" id="1xb-S2-CHu"/>
+                                                        <constraint firstAttribute="height" priority="901" constant="78" id="1xb-S2-CHu"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r4x-Km-xqM">
@@ -642,9 +649,7 @@
                             <outlet property="delegate" destination="KKE-1y-YDl" id="6wf-JX-rwa"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="ueI-ei-vy6"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="優惠加購" id="H34-xM-bFd">
                         <barButtonItem key="rightBarButtonItem" title="下一步" id="M5j-xo-DDC">
                             <connections>
@@ -661,7 +666,7 @@
         <!--確認點餐-->
         <scene sceneID="Xse-NE-5MN">
             <objects>
-                <tableViewController id="vsf-wM-se3" customClass="ConfirmMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="jim" id="vsf-wM-se3" customClass="ConfirmMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xq9-Kq-scz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -720,7 +725,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="555" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-Eb-BHm">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="78"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="78" id="5h3-G6-jwD"/>
+                                                        <constraint firstAttribute="height" priority="900" constant="78" id="5h3-G6-jwD"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wXy-zi-w1A">
@@ -808,6 +813,7 @@
                     <connections>
                         <outlet property="menu_count" destination="LGs-d5-VP8" id="K5B-7d-ivH"/>
                         <outlet property="money_total" destination="yk7-ub-m0A" id="zcP-78-Gdb"/>
+                        <segue destination="Nf8-Zs-iRm" kind="show" identifier="CheckView" id="xpE-U1-wou"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGc-sC-5as" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -817,7 +823,7 @@
         <!--訂單資訊-->
         <scene sceneID="f4k-BL-FkH">
             <objects>
-                <viewController id="Nf8-Zs-iRm" customClass="CheckViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkvcIn" id="Nf8-Zs-iRm" customClass="CheckViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="trU-Zm-RJH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -857,7 +863,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-lP-eOz">
-                                <rect key="frame" x="20" y="496.5" width="283" height="20.5"/>
+                                <rect key="frame" x="20" y="452.5" width="283" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toP-I6-1eT">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
@@ -874,7 +880,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59F-lf-hui">
-                                <rect key="frame" x="0.0" y="587" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="543" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qZ-mv-5M7">
                                         <rect key="frame" x="20" y="15.5" width="69.5" height="20.5"/>
@@ -892,7 +898,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfN-S3-DMa">
-                                <rect key="frame" x="0.0" y="527" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="483" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="統一編號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-hs-yca">
                                         <rect key="frame" x="20" y="15" width="69.5" height="20.5"/>
@@ -910,7 +916,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="MW3-Zp-s7o">
-                                <rect key="frame" x="20" y="466" width="287" height="20.5"/>
+                                <rect key="frame" x="20" y="422" width="287" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="優惠折扣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97r-AJ-B8l">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="20.5"/>
@@ -927,7 +933,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QJs-AZ-LpV">
-                                <rect key="frame" x="0.0" y="175.5" width="375" height="272.5"/>
+                                <rect key="frame" x="0.0" y="175.5" width="375" height="228.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="insidecell" rowHeight="60" id="KWx-zs-waS" customClass="InsideTableViewCell" customModule="RestaurantReservation" customModuleProvider="target">
@@ -1025,7 +1031,11 @@
                         <viewLayoutGuide key="safeArea" id="0nw-fW-ym7"/>
                     </view>
                     <navigationItem key="navigationItem" title="訂單資訊" id="iMw-vG-Oix">
-                        <barButtonItem key="rightBarButtonItem" title="結帳" id="WdL-bU-BPU"/>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="WdL-bU-BPU">
+                            <connections>
+                                <action selector="returnAction:" destination="Nf8-Zs-iRm" id="324-vk-m8q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="Tableview" destination="QJs-AZ-LpV" id="g0Q-QW-f60"/>
@@ -1037,43 +1047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwF-Kp-Qgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5094" y="1361"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lra-de-iff">
-            <objects>
-                <navigationController storyboardIdentifier="checkvc" automaticallyAdjustsScrollViewInsets="NO" id="ifJ-VW-m3H" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xm3-2c-hVN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Nf8-Zs-iRm" kind="relationship" relationship="rootViewController" id="YVI-UZ-cCp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q6b-Yn-feV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4156" y="1361"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Kho-Lf-0dG">
-            <objects>
-                <navigationController storyboardIdentifier="OrderMenu" automaticallyAdjustsScrollViewInsets="NO" id="IGh-e4-CvW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5IA-VC-raX">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wsR-1Y-YCm" kind="relationship" relationship="rootViewController" id="239-ic-aCu"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bkL-xd-Hct" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4174" y="594"/>
+            <point key="canvasLocation" x="7652" y="593"/>
         </scene>
     </scenes>
     <resources>

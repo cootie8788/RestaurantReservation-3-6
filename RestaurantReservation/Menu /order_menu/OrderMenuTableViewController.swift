@@ -55,6 +55,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+
         
         let TableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
         
@@ -78,6 +79,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.pushViewController((navigationController?.viewControllers[0])!, animated: true)
+       
 //        downloadList()
         
         // 建立 NotificationCenter 的 接收器
@@ -86,6 +89,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         tableView.refreshControl =  UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
         
+        
+
     }
     
     @objc

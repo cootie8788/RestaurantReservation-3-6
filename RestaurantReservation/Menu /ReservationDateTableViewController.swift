@@ -35,6 +35,8 @@ class ReservationDateTableViewController: UITableViewController {
         creatTimePicker()
         createPeolePiceker()
         
+
+        
     }
     
     var con : UINavigationController?
@@ -162,12 +164,9 @@ class ReservationDateTableViewController: UITableViewController {
                 self.userDefault.setValue("預訂點餐", forKey: MemberKey.TableNumber.rawValue)
                 self.userDefault.synchronize()
                 
-                guard let OrderMenu =
-                    self.storyboard?.instantiateViewController(withIdentifier: "OrderMenu")as? UINavigationController else {
-                        return
-                }
-                OrderMenu.modalPresentationStyle = .currentContext
-                self.present(OrderMenu, animated: true, completion: nil)
+                
+                self.performSegue(withIdentifier: "OrderMenu", sender: nil)
+
             }
             
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)

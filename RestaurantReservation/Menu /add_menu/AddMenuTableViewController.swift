@@ -71,7 +71,7 @@ class AddMenuTableViewController: UITableViewController {
         let price = app.menuList[2][indexPath.row].price
         let stock = app.menuList[2][indexPath.row].stock
         
-        var num = 0
+        
         
         if let num = app.cart[id]?.quantity {
             cell.orderMenu_cell_num.text = "\(num)"

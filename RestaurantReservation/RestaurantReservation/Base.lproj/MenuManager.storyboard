@@ -75,7 +75,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="555" translatesAutoresizingMaskIntoConstraints="NO" id="5Ei-vQ-Qx9">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="78"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="78" id="fhO-V7-FZp"/>
+                                                        <constraint firstAttribute="height" priority="905" constant="78" id="fhO-V7-FZp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="石頭火鍋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rv-KY-f2g">
@@ -118,6 +118,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="菜單管理" id="iv6-8E-G9F">
+                        <barButtonItem key="backBarButtonItem" title="取消" id="Qb9-3X-yrH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EUf-fz-fQU">
                             <connections>
                                 <segue destination="qCV-Eb-cpp" kind="show" id="Ilr-Dg-tPH"/>
@@ -132,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="5948" y="1361"/>
         </scene>
-        <!--編輯菜單-->
+        <!--Edit Menu View Controller-->
         <scene sceneID="hLI-Tu-n0y">
             <objects>
                 <viewController id="nVf-tv-Ywa" customClass="EditMenuViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
@@ -271,7 +272,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vi8-IG-Hc1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="編輯菜單" id="avH-mv-miD">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="avH-mv-miD">
                         <barButtonItem key="rightBarButtonItem" title="儲存" id="LMw-hw-ikq">
                             <connections>
                                 <segue destination="VKe-9R-DUs" kind="unwind" identifier="goback" unwindAction="gobackWithSegue:" id="Gr3-sl-dS9"/>

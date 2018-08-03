@@ -45,8 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     for item in results{
                         //                        let remove =  try? filemanager.removeItem(atPath:target)
                         let url = self.cashesURL.appendingPathComponent(item)
-                        print("item: \(url)")
-                        let remove =  try? filemanager.removeItem(at: url)
+//                        print("item: \(url)")
+                        _ =  try? filemanager.removeItem(at: url)
                     }
                 }
                 

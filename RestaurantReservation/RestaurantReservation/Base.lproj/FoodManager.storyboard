@@ -34,7 +34,6 @@
         <!--食材管理-->
         <scene sceneID="bPd-ve-X5Y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AhN-H0-EeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="StockMenu" id="hSd-65-vBt" customClass="StockMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="96u-6B-UVE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -44,11 +43,31 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-ma-dtZ">
+                                    <rect key="frame" x="227" y="59.5" width="124" height="20.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45N-MU-MPx">
+                                            <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="庫存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szr-O1-DyR">
+                                            <rect key="frame" x="89" y="0.0" width="35" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PSJ-WA-m9K">
-                                    <rect key="frame" x="50" y="11.5" width="275" height="58.5"/>
+                                    <rect key="frame" x="87.5" y="26" width="200" height="28"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mlY-GC-Pow">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="1RI-WI-TNo"/>
+                                            </constraints>
                                             <segments>
                                                 <segment title="主餐"/>
                                                 <segment title="副餐"/>
@@ -58,23 +77,6 @@
                                                 <action selector="Segmentedaction:" destination="hSd-65-vBt" eventType="valueChanged" id="NpU-fa-7Lt"/>
                                             </connections>
                                         </segmentedControl>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-ma-dtZ">
-                                            <rect key="frame" x="175" y="38" width="100" height="20.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45N-MU-MPx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="庫存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szr-O1-DyR">
-                                                    <rect key="frame" x="65" y="0.0" width="35" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="mlY-GC-Pow" firstAttribute="centerX" secondItem="PSJ-WA-m9K" secondAttribute="centerX" id="FND-S3-6dj"/>
@@ -83,8 +85,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="8cl-mD-ZbB" firstAttribute="trailing" secondItem="bXP-ma-dtZ" secondAttribute="trailing" constant="24" id="H2S-oB-roT"/>
                                 <constraint firstItem="PSJ-WA-m9K" firstAttribute="centerX" secondItem="1LW-v8-all" secondAttribute="centerX" id="OYW-b8-GfZ"/>
-                                <constraint firstItem="PSJ-WA-m9K" firstAttribute="leading" secondItem="8cl-mD-ZbB" secondAttribute="leading" constant="50" id="aFG-Bd-uvf"/>
+                                <constraint firstItem="8cl-mD-ZbB" firstAttribute="bottom" secondItem="bXP-ma-dtZ" secondAttribute="bottom" id="aOk-G7-gNB"/>
                                 <constraint firstItem="PSJ-WA-m9K" firstAttribute="centerY" secondItem="1LW-v8-all" secondAttribute="centerY" id="sSM-bB-v6j"/>
                             </constraints>
                             <viewLayoutGuide key="safeArea" id="8cl-mD-ZbB"/>
@@ -104,7 +107,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="168" height="78"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="167.5" id="T4G-EP-NIO"/>
-                                                        <constraint firstAttribute="height" constant="78" id="ws3-z4-4Bp"/>
+                                                        <constraint firstAttribute="height" priority="904" constant="78" id="ws3-z4-4Bp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="石頭火鍋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTI-fm-POI">
@@ -128,10 +131,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Sb8-3i-Dlj" firstAttribute="leading" secondItem="Rkw-eZ-wOG" secondAttribute="leadingMargin" id="4HW-YA-Blt"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Sb8-3i-Dlj" secondAttribute="trailing" id="69F-VJ-FNe"/>
-                                        <constraint firstItem="Sb8-3i-Dlj" firstAttribute="top" secondItem="Rkw-eZ-wOG" secondAttribute="topMargin" id="v48-tU-y8g"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Sb8-3i-Dlj" secondAttribute="bottom" id="wgu-X0-YeN"/>
+                                        <constraint firstItem="Sb8-3i-Dlj" firstAttribute="bottom" secondItem="Rkw-eZ-wOG" secondAttribute="bottomMargin" id="84g-dU-fsB"/>
+                                        <constraint firstItem="Sb8-3i-Dlj" firstAttribute="leading" secondItem="Rkw-eZ-wOG" secondAttribute="leadingMargin" id="UEO-1h-KPQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Sb8-3i-Dlj" secondAttribute="trailing" id="f5b-7K-mG5"/>
+                                        <constraint firstItem="Sb8-3i-Dlj" firstAttribute="top" secondItem="Rkw-eZ-wOG" secondAttribute="topMargin" id="q6v-TG-K4u"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -151,13 +154,13 @@
                         <outlet property="Segmented_SW" destination="mlY-GC-Pow" id="6HE-r4-Vxc"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhN-H0-EeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7510" y="1361"/>
         </scene>
         <!--popview-->
         <scene sceneID="L7s-Bb-Kgd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mFE-QB-Hp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="popview" title="popview" id="1Kf-aW-2yx" customClass="popViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Da-z2-blr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -169,42 +172,55 @@
                                     <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DQ-sV-18U">
                                         <rect key="frame" x="0.0" y="48" width="282" height="105"/>
                                     </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH0-4q-8Xk">
-                                        <rect key="frame" x="167" y="150" width="49" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="確定"/>
-                                        <connections>
-                                            <action selector="ok:" destination="1Kf-aW-2yx" eventType="touchUpInside" id="hwH-TP-hjp"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入要改變的數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-8T-gSI">
                                         <rect key="frame" x="63" y="19" width="156" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuG-na-0ol">
-                                        <rect key="frame" x="60" y="150" width="39" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="取消"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="1Kf-aW-2yx" eventType="touchUpInside" id="AaK-q9-4sS"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O9B-TR-qPi">
+                                        <rect key="frame" x="0.0" y="158" width="282" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuG-na-0ol">
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="42"/>
+                                                <state key="normal" title="取消"/>
+                                                <connections>
+                                                    <action selector="cancel:" destination="1Kf-aW-2yx" eventType="touchUpInside" id="AaK-q9-4sS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH0-4q-8Xk">
+                                                <rect key="frame" x="141" y="0.0" width="141" height="42"/>
+                                                <state key="normal" title="確定"/>
+                                                <connections>
+                                                    <action selector="ok:" destination="1Kf-aW-2yx" eventType="touchUpInside" id="hwH-TP-hjp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5DQ-sV-18U" firstAttribute="top" secondItem="K8b-8T-gSI" secondAttribute="bottom" constant="8" id="0YD-Ri-azb"/>
                                     <constraint firstItem="5DQ-sV-18U" firstAttribute="centerX" secondItem="e6U-Ut-5bb" secondAttribute="centerX" id="2PS-tZ-1X3"/>
+                                    <constraint firstAttribute="bottom" secondItem="O9B-TR-qPi" secondAttribute="bottom" id="2hu-Ua-cDv"/>
                                     <constraint firstItem="K8b-8T-gSI" firstAttribute="centerX" secondItem="e6U-Ut-5bb" secondAttribute="centerX" id="6tc-wL-e5z"/>
                                     <constraint firstAttribute="trailing" secondItem="5DQ-sV-18U" secondAttribute="trailing" id="7Ll-Nk-Mls"/>
                                     <constraint firstItem="K8b-8T-gSI" firstAttribute="top" secondItem="e6U-Ut-5bb" secondAttribute="top" constant="19" id="9r9-li-I7u"/>
+                                    <constraint firstAttribute="trailing" secondItem="O9B-TR-qPi" secondAttribute="trailing" id="QY2-BF-eCc"/>
+                                    <constraint firstItem="O9B-TR-qPi" firstAttribute="leading" secondItem="e6U-Ut-5bb" secondAttribute="leading" id="XRv-OJ-XyK"/>
                                     <constraint firstAttribute="width" constant="282" id="eCH-g9-31k"/>
                                     <constraint firstAttribute="bottom" secondItem="5DQ-sV-18U" secondAttribute="bottom" constant="47" id="m8g-lC-q1Z"/>
+                                    <constraint firstItem="O9B-TR-qPi" firstAttribute="top" secondItem="5DQ-sV-18U" secondAttribute="bottom" constant="5" id="mFP-tz-x3G"/>
+                                    <constraint firstAttribute="bottom" secondItem="O9B-TR-qPi" secondAttribute="bottom" id="pyA-oH-29Q"/>
                                     <constraint firstItem="5DQ-sV-18U" firstAttribute="centerY" secondItem="e6U-Ut-5bb" secondAttribute="centerY" id="w5J-CR-yXT"/>
                                     <constraint firstAttribute="height" constant="200" id="xKN-mY-XgZ"/>
                                     <constraint firstItem="5DQ-sV-18U" firstAttribute="leading" secondItem="e6U-Ut-5bb" secondAttribute="leading" id="xwT-3N-s6u"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.85911722720000006" green="0.85911722720000006" blue="0.85911722720000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -218,6 +234,7 @@
                         <outlet property="StockPick" destination="5DQ-sV-18U" id="iXi-wF-vmx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFE-QB-Hp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8276" y="1361"/>
         </scene>

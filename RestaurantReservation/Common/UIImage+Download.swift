@@ -91,7 +91,7 @@ extension UIImageView{
             
             
             //Remove task from currentTask.
-            if let existTask1 = UIImageView.currentTask["\(id)"] {//
+            if UIImageView.currentTask["\(id)"] != nil {//
                 
                 UIImageView.currentTask.removeValue(forKey: "\(id)" )  //結束任務時 清除字典
             }
