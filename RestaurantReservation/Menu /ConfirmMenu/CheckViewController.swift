@@ -14,8 +14,8 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "insidecell", for: indexPath) as! InsideTableViewCell
        
         cell.menu_name.text = array[indexPath.row].name
-        cell.menu_count.text = array[indexPath.row].price
-        cell.menu_money.text = "\(array[indexPath.row].quantity)"
+        cell.menu_money.text = array[indexPath.row].price
+        cell.menu_count.text = "\(array[indexPath.row].quantity)"
         
         return cell
     }
@@ -82,10 +82,10 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         discount_text.text = "\(discount)折"
         
         if discount == 0{
-            total_text.text = "\(total)"
+            total_text.text = "$\(total)"
         }else{
             total = Int(Double(total) * discount)
-            total_text.text = "\(total)"
+            total_text.text = "$\(total)"
         }
         //  要刪除 之前存的偏好數值
         userDefault.removeObject(forKey: "coupon")

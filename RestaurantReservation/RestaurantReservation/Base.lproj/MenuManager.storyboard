@@ -44,7 +44,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vDH-QE-hnJ">
-                                    <rect key="frame" x="125" y="8" width="125" height="29"/>
+                                    <rect key="frame" x="87.5" y="8" width="200" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="NM4-kd-wxh"/>
+                                    </constraints>
                                     <segments>
                                         <segment title="主餐"/>
                                         <segment title="副餐"/>
@@ -181,7 +184,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8IV-0O-msq">
-                                        <rect key="frame" x="37.5" y="60" width="187" height="28"/>
+                                        <rect key="frame" x="0.0" y="60" width="262" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="種類：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfI-aX-L3E">
                                                 <rect key="frame" x="0.0" y="0.0" width="52" height="28"/>
@@ -190,7 +193,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yoT-dM-76y">
-                                                <rect key="frame" x="62" y="0.0" width="125" height="29"/>
+                                                <rect key="frame" x="62" y="0.0" width="200" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="FXt-KE-vHj"/>
+                                                </constraints>
                                                 <segments>
                                                     <segment title="主餐"/>
                                                     <segment title="副餐"/>
@@ -323,7 +329,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eoh-I5-jkP">
-                                        <rect key="frame" x="37.5" y="60" width="187" height="28"/>
+                                        <rect key="frame" x="0.0" y="60" width="262" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="種類：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaB-hc-egK">
                                                 <rect key="frame" x="0.0" y="0.0" width="52" height="28"/>
@@ -332,7 +338,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3QD-db-UaG">
-                                                <rect key="frame" x="62" y="0.0" width="125" height="29"/>
+                                                <rect key="frame" x="62" y="0.0" width="200" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="raM-UA-IqJ"/>
+                                                </constraints>
                                                 <segments>
                                                     <segment title="主餐"/>
                                                     <segment title="副餐"/>

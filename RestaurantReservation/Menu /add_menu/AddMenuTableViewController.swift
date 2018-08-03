@@ -87,7 +87,7 @@ class AddMenuTableViewController: UITableViewController {
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
         cell.cellID = id          //給cell  所對應的orderMenu id
         cell.cellName = name
-        cell.cellPrice = price
+        cell.cellPrice = "$\(price)"
         cell.cellStock = stock
         
         return cell

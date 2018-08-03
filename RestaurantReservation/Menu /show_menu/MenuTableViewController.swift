@@ -107,7 +107,8 @@ class MenuTableViewController: UITableViewController {
         cell.cellImage.showImage(urlString: downloader.Menu_URL,
                                  id: app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].id)
         cell.cellitem.text = app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].name
-        cell.cellmoney.text = app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].price
+        cell.cellmoney.text =
+        "$\(app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].price)"
     
         return cell
     }

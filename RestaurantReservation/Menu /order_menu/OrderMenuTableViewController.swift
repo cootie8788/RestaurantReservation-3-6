@@ -156,7 +156,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         
         cell.orderMenu_cell_Image.showImage(urlString: downloader.Menu_URL,id: id)
         cell.orderMenu_cell_item.text = name
-        cell.orderMenu_cell_money.text = price
+        cell.orderMenu_cell_money.text = "$\(price)"
         
         cell.delegate = self  //所有的cell delegate都要
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
