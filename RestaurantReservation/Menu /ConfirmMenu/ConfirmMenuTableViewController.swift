@@ -108,8 +108,6 @@ class ConfirmMenuTableViewController: UITableViewController {
     }
     
     func nextpresent(){
-//        let checkvc =
-//            self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as! UINavigationController
         
 //        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
 //            assertionFailure("Fail present")
@@ -121,9 +119,6 @@ class ConfirmMenuTableViewController: UITableViewController {
         
         
         performSegue(withIdentifier: "CheckView", sender: nil)
-        
-        
-//        navigationController?.popToRootViewController(animated: <#T##Bool#>)
         
     }
     

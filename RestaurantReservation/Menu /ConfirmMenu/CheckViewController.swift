@@ -27,7 +27,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     @IBOutlet weak var discount_text: UILabel!
     @IBOutlet weak var Tableview: UITableView!
     
-    
+    let app = UIApplication.shared.delegate as! AppDelegate
     let downloader = Downloader.shared
     let userDefault = UserDefaults()
     let decoder = JSONDecoder()
@@ -41,6 +41,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     @IBAction func returnAction(_ sender: UIBarButtonItem) {
         
         self.navigationController?.popToRootViewController(animated: true)
+        app.cart.removeAll()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +55,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         
 //        definesPresentationContext = true
         
-        let app = UIApplication.shared.delegate as! AppDelegate
+        
         
         array_count = app.cart.count
         var total = 0

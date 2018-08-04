@@ -41,6 +41,17 @@ class ReservationDateTableViewController: UITableViewController {
     
     var con : UINavigationController?
     
+    var firstAction = true
+    
+    @IBAction func peopleAction(_ sender: UITextField) {
+        if firstAction {
+            firstAction = false
+            numberOfTextField.text = "1"
+            person = numberOfTextField.text!
+        }
+        
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -91,6 +102,8 @@ class ReservationDateTableViewController: UITableViewController {
     //日期#selector
     @objc
     func doneClicked() {
+        //再次選擇前清除
+        upload = ""
         // 格式化顯示在TextField 日期
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -238,6 +251,7 @@ extension ReservationDateTableViewController: UIPickerViewDelegate, UIPickerView
         numberOfTextField.text = selectPeople
         person = numberOfTextField.text!
         
+        firstAction = false
         //人數取得
         userDefault.setValue(selectPeople, forKey: "person")
         userDefault.synchronize()
