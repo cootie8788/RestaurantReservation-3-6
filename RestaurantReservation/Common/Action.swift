@@ -28,13 +28,13 @@ struct MessageInfo: Codable {
     var coupon_end: String
     
 }
-
+//林沂諺的action
 struct ActionOrder: Codable {
     var action: String?
     var memberId: Int
     var orderId: Int
 }
-
+//林沂諺得action
 struct dateInfo: Codable {
     var action: String?
     var date: String?

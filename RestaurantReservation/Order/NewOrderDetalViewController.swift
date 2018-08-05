@@ -7,7 +7,9 @@
 //
 
 import UIKit
-//定位畫面detail
+//訂位畫面detail
+var newOrderTableViewDetailControllerOrderID = -1
+
 class NewOrderDetalViewController: UIViewController {
     
     @IBOutlet weak var orderDateLabel: UILabel!
@@ -17,13 +19,18 @@ class NewOrderDetalViewController: UIViewController {
     let communicator = CommunicatorOrder()
     var orderNumber = -1
     var orderDate = ""
+    var newOrderDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let memberID = UserDefaults.standard.string(forKey: MemberKey.MemberID.rawValue)
+        guard let memberIDInt = Int(memberID!) else {
+            assertionFailure("get MemberID Fail")
+            return
+        }
         newOrderDetailtableView.delegate = self
         newOrderDetailtableView.dataSource = self
-        let action = ActionOrder(action: "checkOrderGet", memberId: 2, orderId: 249)
+        let action = ActionOrder(action: "checkOrderGet", memberId: memberIDInt, orderId: newOrderTableViewDetailControllerOrderID )
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
         guard let uploadData = try? econder.encode(action) else {
@@ -47,8 +54,8 @@ class NewOrderDetalViewController: UIViewController {
                 self.orderDate = newCheckOrder.date_order
             }
             self.newOrderDetailtableView.reloadData()
-            self.orderNumberLabel.text = "\(self.orderNumber)"
-            self.orderDateLabel.text = self.orderDate
+            self.orderNumberLabel.text = "\(newOrderTableViewDetailControllerOrderID)"
+            self.orderDateLabel.text = self.newOrderDate
         }
     }
     
@@ -79,6 +86,5 @@ extension NewOrderDetalViewController: UITableViewDataSource {
     }
 }
 extension NewOrderDetalViewController: UITableViewDelegate {
-  
     
 }
