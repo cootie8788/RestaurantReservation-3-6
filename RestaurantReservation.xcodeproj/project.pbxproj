@@ -47,7 +47,6 @@
 		38256D3B211099210035FABA /* MessageManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D39211099210035FABA /* MessageManager.storyboard */; };
 		38256D3D21109B990035FABA /* MessageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3C21109B990035FABA /* MessageManagerViewController.swift */; };
 		38256D3F21109BB70035FABA /* RatingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3E21109BB70035FABA /* RatingManagerViewController.swift */; };
-		38CF4D8D211337C70059C185 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8C211337C60059C185 /* UITabBarController.swift */; };
 		38CF4D9021142EFA0059C185 /* UIImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */; };
 		38CF4D9121142EFA0059C185 /* UIImage+FixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */; };
 		6DF877989A63D04D0396B682 /* Pods_RestaurantReservation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */; };
@@ -64,7 +63,6 @@
 		BFDA831A20F86B7A0050C738 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDA831820F86B7A0050C738 /* Message.storyboard */; };
 		BFDA831D20F86B8B0050C738 /* Rating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDA831B20F86B8B0050C738 /* Rating.storyboard */; };
 		BFDA832020F86CCE0050C738 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA831F20F86CCD0050C738 /* CardView.swift */; };
-		BFDA833C20F87E050050C738 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA833B20F87E050050C738 /* OrderViewController.swift */; };
 		BFDA833E20F87E240050C738 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA833D20F87E240050C738 /* MemberViewController.swift */; };
 		CE3D6DB82116B25C00272522 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D6DB72116B25C00272522 /* ServiceTableViewCell.swift */; };
 		CE889D97210B43E900898615 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE889D96210B43E900898615 /* QRCodeViewController.swift */; };
@@ -80,8 +78,6 @@
 		CEF7D4F721082BFA007CBE91 /* MemberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */; };
 		CEF90E9D21118F75001E64C7 /* WatiterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF90E9C21118F75001E64C7 /* WatiterStruct.swift */; };
 		CEFDF6B12109A12600F98E14 /* MemberReviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDF6B02109A12600F98E14 /* MemberReviseViewController.swift */; };
-		EAF3CFB4210F09B5004EF568 /* NewOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB3210F09B5004EF568 /* NewOrderTableViewController.swift */; };
-		EAF3CFB6210F09FC004EF568 /* OldOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB5210F09FC004EF568 /* OldOrderTableViewController.swift */; };
 		EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */; };
 		EAF3CFBA210F0A0F004EF568 /* CommonOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */; };
 		EAF3CFBC210F0A1B004EF568 /* NewandOldOeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */; };
@@ -133,7 +129,6 @@
 		38256D3A211099210035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MessageManager.storyboard; sourceTree = "<group>"; };
 		38256D3C21109B990035FABA /* MessageManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManagerViewController.swift; sourceTree = "<group>"; };
 		38256D3E21109BB70035FABA /* RatingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingManagerViewController.swift; sourceTree = "<group>"; };
-		38CF4D8C211337C60059C185 /* UITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCropper.swift; sourceTree = "<group>"; };
 		38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FixOrientation.swift"; sourceTree = "<group>"; };
 		4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantReservation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +148,6 @@
 		BFDA831920F86B7A0050C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/Message.storyboard; sourceTree = "<group>"; };
 		BFDA831C20F86B8B0050C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/Rating.storyboard; sourceTree = "<group>"; };
 		BFDA831F20F86CCD0050C738 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		BFDA833B20F87E050050C738 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		BFDA833D20F87E240050C738 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		CE3D6DB72116B25C00272522 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		CE889D96210B43E900898615 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
@@ -169,8 +163,6 @@
 		CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAPI.swift; sourceTree = "<group>"; };
 		CEF90E9C21118F75001E64C7 /* WatiterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatiterStruct.swift; sourceTree = "<group>"; };
 		CEFDF6B02109A12600F98E14 /* MemberReviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberReviseViewController.swift; sourceTree = "<group>"; };
-		EAF3CFB3210F09B5004EF568 /* NewOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOrderTableViewController.swift; sourceTree = "<group>"; };
-		EAF3CFB5210F09FC004EF568 /* OldOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldOrderTableViewController.swift; sourceTree = "<group>"; };
 		EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorOrder.swift; sourceTree = "<group>"; };
 		EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonOrder.swift; sourceTree = "<group>"; };
 		EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewandOldOeder.swift; sourceTree = "<group>"; };
@@ -199,7 +191,6 @@
 				380399BD210F61C00039F41F /* Downloader_post.swift */,
 				380399BE210F61C00039F41F /* Menu.swift */,
 				380399C0210F61C00039F41F /* Socket.swift */,
-				38CF4D8C211337C60059C185 /* UITabBarController.swift */,
 				382260582117FBF700D68D9F /*  receiveData .swift */,
 				380399A9210F61C00039F41F /* ConfirmMenu */,
 				380399C1210F61C00039F41F /* add_menu */,
@@ -355,9 +346,6 @@
 		BFCF5A1F20F869DF008E2A34 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				BFDA833B20F87E050050C738 /* OrderViewController.swift */,
-				EAF3CFB3210F09B5004EF568 /* NewOrderTableViewController.swift */,
-				EAF3CFB5210F09FC004EF568 /* OldOrderTableViewController.swift */,
 				EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */,
 				EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */,
 				EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */,
@@ -568,7 +556,6 @@
 				CEF7D4F521082B99007CBE91 /* MemberStruct.swift in Sources */,
 				380399CE210F61C00039F41F /* EditMenuPhoto.swift in Sources */,
 				BF92A2AE20FE28A400406C20 /* Communicator.swift in Sources */,
-				38CF4D8D211337C70059C185 /* UITabBarController.swift in Sources */,
 				380399CC210F61C00039F41F /* MenuTableViewController.swift in Sources */,
 				3822605D21180F6E00D68D9F /* Camera.swift in Sources */,
 				380399D4210F61C00039F41F /* Socket.swift in Sources */,
@@ -586,14 +573,12 @@
 				38256D1721108C3D0035FABA /* Action.swift in Sources */,
 				382260592117FBF700D68D9F /*  receiveData .swift in Sources */,
 				380399C3210F61C00039F41F /* InsideTableViewCell.swift in Sources */,
-				EAF3CFB4210F09B5004EF568 /* NewOrderTableViewController.swift in Sources */,
 				EAF3CFBC210F0A1B004EF568 /* NewandOldOeder.swift in Sources */,
 				CEFDF6B12109A12600F98E14 /* MemberReviseViewController.swift in Sources */,
 				CEA07DE52104D1C7004032CA /* LoginAPI.swift in Sources */,
 				380399CB210F61C00039F41F /* StockTableViewCell.swift in Sources */,
 				38256D1421108BD20035FABA /* MessageDetailViewController.swift in Sources */,
 				38256D0D21108B9B0035FABA /* RatingNewViewController.swift in Sources */,
-				BFDA833C20F87E050050C738 /* OrderViewController.swift in Sources */,
 				380399D7210F64450039F41F /* ReservationDateTableViewController.swift in Sources */,
 				380399CF210F61C00039F41F /* NewMenuViewController.swift in Sources */,
 				38256D1321108BD20035FABA /* MessageTableViewCell.swift in Sources */,
@@ -618,7 +603,6 @@
 				BF92A2B020FE2A3C00406C20 /* Common.swift in Sources */,
 				38256D2021108D470035FABA /* WaiterViewController.swift in Sources */,
 				38256D0E21108B9B0035FABA /* RatingTableViewCell.swift in Sources */,
-				EAF3CFB6210F09FC004EF568 /* OldOrderTableViewController.swift in Sources */,
 				CEA07DEB210512ED004032CA /* SSRadioButton.swift in Sources */,
 				380399C4210F61C00039F41F /* ConfirmMenuTableViewController.swift in Sources */,
 			);
