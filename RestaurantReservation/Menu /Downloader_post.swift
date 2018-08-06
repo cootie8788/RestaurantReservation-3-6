@@ -18,7 +18,8 @@ typealias Handler = (_ control:UITableViewController?, _ error:Error?,_ result:D
 
 class Downloader {
     
-    static let BASEURL = "http://localhost:8080/RestaurantReservationApp_Web"
+//    static let BASEURL = "http://localhost:8080/RestaurantReservationApp_Web"
+    static let BASEURL = HOST_URL
     
     let Menu_URL = BASEURL + "/MenuServlet"
     let CheckOrder_URL = BASEURL + "/CheckOrderServlet"
@@ -30,10 +31,16 @@ class Downloader {
     static let shared = Downloader()
     let encoder = JSONEncoder()
     
+    
+    let app = UIApplication.shared.delegate as! AppDelegate
+    
     private init(){
         
     }
     
+    
+    
+
     func test(_ control:UITableViewController?,doneHandler: @escaping Handler) {
         
         let parameters  = ["action": "getAll"] as [String: Any]
@@ -243,7 +250,7 @@ class Downloader {
             }
             
             guard let response = response as? HTTPURLResponse,(200...299).contains(response.statusCode) else {
-                assertionFailure("server error")
+//                assertionFailure("server error")
                 return
             }
             

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,14 +37,95 @@
                     <view key="view" contentMode="scaleToFill" id="PYh-DP-Kdi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9e0-pG-8YM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WaiterCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WaiterCell" id="jRp-X3-ALP" customClass="WaiterTableViewCell" customModule="RestaurantReservation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jRp-X3-ALP" id="BcR-0p-ejw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3d-84-C06">
+                                                    <rect key="frame" x="15" y="10" width="345" height="80"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKA-qS-HSC">
+                                                            <rect key="frame" x="16" y="16" width="313" height="48"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="VKA-qS-HSC" secondAttribute="bottom" constant="16" id="YYd-HF-Hhr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VKA-qS-HSC" secondAttribute="trailing" constant="16" id="f0b-mg-ZJw"/>
+                                                        <constraint firstItem="VKA-qS-HSC" firstAttribute="top" secondItem="s3d-84-C06" secondAttribute="top" constant="16" id="kZS-go-Ym7"/>
+                                                        <constraint firstItem="VKA-qS-HSC" firstAttribute="leading" secondItem="s3d-84-C06" secondAttribute="leading" constant="16" id="oAx-Nf-CuJ"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s3d-84-C06" firstAttribute="leading" secondItem="BcR-0p-ejw" secondAttribute="leadingMargin" id="CIU-0J-Jmw"/>
+                                                <constraint firstItem="s3d-84-C06" firstAttribute="top" secondItem="BcR-0p-ejw" secondAttribute="top" constant="10" id="gfU-6w-qav"/>
+                                                <constraint firstItem="s3d-84-C06" firstAttribute="centerX" secondItem="BcR-0p-ejw" secondAttribute="centerX" id="vlK-tf-lTd"/>
+                                                <constraint firstAttribute="bottom" secondItem="s3d-84-C06" secondAttribute="bottom" constant="10" id="xDc-GS-Tgh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="view" destination="s3d-84-C06" id="jFl-e6-zzh"/>
+                                            <outlet property="waiterLabel" destination="VKA-qS-HSC" id="unr-HO-SVr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RG0-xS-qb2" firstAttribute="bottom" secondItem="9e0-pG-8YM" secondAttribute="bottom" id="HE8-67-Lnn"/>
+                            <constraint firstItem="9e0-pG-8YM" firstAttribute="top" secondItem="RG0-xS-qb2" secondAttribute="top" id="bfJ-kf-avu"/>
+                            <constraint firstItem="RG0-xS-qb2" firstAttribute="trailing" secondItem="9e0-pG-8YM" secondAttribute="trailing" id="ehD-V7-KfS"/>
+                            <constraint firstItem="9e0-pG-8YM" firstAttribute="leading" secondItem="RG0-xS-qb2" secondAttribute="leading" id="pgv-sC-W7r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RG0-xS-qb2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LY2-hp-EBT"/>
+                    <navigationItem key="navigationItem" id="LY2-hp-EBT">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ndn-nU-nfG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ISd-Kk-Z15">
+                                <rect key="frame" x="16" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnPressed:" destination="FXP-c2-Haa" eventType="touchUpInside" id="Vu5-72-xim"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="GH6-F2-2mZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EUc-rM-wCC">
+                                <rect key="frame" x="313" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnCheck:" destination="FXP-c2-Haa" eventType="touchUpInside" id="CEx-Aa-Shs"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="9e0-pG-8YM" id="hRc-6q-c41"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgJ-3S-zv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8444" y="836"/>
+            <point key="canvasLocation" x="8444" y="834.33283358320841"/>
         </scene>
     </scenes>
     <resources>

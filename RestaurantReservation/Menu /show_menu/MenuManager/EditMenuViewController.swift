@@ -25,6 +25,21 @@ class EditMenuViewController: UIViewController {
     
     var socket = SocketClient.chatWebSocketClient
     
+    
+    private let cashesURL :URL =
+    {
+        //大概以後 會加入其他程式碼 先習慣吧   默認路徑一定拿得到 ！！！
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }()
+    
+    private func RemoveRetrieveFileNames(_ id:Int){
+//        print("CashesURL: \(cashesURL)")
+        
+        let filemanager = FileManager.default
+        let fullFileURL = cashesURL.appendingPathComponent("\(id)")
+        
+        let _ =  try? filemanager.removeItem(at: fullFileURL)
+    }
 
     @IBAction func dismissKeybroad()  {
         view.endEditing(true) //收鍵盤
@@ -32,13 +47,17 @@ class EditMenuViewController: UIViewController {
     
     @IBAction func EditImageBt(_ sender: UIButton) {
         
+        let cameraFunc = Camera(self,editImage)
         
         let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
         let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+//            self.lauchPicker(forType: .photoLibrary)
+            cameraFunc.lauchPicker(forType: .photoLibrary)
+
         }
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+//            self.lauchPicker(forType: .camera)
+            cameraFunc.lauchPicker(forType: .camera)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(library)
@@ -64,9 +83,12 @@ class EditMenuViewController: UIViewController {
             
             }
             
+            RemoveRetrieveFileNames(id)
+            
+            self.socket.sendMessage("notifyDataSetChanged")
+            
             deleteSW = true
             self.performSegue(withIdentifier: "goback", sender: nil)
-            self.socket.sendMessage("105")
             //更新 所以app的menuList
         }//if
         
@@ -83,15 +105,17 @@ class EditMenuViewController: UIViewController {
         
         deleteSW = true
         self.performSegue(withIdentifier: "goback", sender: nil)
-        self.socket.sendMessage("105")
+        self.socket.sendMessage("notifyDataSetChanged")
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(true)
         
-        menu_name.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].name
-        menu_money.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].price
+//        menu_name.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].name
+//        menu_money.placeholder = app.menuList[MenuTableC_sw][MenuTableC_index].price
+        menu_name.text = app.menuList[MenuTableC_sw][MenuTableC_index].name
+        menu_money.text = app.menuList[MenuTableC_sw][MenuTableC_index].price
         var type = app.menuList[MenuTableC_sw][MenuTableC_index].type
         type -= 1
         kind.selectedSegmentIndex = type
@@ -102,6 +126,7 @@ class EditMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
         //註冊收鍵盤
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
         view.addGestureRecognizer(tap)
@@ -121,7 +146,7 @@ class EditMenuViewController: UIViewController {
         let alert = UIAlertController(title: "輸入錯誤警告", message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "確定", style: .default)
-        let cancel = UIAlertAction(title: "取消", style: .cancel)
+//        let cancel = UIAlertAction(title: "取消", style: .cancel)
         alert.addAction(ok)
 //        alert.addAction(cancel)
         
@@ -134,7 +159,7 @@ class EditMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //觸發儲存時 要做的事情
-        if let MenuTableViewController = segue.destination as? MenuTableViewController {
+        if segue.destination is MenuTableViewController {
             
             //不讓delete功能 做輸入判斷
             guard  deleteSW == false else {
@@ -148,7 +173,7 @@ class EditMenuViewController: UIViewController {
             guard let name = menu_name.text , !name.isEmpty  else {
                 showAlert("名字格式錯誤")
                 return  }
-            var type = self.kind.selectedSegmentIndex + 1
+            let type = self.kind.selectedSegmentIndex + 1
             guard let price = menu_money.text , !price.isEmpty  else {
                 showAlert("價錢格式錯誤")
                 return  }
@@ -163,7 +188,9 @@ class EditMenuViewController: UIViewController {
                     
                     print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
                     
-                    self.socket.sendMessage("105")
+                    self.RemoveRetrieveFileNames(id)
+                    
+                    self.socket.sendMessage("notifyDataSetChanged")
                     //更新 所以app的menuList
                 }
                 
@@ -173,10 +200,10 @@ class EditMenuViewController: UIViewController {
                 let menu = Menu(id: id, name: name, price: price, type: type, note: "", stock: 0)
                 
                 downloader.menuUpdata(fileName:#file,menu) { (error, data) in
-                  
+                
                     print("menuUpdata: \(String(describing: String(data: data, encoding: .utf8)))")
                     
-                    self.socket.sendMessage("105")
+                    self.socket.sendMessage("notifyDataSetChanged")
                     //更新 所以app的menuList
                 }
                 

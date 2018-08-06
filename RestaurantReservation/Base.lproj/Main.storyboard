@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="4933.6000000000004" y="133.5832083958021"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Itb-->
         <scene sceneID="ibj-vB-4jt">
             <objects>
-                <tabBarController storyboardIdentifier="MainStroryboard" automaticallyAdjustsScrollViewInsets="NO" id="04O-Y2-mOB" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="04O-Y2-mOB" customClass="UItb" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XN0-hu-6mN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -382,7 +382,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="4fN-3U-1p8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JH1-N0-vo5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SecondStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="JH1-N0-vo5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zcd-L0-4vk">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -432,7 +432,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CNW-59-TdL">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NYN-lU-G7R" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="thirdStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="NYN-lU-G7R" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8RY-R3-sOT">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -471,20 +471,20 @@
             </objects>
             <point key="canvasLocation" x="6426" y="1415"/>
         </scene>
-        <!--MessageManager-->
+        <!--Message-->
         <scene sceneID="bGF-Ws-brk">
             <objects>
-                <viewControllerPlaceholder storyboardName="MessageManager" id="fFI-4h-oop" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Message" id="fFI-4h-oop" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="優惠管理" image="btn_tab_message_m" id="6tv-wE-alt"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-vM-dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6442" y="1567"/>
         </scene>
-        <!--RatingManager-->
+        <!--Rating-->
         <scene sceneID="vg9-nT-S4n">
             <objects>
-                <viewControllerPlaceholder storyboardName="RatingManager" id="W33-e3-Kiy" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Rating" id="W33-e3-Kiy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="意見管理" image="btn_tab_rating_m" id="y4f-Al-I3k"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ia-wK-iP3" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Starscream
+
+var commonWebSocketClient: CommonWebSocketClient?
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -17,15 +20,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let memberAPI = MemberAPI()
     let userDeafult = UserDefaults.standard
     
+    let socket = SocketClient.chatWebSocketClient
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ordertest = ""
         
         emailTextFiedl.delegate = self
         passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,11 +66,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             if login.isUserValid {
                 print("登入成功")
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStroryboard") else{
-                    assertionFailure("controller can't find!!")
+                
+                commonWebSocketClient = CommonWebSocketClient(url: "http://127.0.0.1:8080/RestaurantReservationApp_Web/CheckOrderWebSocket/\(login.memberName)")
+                commonWebSocketClient?.startWebSocket()
+                guard let controller = self.getController(authority_id: login.authority_id) else {
+                    assertionFailure("controller is nil")
                     return
                 }
+                if self.socket.socket.delegate == nil{
+                    print("socket 連線")
+                    self.socket.startLinkServer()
+                }
+                self.userDeafult.removeObject(forKey: MemberKey.TableNumber.rawValue)
+                self.userDeafult.removeObject(forKey: "person")
+                self.userDeafult.removeObject(forKey: "date")
+                
                 self.userDeafult.set(login.memberId, forKey: MemberKey.MemberID.rawValue)
+                self.userDeafult.set(login.authority_id, forKey: MemberKey.Authority_id.rawValue)
+                self.userDeafult.set(login.memberName, forKey: MemberKey.MemberName.rawValue)
                 self.present(controller, animated: true)
             } else {
                 let controller = UIAlertController(title: "警告", message: "帳號密碼錯誤", preferredStyle: .alert)
@@ -74,12 +94,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func getController(authority_id: Int) -> UIViewController? {
+        var controller = UIViewController()
+        switch authority_id {
+        case 1:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") {
+                controller = storyboard
+            }
+        case 2:
+            controller = UIViewController()
+        case 3:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SecondStoryboard") as? UITabBarController {
+                controller = storyboard
+            }
+        case 4:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "thirdStoryboard") {
+                controller = storyboard
+            }
+        default:
+            controller = UIViewController()
+        }
+        
+        return controller
+    }
+    
     @IBAction func logout(sender: UIStoryboardSegue) {
         // 清空userDeafult的memberId
         userDeafult.removeObject(forKey: MemberKey.MemberID.rawValue)
+        userDeafult.removeObject(forKey: MemberKey.MemberName.rawValue)
         
         emailTextFiedl.text = ""
         passwordTextField.text = ""
+        commonWebSocketClient?.stopWebSocket()
     }
     
     // 點return就收鍵盤
