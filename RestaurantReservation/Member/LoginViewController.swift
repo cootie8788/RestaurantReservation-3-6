@@ -8,6 +8,8 @@
 
 import UIKit
 
+var commonWebSocketClient: CommonWebSocketClient?
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
 //    let loginAPI = LoginAPI(url: http://10.0.2.2:8080/RestaurantReservationApp_Web/MemberServlet)
@@ -17,15 +19,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let memberAPI = MemberAPI()
     let userDeafult = UserDefaults.standard
     
+    var waiterOrderMenu = [WaiterOrderMenu]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ordertest = ""
         
         emailTextFiedl.delegate = self
         passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,10 +65,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             if login.isUserValid {
                 print("登入成功")
+                
+                commonWebSocketClient = CommonWebSocketClient(url: "http://127.0.0.1:8080/RestaurantReservationApp_Web/CheckOrderWebSocket/\(login.memberName)")
+                commonWebSocketClient?.startWebSocket()
                 guard let controller = self.getController(authority_id: login.authority_id) else {
                     assertionFailure("controller is nil")
                     return
                 }
+                
 //                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") else{
 //                    assertionFailure("controller can't find!!")
 //                    return
@@ -90,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         case 2:
             controller = UIViewController()
         case 3:
-            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SecondStoryboard") {
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SecondStoryboard") as? UITabBarController {
                 controller = storyboard
             }
         case 4:
@@ -107,9 +117,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func logout(sender: UIStoryboardSegue) {
         // 清空userDeafult的memberId
         userDeafult.removeObject(forKey: MemberKey.MemberID.rawValue)
+        userDeafult.removeObject(forKey: MemberKey.MemberName.rawValue)
         
         emailTextFiedl.text = ""
         passwordTextField.text = ""
+        commonWebSocketClient?.stopWebSocket()
     }
     
     // 點return就收鍵盤
