@@ -9,7 +9,7 @@
 import Foundation
 
 
-//let HOST = "http://127.0.0.1:8080/RestaurantReservationApp_Web/"
+let HOST = "http://127.0.0.1:8080/RestaurantReservationApp_Web/"
 //let HOST = "http://192.168.50.45:8080/RestaurantReservationApp_Web/"
-let HOST = "http://172.20.10.7:8080/RestaurantReservationApp_Web/"
+//let HOST = "http://172.20.10.7:8080/RestaurantReservationApp_Web/"
 let ORDER_URL = HOST + "/CheckOrderServlet"
