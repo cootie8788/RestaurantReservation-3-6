@@ -61,6 +61,8 @@ class ConfirmMenuTableViewController: UITableViewController {
             self.userDefault.synchronize()
 
             self.showAlert()
+            
+            
         }
         
     }
@@ -177,6 +179,8 @@ class ConfirmMenuTableViewController: UITableViewController {
                     print(respone.orderId)
                     
                     if respone.orderId != "-1" {
+                        // waiter socket
+                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
     
@@ -224,6 +228,8 @@ class ConfirmMenuTableViewController: UITableViewController {
                     print("\(respone.orderId)")
                     
                     if respone.orderId != "-1" {
+                        // waiter socket
+                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
                             
@@ -309,6 +315,30 @@ class ConfirmMenuTableViewController: UITableViewController {
         cell.money_total = money_total
         
         return cell
+    }
+    
+    // waiter socket
+    func giveMeOrder() {
+        print(app.cart.count)
+        var cartOrderMenu = [OrderMenu]()
+        for (_,orderMenu)in app.cart {
+            cartOrderMenu.append(orderMenu)
+        }
+        var order = [String: Any]()
+        order["action"] = "giveMeOrder"
+        order["tableNumber"] = "尚未入座"
+        let encoder = JSONEncoder()
+        guard let jsonDataOrderMenu = try? encoder.encode(cartOrderMenu), let jsonStringOrderMenu = String(data: jsonDataOrderMenu, encoding: .utf8 ) else {
+            assertionFailure("json toString Fail!")
+            return
+        }
+        order["cart"] = jsonStringOrderMenu
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: order), let jsonString = String(data: jsonData, encoding: .utf8) else {
+            assertionFailure("json toString Fail!")
+            return
+        }
+        commonWebSocketClient?.sendMessage(jsonString)
     }
     
 

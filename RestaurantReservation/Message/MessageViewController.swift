@@ -113,6 +113,33 @@ class MessageViewController: UIViewController {
         
     }
     
+    @IBAction func serviceBtnPressed(_ sender: Any) {
+        
+        UserDefaults.standard.set("8", forKey: MemberKey.TableNumber.rawValue)
+        guard let tableNumber = UserDefaults.standard.string(forKey: MemberKey.TableNumber.rawValue) else {
+            let alertController = UIAlertController(title: "測試", message: "尚未入座", preferredStyle: .alert)
+            let action = UIAlertAction(title: "確定", style: .default)
+            alertController.addAction(action)
+            present(alertController, animated: true)
+            return
+        }
+        let alertController = UIAlertController(title: "測試", message: tableNumber, preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default)
+        alertController.addAction(action)
+        
+        var service = [String: Any]()
+        service["action"] = "callService"
+        service["tableNumber"] = tableNumber
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: service), let jsonString = String(data: jsonData, encoding: .utf8) else {
+            assertionFailure("Data to strint fail!")
+            return
+        }
+        
+        commonWebSocketClient?.sendMessage(jsonString)
+        
+        present(alertController, animated: true)
+    }
 }
 
 extension MessageViewController: UITableViewDelegate,UITableViewDataSource{

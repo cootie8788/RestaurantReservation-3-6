@@ -95,7 +95,11 @@
                         <viewLayoutGuide key="safeArea" id="zKZ-80-vBv"/>
                     </view>
                     <navigationItem key="navigationItem" title="優惠訊息" id="rfu-Mf-cH1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon-ring" id="vAP-Uc-Jlo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon-ring" id="vAP-Uc-Jlo">
+                            <connections>
+                                <action selector="serviceBtnPressed:" destination="owu-W6-hRA" id="kcY-hh-rkh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageShowTableView" destination="elt-4t-7Zg" id="CBQ-hn-PKU"/>
