@@ -2,11 +2,6 @@
 
 import UIKit
 
-//protocol StockTableViewCellDelegate: class {
-//
-//    func getUIbutton(bt:UIButton)
-//}
-
 
 class StockTableViewCell: UITableViewCell ,popViewControllerDelegate{
     

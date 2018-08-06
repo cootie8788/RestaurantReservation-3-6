@@ -15,12 +15,16 @@ class NewMenuViewController: UIViewController {
     
     @IBAction func editImageBt(_ sender: UIButton) {
         
+        let cameraFunc = Camera(self,newImage)
+        
         let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
         let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+//            self.lauchPicker(forType: .photoLibrary)
+            cameraFunc.lauchPicker(forType: .photoLibrary)
         }
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+//            self.lauchPicker(forType: .camera)
+            cameraFunc.lauchPicker(forType: .camera)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(library)
@@ -115,7 +119,7 @@ class NewMenuViewController: UIViewController {
                 
                 print("menuInsert: \(String(describing: String(data: data, encoding: .utf8)))")
                 
-                self.socket.sendMessage("105")
+                self.socket.sendMessage("notifyDataSetChanged")
             }
      
         }

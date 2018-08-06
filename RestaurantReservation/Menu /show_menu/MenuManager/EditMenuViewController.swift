@@ -47,13 +47,17 @@ class EditMenuViewController: UIViewController {
     
     @IBAction func EditImageBt(_ sender: UIButton) {
         
+        let cameraFunc = Camera(self,editImage)
         
         let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
         let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+//            self.lauchPicker(forType: .photoLibrary)
+            cameraFunc.lauchPicker(forType: .photoLibrary)
+
         }
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+//            self.lauchPicker(forType: .camera)
+            cameraFunc.lauchPicker(forType: .camera)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(library)
@@ -81,7 +85,7 @@ class EditMenuViewController: UIViewController {
             
             RemoveRetrieveFileNames(id)
             
-            self.socket.sendMessage("105")
+            self.socket.sendMessage("notifyDataSetChanged")
             
             deleteSW = true
             self.performSegue(withIdentifier: "goback", sender: nil)
@@ -101,7 +105,7 @@ class EditMenuViewController: UIViewController {
         
         deleteSW = true
         self.performSegue(withIdentifier: "goback", sender: nil)
-        self.socket.sendMessage("105")
+        self.socket.sendMessage("notifyDataSetChanged")
         
     }
     
@@ -186,7 +190,7 @@ class EditMenuViewController: UIViewController {
                     
                     self.RemoveRetrieveFileNames(id)
                     
-                    self.socket.sendMessage("105")
+                    self.socket.sendMessage("notifyDataSetChanged")
                     //更新 所以app的menuList
                 }
                 
@@ -199,7 +203,7 @@ class EditMenuViewController: UIViewController {
                 
                     print("menuUpdata: \(String(describing: String(data: data, encoding: .utf8)))")
                     
-                    self.socket.sendMessage("105")
+                    self.socket.sendMessage("notifyDataSetChanged")
                     //更新 所以app的menuList
                 }
                 

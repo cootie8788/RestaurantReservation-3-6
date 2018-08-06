@@ -31,10 +31,16 @@ class Downloader {
     static let shared = Downloader()
     let encoder = JSONEncoder()
     
+    
+    let app = UIApplication.shared.delegate as! AppDelegate
+    
     private init(){
         
     }
     
+    
+    
+
     func test(_ control:UITableViewController?,doneHandler: @escaping Handler) {
         
         let parameters  = ["action": "getAll"] as [String: Any]

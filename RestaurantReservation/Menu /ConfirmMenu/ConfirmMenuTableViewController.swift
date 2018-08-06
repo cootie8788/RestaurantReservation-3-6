@@ -72,7 +72,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             print("socket 連線")
             self.socket.startLinkServer()
         }
-//        socket.startLinkServer()
+
         
         var total = 0
         
@@ -186,7 +186,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
                             
-                            self.socket.sendMessage("105")
+                            self.socket.sendMessage("notifyDataSetChanged")
                             
                             self.nextpresent()
                         })
@@ -233,7 +233,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
                             
-                            self.socket.sendMessage("105")
+                            self.socket.sendMessage("notifyDataSetChanged")
                             
                             self.nextpresent()
                         })

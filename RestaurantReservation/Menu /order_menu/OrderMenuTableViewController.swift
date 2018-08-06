@@ -29,7 +29,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         return (3,"jim")
     }
 
-  
+  /////////////////////////////////////////////////////////////////////////////////
     
     @IBOutlet weak var orderMenuSwitch: UISegmentedControl!
     
@@ -37,13 +37,6 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         tableView.reloadData()
     }
     
-    @IBAction
-    func reflush() {
-        downloadList()
-        //        tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
-    }
-   
     
     var num = 0
     
@@ -52,6 +45,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
     let userDefault = UserDefaults()
+    
+    let reData = receiveData()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -70,10 +65,6 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         }
         
         
-        
-        tableView.reloadData()
-        
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
     
     override func viewDidLoad() {
@@ -83,35 +74,11 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
        
 //        downloadList()
         
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
         
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
-        
-        
-
+        reData.onSet(self)//監聽通知 與刷新
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("OrderMenu 通知收到 \(message)")
-        
-        if message == "105"{
-//                        reflush()
-            tableView.reloadData()
-//            app.downloadMenuList(self)
-        }
-    }
-    
-    func downloadList(){
-        app.downloadMenuList(self)
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

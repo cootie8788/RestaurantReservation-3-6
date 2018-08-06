@@ -7,54 +7,29 @@ class AddMenuTableViewController: UITableViewController {
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
     
-    @IBAction
-    func reflush() {
-        app.downloadMenuList(self)
-//        tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
-        
-    }
- 
+    let reData = receiveData()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        tableView.reloadData()
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
-        
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
+        reData.onSet(self)//監聽通知 與刷新
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("AddMenu 通知收到 \(message)")
-        
-        if message == "105"{
-//            reflush()
-//            app.downloadMenuList(self)
-            tableView.reloadData()
-        }
-    }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

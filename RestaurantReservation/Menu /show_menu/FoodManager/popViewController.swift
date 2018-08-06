@@ -68,7 +68,7 @@ class popViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
                 
                 print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
                 
-                self.socket.sendMessage("105")
+                self.socket.sendMessage("notifyDataSetChanged")
             }
             
         }//dismiss(animated: true)

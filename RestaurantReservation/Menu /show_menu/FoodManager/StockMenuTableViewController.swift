@@ -20,52 +20,27 @@ class StockMenuTableViewController: UITableViewController  {
 
     var selectIndex = 0
     
+    let reData = receiveData()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        app.downloadMenuList(self)
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
-    }
-    
-    @IBAction
-    func reflush() {
-        app.downloadMenuList(self)
-//        tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
 
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-//        socket.stopLinkServer()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
-        
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
+        reData.onSet(self)
+        app.downloadMenuList(self)
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("StockMenu 通知收到 \(message)")
-        
-        if message == "105"{
-//            reflush()
-            tableView.reloadData()
-//            app.downloadMenuList(self)
-        }
+    override func viewDidDisappear(_ animated: Bool) {
+        //        socket.stopLinkServer()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
