@@ -38,6 +38,8 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        app.downloadMenuList(self)
+        
         // 建立 NotificationCenter 的 接收器
 //        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
 //
