@@ -17,7 +17,7 @@ class OldOrderTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let action = ActionOrder(action: "findDetailById", memberId: 2, orderId: 0)
+        let action = ActionOrder(action: "findDetailById", memberId: 3, orderId: 0)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
         

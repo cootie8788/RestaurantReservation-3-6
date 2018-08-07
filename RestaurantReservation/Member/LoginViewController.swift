@@ -59,11 +59,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             if login.isUserValid {
                 print("登入成功")
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStroryboard") else{
-                    assertionFailure("controller can't find!!")
+                guard let controller = self.getController(authority_id: login.authority_id) else {
+                    assertionFailure("controller is nil")
                     return
                 }
+//                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") else{
+//                    assertionFailure("controller can't find!!")
+//                    return
+//                }
                 self.userDeafult.set(login.memberId, forKey: MemberKey.MemberID.rawValue)
+                self.userDeafult.set(login.authority_id, forKey: MemberKey.Authority_id.rawValue)
+                self.userDeafult.set(login.memberName, forKey: MemberKey.MemberName.rawValue)
                 self.present(controller, animated: true)
             } else {
                 let controller = UIAlertController(title: "警告", message: "帳號密碼錯誤", preferredStyle: .alert)
@@ -72,6 +78,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.present(controller, animated: true)
             }
         }
+    }
+    
+    func getController(authority_id: Int) -> UIViewController? {
+        var controller = UIViewController()
+        switch authority_id {
+        case 1:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") {
+                controller = storyboard
+            }
+        case 2:
+            controller = UIViewController()
+        case 3:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SecondStoryboard") {
+                controller = storyboard
+            }
+        case 4:
+            if let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "thirdStoryboard") {
+                controller = storyboard
+            }
+        default:
+            controller = UIViewController()
+        }
+        
+        return controller
     }
     
     @IBAction func logout(sender: UIStoryboardSegue) {
