@@ -16,6 +16,7 @@ class OrdertotalViewController: UIViewController {
     var newCheckOrder = [CheckOrder]()
     let communicator =  CommunicatorOrder()
     var dateOrder = ""
+    var orderID = -1
     
     
     var oldCheckOrders = [OldCheckOrder]()
@@ -26,6 +27,7 @@ class OrdertotalViewController: UIViewController {
         super.viewDidLoad()
         orderTotalTableView.delegate = self
         orderTotalTableView.dataSource = self
+
         
         //設定segmentedControl顏色
         let font = UIFont(name: "HelveticaNeue-Bold", size: 23.0)
@@ -37,7 +39,21 @@ class OrdertotalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if !orderMenu.isEmpty {
+        let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
+        guard let confirmOrderInt = Int(confirmOrderId!) else {
+            assertionFailure("get MemberID Fail")
+            return
+        }
+        newOrderTableViewControllerOrderID = confirmOrderInt
+        }
+       
         downNewOrder()
+        
+        
+        
+   
+        
         
     }
     

@@ -21,7 +21,7 @@ class MessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        getData()
+        //        getData()        
         let member_authority_id = userDefault.string(forKey: MemberKey.Authority_id.rawValue)
         
         messageShowTableView.refreshControl = UIRefreshControl()
@@ -29,7 +29,7 @@ class MessageViewController: UIViewController {
         
         if member_authority_id == "1" {
             navigationItem.title = "優惠訊息"
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: nil, action: nil)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: self, action: #selector(serviceBtnPressed))
             
         }
         
@@ -112,6 +112,9 @@ class MessageViewController: UIViewController {
         }
         
     }
+    
+    
+    
     
     @IBAction func serviceBtnPressed(_ sender: Any) {
         

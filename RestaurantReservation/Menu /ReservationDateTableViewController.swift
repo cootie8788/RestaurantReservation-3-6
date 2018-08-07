@@ -11,9 +11,9 @@ var upload = ""
 class ReservationDateTableViewController: UITableViewController {
     
     @IBOutlet weak var numberOfTextField: UITextField!//人數TextField
-    
     @IBOutlet weak var timeTextField: UITextField!//時間TextField
     @IBOutlet weak var dateTextField: UITextField! //日期TextField
+    
     let numberOfPeoples = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15","16", "17", "18", "19", "20"]
     let communicator =  CommunicatorOrder()
     var timePick = UIDatePicker()
@@ -42,8 +42,6 @@ class ReservationDateTableViewController: UITableViewController {
         creatTimePicker()
         createPeolePiceker()
         
-
-        
     }
     
     var con : UINavigationController?
@@ -58,8 +56,6 @@ class ReservationDateTableViewController: UITableViewController {
         }
         
     }
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -82,7 +78,6 @@ class ReservationDateTableViewController: UITableViewController {
         toolbar.setItems([doneButton], animated: true)
         timeTextField.inputAccessoryView = toolbar
     }
-    
     // 創造日期picker
     func creatDatePicker(){
         //格式化 顯示的 datePick
@@ -97,7 +92,7 @@ class ReservationDateTableViewController: UITableViewController {
         //toolbar 增加完成按紐
         let doneButton = UIBarButtonItem(title: "確定", style: .done, target: nil, action: #selector(doneClicked))
         toolbar.setItems([doneButton], animated: true)
-        dateTextField.inputAccessoryView = toolbar //要開啟虛擬鍵盤都需透故inputAccessoryView
+        dateTextField.inputAccessoryView = toolbar //要開啟虛擬鍵盤都需透過inputAccessoryView
         datePick.maximumDate = sevenDaysfromNow //設定最大日期
         datePick.minimumDate = datePick.date //設定最小日期
     }
@@ -184,10 +179,8 @@ class ReservationDateTableViewController: UITableViewController {
                 
                 self.userDefault.setValue("預訂點餐", forKey: MemberKey.TableNumber.rawValue)
                 self.userDefault.synchronize()
-                
-                
                 self.performSegue(withIdentifier: "OrderMenu", sender: nil)
-
+                
             }
             
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -201,10 +194,9 @@ class ReservationDateTableViewController: UITableViewController {
                     newOrderTableViewControllerOrderID = self.orderID.orderId
                     newOrderTableViewDetailControllerOrderID = self.orderID.orderId
                     print("newOrderTableViewDetailControllerOrderID:\(newOrderTableViewControllerOrderID)")
+                    self.cancelTextField()
                     self.tabBarController?.selectedIndex = 2
                     
-          
-                  
                 })
                 let messageAction = UIAlertAction(title: "返回優惠訊息", style: .default, handler: { (action) in
                     self.tabBarController?.selectedIndex = 0
@@ -220,6 +212,13 @@ class ReservationDateTableViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    //清空時間人數文字
+    func cancelTextField() {
+        timeTextField.text = ""
+        dateTextField.text = ""
+        numberOfTextField.text = ""
+    }
+    
     //上傳時間日期人數方法
     func uploaddateTask() {
         let action = dateInfo(action: "insert", date: upload, person: person, memberId: memberIDInter)
