@@ -29,7 +29,6 @@
 		380399D5210F61C00039F41F /* AddMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380399C2210F61C00039F41F /* AddMenuTableViewController.swift */; };
 		380399D7210F64450039F41F /* ReservationDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380399D6210F64450039F41F /* ReservationDateTableViewController.swift */; };
 		382260592117FBF700D68D9F /*  receiveData .swift in Sources */ = {isa = PBXBuildFile; fileRef = 382260582117FBF700D68D9F /*  receiveData .swift */; };
-		3822605D21180F6E00D68D9F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3822605C21180F6E00D68D9F /* Camera.swift */; };
 		38256D0D21108B9B0035FABA /* RatingNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D0A21108B9B0035FABA /* RatingNewViewController.swift */; };
 		38256D0E21108B9B0035FABA /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D0B21108B9B0035FABA /* RatingTableViewCell.swift */; };
 		38256D1321108BD20035FABA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D1021108BD20035FABA /* MessageTableViewCell.swift */; };
@@ -114,7 +113,6 @@
 		380399C2210F61C00039F41F /* AddMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuTableViewController.swift; sourceTree = "<group>"; };
 		380399D6210F64450039F41F /* ReservationDateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationDateTableViewController.swift; path = "RestaurantReservation/Menu /ReservationDateTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		382260582117FBF700D68D9F /*  receiveData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " receiveData .swift"; sourceTree = "<group>"; };
-		3822605C21180F6E00D68D9F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		38256D0A21108B9B0035FABA /* RatingNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingNewViewController.swift; sourceTree = "<group>"; };
 		38256D0B21108B9B0035FABA /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		38256D1021108BD20035FABA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 				380399BA210F61C00039F41F /* NewMenuViewController.swift */,
 				380399B9210F61C00039F41F /* EditMenuPhoto.swift */,
 				380399BB210F61C00039F41F /* NewMenuPhoto.swift */,
-				3822605C21180F6E00D68D9F /* Camera.swift */,
 			);
 			path = MenuManager;
 			sourceTree = "<group>";
@@ -568,7 +565,6 @@
 				380399CE210F61C00039F41F /* EditMenuPhoto.swift in Sources */,
 				BF92A2AE20FE28A400406C20 /* Communicator.swift in Sources */,
 				380399CC210F61C00039F41F /* MenuTableViewController.swift in Sources */,
-				3822605D21180F6E00D68D9F /* Camera.swift in Sources */,
 				380399D4210F61C00039F41F /* Socket.swift in Sources */,
 				EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */,
 				380399CA210F61C00039F41F /* StockMenuTableViewController.swift in Sources */,
