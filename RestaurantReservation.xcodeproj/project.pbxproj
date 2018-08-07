@@ -46,6 +46,7 @@
 		38256D3D21109B990035FABA /* MessageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3C21109B990035FABA /* MessageManagerViewController.swift */; };
 		38256D3F21109BB70035FABA /* RatingManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3E21109BB70035FABA /* RatingManagerViewController.swift */; };
 		6DF877989A63D04D0396B682 /* Pods_RestaurantReservation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */; };
+		BF076AF021199A4C00A1A27F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF076AEF21199A4B00A1A27F /* Assets.xcassets */; };
 		BF10EA332110A752005BD225 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10EA322110A752005BD225 /* RatingViewController.swift */; };
 		BF10EA352110A767005BD225 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF10EA342110A767005BD225 /* MessageViewController.swift */; };
 		BF92A2AE20FE28A400406C20 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92A2AD20FE28A400406C20 /* Communicator.swift */; };
@@ -53,7 +54,6 @@
 		BFCF5A0420F865C9008E2A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF5A0320F865C9008E2A34 /* AppDelegate.swift */; };
 		BFCF5A0620F865C9008E2A34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF5A0520F865C9008E2A34 /* ViewController.swift */; };
 		BFCF5A0920F865C9008E2A34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF5A0720F865C9008E2A34 /* Main.storyboard */; };
-		BFCF5A0B20F865CB008E2A34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */; };
 		BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCF5A0C20F865CB008E2A34 /* LaunchScreen.storyboard */; };
 		BFDA831120F86B250050C738 /* Member.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDA830F20F86B250050C738 /* Member.storyboard */; };
 		BFDA831A20F86B7A0050C738 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDA831820F86B7A0050C738 /* Message.storyboard */; };
@@ -127,6 +127,7 @@
 		38256D3E21109BB70035FABA /* RatingManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingManagerViewController.swift; sourceTree = "<group>"; };
 		4B8EA2DB4F6C7F67108449B4 /* Pods_RestaurantReservation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantReservation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B7386EDF1085AFA5FCFE9DC /* Pods-RestaurantReservation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantReservation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation.debug.xcconfig"; sourceTree = "<group>"; };
+		BF076AEF21199A4B00A1A27F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF10EA322110A752005BD225 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		BF10EA342110A767005BD225 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		BF92A2AD20FE28A400406C20 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		BFCF5A0320F865C9008E2A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFCF5A0520F865C9008E2A34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BFCF5A0820F865C9008E2A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFCF5A0D20F865CB008E2A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFCF5A0F20F865CB008E2A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFDA831020F86B250050C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/Member.storyboard; sourceTree = "<group>"; };
@@ -280,6 +280,7 @@
 				BFCF5A0120F865C9008E2A34 /* Products */,
 				E1FC0AA6C0A0D48B4082E5C8 /* Pods */,
 				5C4A3B64CBBEDEE977562D22 /* Frameworks */,
+				BF076AEF21199A4B00A1A27F /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,7 +306,6 @@
 				BFCF5A0320F865C9008E2A34 /* AppDelegate.swift */,
 				BFCF5A0520F865C9008E2A34 /* ViewController.swift */,
 				BFCF5A0720F865C9008E2A34 /* Main.storyboard */,
-				BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */,
 				BFCF5A0C20F865CB008E2A34 /* LaunchScreen.storyboard */,
 				BFCF5A0F20F865CB008E2A34 /* Info.plist */,
 			);
@@ -475,10 +475,10 @@
 				38256D352110979B0035FABA /* MenuManager.storyboard in Resources */,
 				BFDA831120F86B250050C738 /* Member.storyboard in Resources */,
 				BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */,
+				BF076AF021199A4C00A1A27F /* Assets.xcassets in Resources */,
 				38256D3B211099210035FABA /* MessageManager.storyboard in Resources */,
 				38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */,
 				38256D1C21108CDA0035FABA /* Menu.storyboard in Resources */,
-				BFCF5A0B20F865CB008E2A34 /* Assets.xcassets in Resources */,
 				38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
 				BFDA831D20F86B8B0050C738 /* Rating.storyboard in Resources */,
 				38256D2B21108FB90035FABA /* Service.storyboard in Resources */,
