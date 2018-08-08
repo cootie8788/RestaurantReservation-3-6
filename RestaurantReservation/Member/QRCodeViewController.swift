@@ -86,13 +86,8 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
                 if alertController == nil {
                 alertController = UIAlertController(title: "桌號", message: "第\(metaObj)桌", preferredStyle: .alert)
                 let action = UIAlertAction(title: "確定", style: .default) { (action) in
-//                    let controller = self.tabBarController?.viewControllers?.first as? UINavigationController
-//                    self.present(controller!, animated: true, completion: nil)
-                    guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "OrderMenu") as? UINavigationController else {
-                        return
-                    }
-                    controller.modalPresentationStyle = .currentContext
-                    self.present(controller, animated: true)
+
+                    self.performSegue(withIdentifier: "QCCode", sender: nil)
 //                    self.tabBarController?.selectedIndex = 1
                 }
                 alertController!.addAction(action)
