@@ -539,7 +539,7 @@
         <!--Order Menu Table View Controller-->
         <scene sceneID="pS2-gt-Eid">
             <objects>
-                <tableViewController storyboardIdentifier="OrderMenu" id="wsR-1Y-YCm" customClass="OrderMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="OrderMenuTableViewController" id="wsR-1Y-YCm" customClass="OrderMenuTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nSP-lC-S14">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -674,7 +674,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVr-73-qnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7844" y="-172"/>
+            <point key="canvasLocation" x="4894" y="593"/>
         </scene>
         <!--優惠加購-->
         <scene sceneID="Len-x8-Gbu">

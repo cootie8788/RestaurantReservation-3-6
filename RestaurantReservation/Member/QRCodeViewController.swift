@@ -84,14 +84,17 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             if let metaObj = metadataObj.stringValue {
                 UserDefaults.standard.set(metaObj, forKey: MemberKey.TableNumber.rawValue)
                 if alertController == nil {
-                alertController = UIAlertController(title: "桌號", message: "第\(metaObj)桌", preferredStyle: .alert)
-                let action = UIAlertAction(title: "確定", style: .default) { (action) in
+                    alertController = UIAlertController(title: "桌號", message: "第\(metaObj)桌", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "確定", style: .default) { (action) in
 
-                    self.performSegue(withIdentifier: "QCCode", sender: nil)
-//                    self.tabBarController?.selectedIndex = 1
-                }
-                alertController!.addAction(action)
-                present(alertController!, animated: true, completion: nil)
+                        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "OrderMenuTableViewController") as? OrderMenuTableViewController
+                        self.navigationController?.pushViewController(nextViewController!, animated: true)
+
+//                        controller.modalPresentationStyle = .currentContext
+//                         self.tabBarController?.selectedIndex = 1
+                    }
+                    alertController!.addAction(action)
+                    present(alertController!, animated: true, completion: nil)
                 }
             }
             
