@@ -30,7 +30,7 @@ class Camera: NSObject, UIImagePickerControllerDelegate ,UINavigationControllerD
         
         //CF String 是c語言的
         picker.sourceType = forType
-        picker.delegate = controler as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        picker.delegate = self
         
         controler.present(picker, animated: true)
     }

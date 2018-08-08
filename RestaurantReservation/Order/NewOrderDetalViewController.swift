@@ -9,7 +9,7 @@
 import UIKit
 //訂位畫面detail
 var newOrderTableViewDetailControllerOrderID = -1
-
+var orderMenu = [OrderMenu]()
 class NewOrderDetalViewController: UIViewController {
     
     @IBOutlet weak var orderDateLabel: UILabel!
@@ -23,6 +23,15 @@ class NewOrderDetalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !orderMenu.isEmpty {
+            let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
+            guard let confirmOrderInt = Int(confirmOrderId!) else {
+                assertionFailure("get MemberID Fail")
+                return
+            }
+            newOrderTableViewDetailControllerOrderID = confirmOrderInt
+        }
+        
         let memberID = UserDefaults.standard.string(forKey: MemberKey.MemberID.rawValue)
         guard let memberIDInt = Int(memberID!) else {
             assertionFailure("get MemberID Fail")

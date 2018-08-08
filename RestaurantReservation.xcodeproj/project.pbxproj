@@ -1,10 +1,10 @@
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 50;
-	objects = {
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 50;
+    objects = {
 
 /* Begin PBXBuildFile section */
 		380399A6210F61B20039F41F /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380399A4210F61B20039F41F /* UIImage+Resize.swift */; };
@@ -29,7 +29,6 @@
 		380399D5210F61C00039F41F /* AddMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380399C2210F61C00039F41F /* AddMenuTableViewController.swift */; };
 		380399D7210F64450039F41F /* ReservationDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380399D6210F64450039F41F /* ReservationDateTableViewController.swift */; };
 		382260592117FBF700D68D9F /*  receiveData .swift in Sources */ = {isa = PBXBuildFile; fileRef = 382260582117FBF700D68D9F /*  receiveData .swift */; };
-		3822605D21180F6E00D68D9F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3822605C21180F6E00D68D9F /* Camera.swift */; };
 		38256D0D21108B9B0035FABA /* RatingNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D0A21108B9B0035FABA /* RatingNewViewController.swift */; };
 		38256D0E21108B9B0035FABA /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D0B21108B9B0035FABA /* RatingTableViewCell.swift */; };
 		38256D1321108BD20035FABA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D1021108BD20035FABA /* MessageTableViewCell.swift */; };
@@ -114,7 +113,6 @@
 		380399C2210F61C00039F41F /* AddMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuTableViewController.swift; sourceTree = "<group>"; };
 		380399D6210F64450039F41F /* ReservationDateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservationDateTableViewController.swift; path = "RestaurantReservation/Menu /ReservationDateTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		382260582117FBF700D68D9F /*  receiveData .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " receiveData .swift"; sourceTree = "<group>"; };
-		3822605C21180F6E00D68D9F /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		38256D0A21108B9B0035FABA /* RatingNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingNewViewController.swift; sourceTree = "<group>"; };
 		38256D0B21108B9B0035FABA /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		38256D1021108BD20035FABA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,14 +177,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BFCF59FD20F865C9008E2A34 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6DF877989A63D04D0396B682 /* Pods_RestaurantReservation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        BFCF59FD20F865C9008E2A34 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                6DF877989A63D04D0396B682 /* Pods_RestaurantReservation.framework in Frameworks */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -254,7 +252,6 @@
 				380399BA210F61C00039F41F /* NewMenuViewController.swift */,
 				380399B9210F61C00039F41F /* EditMenuPhoto.swift */,
 				380399BB210F61C00039F41F /* NewMenuPhoto.swift */,
-				3822605C21180F6E00D68D9F /* Camera.swift */,
 			);
 			path = MenuManager;
 			sourceTree = "<group>";
@@ -429,121 +426,121 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BFCF59FF20F865C9008E2A34 /* RestaurantReservation */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BFCF5A1220F865CB008E2A34 /* Build configuration list for PBXNativeTarget "RestaurantReservation" */;
-			buildPhases = (
-				4CBDADE79A93CC98EE7D38B6 /* [CP] Check Pods Manifest.lock */,
-				BFCF59FC20F865C9008E2A34 /* Sources */,
-				BFCF59FD20F865C9008E2A34 /* Frameworks */,
-				BFCF59FE20F865C9008E2A34 /* Resources */,
-				3F78D7257C1BBCEA9DA66BF0 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RestaurantReservation;
-			productName = RestaurantReservation;
-			productReference = BFCF5A0020F865C9008E2A34 /* RestaurantReservation.app */;
-			productType = "com.apple.product-type.application";
-		};
+        BFCF59FF20F865C9008E2A34 /* RestaurantReservation */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = BFCF5A1220F865CB008E2A34 /* Build configuration list for PBXNativeTarget "RestaurantReservation" */;
+            buildPhases = (
+                4CBDADE79A93CC98EE7D38B6 /* [CP] Check Pods Manifest.lock */,
+                BFCF59FC20F865C9008E2A34 /* Sources */,
+                BFCF59FD20F865C9008E2A34 /* Frameworks */,
+                BFCF59FE20F865C9008E2A34 /* Resources */,
+                3F78D7257C1BBCEA9DA66BF0 /* [CP] Embed Pods Frameworks */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = RestaurantReservation;
+            productName = RestaurantReservation;
+            productReference = BFCF5A0020F865C9008E2A34 /* RestaurantReservation.app */;
+            productType = "com.apple.product-type.application";
+        };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BFCF59F820F865C9008E2A34 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Peggy Tsai";
-				TargetAttributes = {
-					BFCF59FF20F865C9008E2A34 = {
-						CreatedOnToolsVersion = 9.4.1;
-					};
-				};
-			};
-			buildConfigurationList = BFCF59FB20F865C9008E2A34 /* Build configuration list for PBXProject "RestaurantReservation" */;
-			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = BFCF59F720F865C9008E2A34;
-			productRefGroup = BFCF5A0120F865C9008E2A34 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				BFCF59FF20F865C9008E2A34 /* RestaurantReservation */,
-			);
-		};
+        BFCF59F820F865C9008E2A34 /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                LastSwiftUpdateCheck = 0940;
+                LastUpgradeCheck = 0940;
+                ORGANIZATIONNAME = "Peggy Tsai";
+                TargetAttributes = {
+                    BFCF59FF20F865C9008E2A34 = {
+                        CreatedOnToolsVersion = 9.4.1;
+                    };
+                };
+            };
+            buildConfigurationList = BFCF59FB20F865C9008E2A34 /* Build configuration list for PBXProject "RestaurantReservation" */;
+            compatibilityVersion = "Xcode 9.3";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = BFCF59F720F865C9008E2A34;
+            productRefGroup = BFCF5A0120F865C9008E2A34 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                BFCF59FF20F865C9008E2A34 /* RestaurantReservation */,
+            );
+        };
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BFCF59FE20F865C9008E2A34 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38256D32211095630035FABA /* FoodManager.storyboard in Resources */,
-				38256D352110979B0035FABA /* MenuManager.storyboard in Resources */,
-				BFDA831120F86B250050C738 /* Member.storyboard in Resources */,
-				BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */,
-				38256D3B211099210035FABA /* MessageManager.storyboard in Resources */,
-				38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */,
-				38256D1C21108CDA0035FABA /* Menu.storyboard in Resources */,
-				BFCF5A0B20F865CB008E2A34 /* Assets.xcassets in Resources */,
-				38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
-				BFDA831D20F86B8B0050C738 /* Rating.storyboard in Resources */,
-				38256D2B21108FB90035FABA /* Service.storyboard in Resources */,
-				38256D2821108F630035FABA /* Waiter.storyboard in Resources */,
-				BFCF5A0920F865C9008E2A34 /* Main.storyboard in Resources */,
-				BFDA831A20F86B7A0050C738 /* Message.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        BFCF59FE20F865C9008E2A34 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                38256D32211095630035FABA /* FoodManager.storyboard in Resources */,
+                38256D352110979B0035FABA /* MenuManager.storyboard in Resources */,
+                BFDA831120F86B250050C738 /* Member.storyboard in Resources */,
+                BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */,
+                38256D3B211099210035FABA /* MessageManager.storyboard in Resources */,
+                38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */,
+                38256D1C21108CDA0035FABA /* Menu.storyboard in Resources */,
+                BFCF5A0B20F865CB008E2A34 /* Assets.xcassets in Resources */,
+                38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
+                BFDA831D20F86B8B0050C738 /* Rating.storyboard in Resources */,
+                38256D2B21108FB90035FABA /* Service.storyboard in Resources */,
+                38256D2821108F630035FABA /* Waiter.storyboard in Resources */,
+                BFCF5A0920F865C9008E2A34 /* Main.storyboard in Resources */,
+                BFDA831A20F86B7A0050C738 /* Message.storyboard in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F78D7257C1BBCEA9DA66BF0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4CBDADE79A93CC98EE7D38B6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RestaurantReservation-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
+        3F78D7257C1BBCEA9DA66BF0 /* [CP] Embed Pods Frameworks */ = {
+            isa = PBXShellScriptBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputPaths = (
+                "${SRCROOT}/Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation-frameworks.sh",
+                "${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+                "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+            );
+            name = "[CP] Embed Pods Frameworks";
+            outputPaths = (
+                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestaurantReservation/Pods-RestaurantReservation-frameworks.sh\"\n";
+            showEnvVarsInLog = 0;
+        };
+        4CBDADE79A93CC98EE7D38B6 /* [CP] Check Pods Manifest.lock */ = {
+            isa = PBXShellScriptBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputPaths = (
+                "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+                "${PODS_ROOT}/Manifest.lock",
+            );
+            name = "[CP] Check Pods Manifest.lock";
+            outputPaths = (
+                "$(DERIVED_FILE_DIR)/Pods-RestaurantReservation-checkManifestLockResult.txt",
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+            showEnvVarsInLog = 0;
+        };
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -568,7 +565,6 @@
 				380399CE210F61C00039F41F /* EditMenuPhoto.swift in Sources */,
 				BF92A2AE20FE28A400406C20 /* Communicator.swift in Sources */,
 				380399CC210F61C00039F41F /* MenuTableViewController.swift in Sources */,
-				3822605D21180F6E00D68D9F /* Camera.swift in Sources */,
 				380399D4210F61C00039F41F /* Socket.swift in Sources */,
 				EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */,
 				380399CA210F61C00039F41F /* StockMenuTableViewController.swift in Sources */,
@@ -623,110 +619,110 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		38256D1821108CDA0035FABA /* Menu.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D1921108CDA0035FABA /* Base */,
-			);
-			name = Menu.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D1A21108CDA0035FABA /* Order.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D1B21108CDA0035FABA /* Base */,
-			);
-			name = Order.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D2621108F630035FABA /* Waiter.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D2721108F630035FABA /* Base */,
-			);
-			name = Waiter.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D2921108FB90035FABA /* Service.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D2A21108FB90035FABA /* Base */,
-			);
-			name = Service.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D30211095630035FABA /* FoodManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D31211095630035FABA /* Base */,
-			);
-			name = FoodManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D332110979B0035FABA /* MenuManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D342110979B0035FABA /* Base */,
-			);
-			name = MenuManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D36211097AC0035FABA /* RatingManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D37211097AC0035FABA /* Base */,
-			);
-			name = RatingManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D39211099210035FABA /* MessageManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D3A211099210035FABA /* Base */,
-			);
-			name = MessageManager.storyboard;
-			sourceTree = "<group>";
-		};
-		BFCF5A0720F865C9008E2A34 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFCF5A0820F865C9008E2A34 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BFCF5A0C20F865CB008E2A34 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFCF5A0D20F865CB008E2A34 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		BFDA830F20F86B250050C738 /* Member.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFDA831020F86B250050C738 /* Base */,
-			);
-			name = Member.storyboard;
-			sourceTree = "<group>";
-		};
-		BFDA831820F86B7A0050C738 /* Message.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFDA831920F86B7A0050C738 /* Base */,
-			);
-			name = Message.storyboard;
-			sourceTree = "<group>";
-		};
-		BFDA831B20F86B8B0050C738 /* Rating.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BFDA831C20F86B8B0050C738 /* Base */,
-			);
-			name = Rating.storyboard;
-			sourceTree = "<group>";
-		};
+        38256D1821108CDA0035FABA /* Menu.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D1921108CDA0035FABA /* Base */,
+            );
+            name = Menu.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D1A21108CDA0035FABA /* Order.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D1B21108CDA0035FABA /* Base */,
+            );
+            name = Order.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D2621108F630035FABA /* Waiter.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D2721108F630035FABA /* Base */,
+            );
+            name = Waiter.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D2921108FB90035FABA /* Service.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D2A21108FB90035FABA /* Base */,
+            );
+            name = Service.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D30211095630035FABA /* FoodManager.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D31211095630035FABA /* Base */,
+            );
+            name = FoodManager.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D332110979B0035FABA /* MenuManager.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D342110979B0035FABA /* Base */,
+            );
+            name = MenuManager.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D36211097AC0035FABA /* RatingManager.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D37211097AC0035FABA /* Base */,
+            );
+            name = RatingManager.storyboard;
+            sourceTree = "<group>";
+        };
+        38256D39211099210035FABA /* MessageManager.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                38256D3A211099210035FABA /* Base */,
+            );
+            name = MessageManager.storyboard;
+            sourceTree = "<group>";
+        };
+        BFCF5A0720F865C9008E2A34 /* Main.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                BFCF5A0820F865C9008E2A34 /* Base */,
+            );
+            name = Main.storyboard;
+            sourceTree = "<group>";
+        };
+        BFCF5A0C20F865CB008E2A34 /* LaunchScreen.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                BFCF5A0D20F865CB008E2A34 /* Base */,
+            );
+            name = LaunchScreen.storyboard;
+            sourceTree = "<group>";
+        };
+        BFDA830F20F86B250050C738 /* Member.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                BFDA831020F86B250050C738 /* Base */,
+            );
+            name = Member.storyboard;
+            sourceTree = "<group>";
+        };
+        BFDA831820F86B7A0050C738 /* Message.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                BFDA831920F86B7A0050C738 /* Base */,
+            );
+            name = Message.storyboard;
+            sourceTree = "<group>";
+        };
+        BFDA831B20F86B8B0050C738 /* Rating.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                BFDA831C20F86B8B0050C738 /* Base */,
+            );
+            name = Rating.storyboard;
+            sourceTree = "<group>";
+        };
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -887,25 +883,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BFCF59FB20F865C9008E2A34 /* Build configuration list for PBXProject "RestaurantReservation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BFCF5A1020F865CB008E2A34 /* Debug */,
-				BFCF5A1120F865CB008E2A34 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BFCF5A1220F865CB008E2A34 /* Build configuration list for PBXNativeTarget "RestaurantReservation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BFCF5A1320F865CB008E2A34 /* Debug */,
-				BFCF5A1420F865CB008E2A34 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+        BFCF59FB20F865C9008E2A34 /* Build configuration list for PBXProject "RestaurantReservation" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                BFCF5A1020F865CB008E2A34 /* Debug */,
+                BFCF5A1120F865CB008E2A34 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        BFCF5A1220F865CB008E2A34 /* Build configuration list for PBXNativeTarget "RestaurantReservation" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                BFCF5A1320F865CB008E2A34 /* Debug */,
+                BFCF5A1420F865CB008E2A34 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
 /* End XCConfigurationList section */
-	};
-	rootObject = BFCF59F820F865C9008E2A34 /* Project object */;
+    };
+    rootObject = BFCF59F820F865C9008E2A34 /* Project object */;
 }
