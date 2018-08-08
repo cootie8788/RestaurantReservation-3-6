@@ -228,8 +228,6 @@ class ConfirmMenuTableViewController: UITableViewController {
                     print("\(respone.orderId)")
                     
                     if respone.orderId != "-1" {
-                        // waiter socket
-                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
                             
@@ -324,9 +322,14 @@ class ConfirmMenuTableViewController: UITableViewController {
         for (_,orderMenu)in app.cart {
             cartOrderMenu.append(orderMenu)
         }
+        guard let tableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) else {
+            assertionFailure("tableNumber is nil")
+            return
+        }
+        print(tableNumber)
         var order = [String: Any]()
         order["action"] = "giveMeOrder"
-        order["tableNumber"] = "尚未入座"
+        order["tableNumber"] = tableNumber
         let encoder = JSONEncoder()
         guard let jsonDataOrderMenu = try? encoder.encode(cartOrderMenu), let jsonStringOrderMenu = String(data: jsonDataOrderMenu, encoding: .utf8 ) else {
             assertionFailure("json toString Fail!")

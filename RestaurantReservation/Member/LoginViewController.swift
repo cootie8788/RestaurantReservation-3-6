@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if login.isUserValid {
                 print("登入成功")
                 
-                commonWebSocketClient = CommonWebSocketClient(url: "http://127.0.0.1:8080/RestaurantReservationApp_Web/CheckOrderWebSocket/\(login.memberName)")
+                commonWebSocketClient = CommonWebSocketClient(url: HOST_URL + "/CheckOrderWebSocket/\(login.memberName)")
                 commonWebSocketClient?.startWebSocket()
                 guard let controller = self.getController(authority_id: login.authority_id) else {
                     assertionFailure("controller is nil")
