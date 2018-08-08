@@ -30,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="7735" y="1630"/>
         </scene>
-        <!--Service View Controller-->
+        <!--服務鈴-->
         <scene sceneID="VfH-NN-0Ou">
             <objects>
                 <viewController id="l9H-Vw-yq0" customClass="ServiceViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,19 +52,41 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-Zz-KZO">
                                                     <rect key="frame" x="15" y="10" width="345" height="80"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPa-m0-zb3">
-                                                            <rect key="frame" x="16" y="16" width="313" height="48"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iBW-Hw-dHY">
+                                                            <rect key="frame" x="16" y="30" width="313" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="桌號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPa-m0-zb3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2df-0a-Tcy">
+                                                                    <rect key="frame" x="82" y="0.0" width="149" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未服務" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-dS-247">
+                                                                    <rect key="frame" x="261" y="0.0" width="52" height="20.5"/>
+                                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                            <integer key="value" value="5"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="aPa-m0-zb3" firstAttribute="top" secondItem="B2i-Zz-KZO" secondAttribute="top" constant="16" id="Fg5-A6-NK8"/>
-                                                        <constraint firstAttribute="bottom" secondItem="aPa-m0-zb3" secondAttribute="bottom" constant="16" id="l8r-Gn-M7C"/>
-                                                        <constraint firstItem="aPa-m0-zb3" firstAttribute="leading" secondItem="B2i-Zz-KZO" secondAttribute="leading" constant="16" id="nUl-mU-HLQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="aPa-m0-zb3" secondAttribute="trailing" constant="16" id="tod-SP-ayW"/>
+                                                        <constraint firstAttribute="trailing" secondItem="iBW-Hw-dHY" secondAttribute="trailing" constant="16" id="2g3-86-AWU"/>
+                                                        <constraint firstItem="iBW-Hw-dHY" firstAttribute="centerY" secondItem="B2i-Zz-KZO" secondAttribute="centerY" id="Q3F-RL-KTI"/>
+                                                        <constraint firstItem="iBW-Hw-dHY" firstAttribute="leading" secondItem="B2i-Zz-KZO" secondAttribute="leading" constant="16" id="ulI-3j-vaY"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -82,6 +104,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="serviceLabel" destination="aPa-m0-zb3" id="OxB-uV-S3L"/>
+                                            <outlet property="timeLabel" destination="2df-0a-Tcy" id="IUI-UW-e4k"/>
                                             <outlet property="view" destination="B2i-Zz-KZO" id="smV-Ca-L8y"/>
                                         </connections>
                                     </tableViewCell>
@@ -97,7 +120,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhN-WD-HwC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eah-Ng-Uf3"/>
+                    <navigationItem key="navigationItem" title="服務鈴" id="eah-Ng-Uf3"/>
                     <connections>
                         <outlet property="tableView" destination="kUB-96-gT9" id="Cq4-I9-Mxl"/>
                     </connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCellDelegate {
+class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCellDelegate, UINavigationControllerDelegate {
     
     func getSomething(_ cell: UITableViewCell)
         -> (id: Int, name: String, price: String, stock: Int, type: Int)? {
@@ -54,17 +54,23 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         
         let TableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
         
-        
         switch TableNumber {
         case "5":
             self.navigationItem.title = "外帶"  //有tableMember
         case "預訂點餐":
-            self.navigationItem.title = "預訂點餐"  
+            self.navigationItem.title = "預訂點餐"
+            navigationController?.delegate = nil
         default:
             self.navigationItem.title = "內用 \(TableNumber)號桌"  //有tableMember
+            navigationController?.delegate = self
         }
-        
-        
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is QRCodeViewController {
+            navigationController.popViewController(animated: animated)
+            navigationController.delegate = nil
+        }
     }
     
     override func viewDidLoad() {

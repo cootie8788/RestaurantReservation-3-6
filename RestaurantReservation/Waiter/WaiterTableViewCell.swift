@@ -12,6 +12,9 @@ class WaiterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var waiterLabel: UILabel!
+    @IBOutlet weak var tableLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -15,7 +15,7 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     var alertController: UIAlertController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,15 +98,15 @@ class QRCodeViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         }
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

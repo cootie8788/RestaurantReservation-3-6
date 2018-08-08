@@ -47,7 +47,8 @@ class ServiceViewController: UIViewController,UITableViewDataSource,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as! ServiceTableViewCell
-        cell.serviceLabel.text = "\(service[indexPath.row].tableNumber) time: \(service[indexPath.row].time)"
+        cell.serviceLabel.text = "桌號：\(service[indexPath.row].tableNumber)"
+        cell.timeLabel.text = "時間：\(service[indexPath.row].time)"
         return cell
     }
 

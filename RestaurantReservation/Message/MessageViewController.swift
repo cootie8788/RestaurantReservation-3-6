@@ -113,20 +113,18 @@ class MessageViewController: UIViewController {
         
     }
     
-    
-    
-    
-    @IBAction func serviceBtnPressed(_ sender: Any) {
-        
-        UserDefaults.standard.set("8", forKey: MemberKey.TableNumber.rawValue)
+    @objc
+    func serviceBtnPressed(_ sender: Any) {
+        print("123")
+//        UserDefaults.standard.set("8", forKey: MemberKey.TableNumber.rawValue)
         guard let tableNumber = UserDefaults.standard.string(forKey: MemberKey.TableNumber.rawValue) else {
-            let alertController = UIAlertController(title: "測試", message: "尚未入座", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "提示", message: "尚未入座", preferredStyle: .alert)
             let action = UIAlertAction(title: "確定", style: .default)
             alertController.addAction(action)
             present(alertController, animated: true)
             return
         }
-        let alertController = UIAlertController(title: "測試", message: tableNumber, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "提示", message: "已幫您呼叫服務員", preferredStyle: .alert)
         let action = UIAlertAction(title: "確定", style: .default)
         alertController.addAction(action)
         
