@@ -41,7 +41,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     @IBAction func returnAction(_ sender: UIBarButtonItem) {
         
 //        self.navigationController?.popToRootViewController(animated: true)
-        self.tabBarController?.selectedIndex = 2
+//        self.tabBarController?.selectedIndex = 2
         // 直接回到navigation最開頭
         self.navigationController?.popToRootViewController(animated: true)
         app.cart.removeAll()
@@ -84,7 +84,8 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
         orderid.text = order
         date.text = stringTime
-        discount_text.text = "\(discount)折"
+        let display_discount = 10 * discount
+        discount_text.text = "\(display_discount)折"
         
         if discount == 0{
             total_text.text = "$\(total)"

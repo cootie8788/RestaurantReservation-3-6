@@ -144,7 +144,7 @@
         BFCF5A0320F865C9008E2A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
         BFCF5A0520F865C9008E2A34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
         BFCF5A0820F865C9008E2A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-        BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RestaurantReservation/Assets.xcassets; sourceTree = "<group>"; };
         BFCF5A0D20F865CB008E2A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
         BFCF5A0F20F865CB008E2A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
         BFDA831020F86B250050C738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/Member.storyboard; sourceTree = "<group>"; };
@@ -292,6 +292,7 @@
             isa = PBXGroup;
             children = (
                 BFCF5A0220F865C9008E2A34 /* RestaurantReservation */,
+                BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */,
                 BFCF5A0120F865C9008E2A34 /* Products */,
                 E1FC0AA6C0A0D48B4082E5C8 /* Pods */,
                 5C4A3B64CBBEDEE977562D22 /* Frameworks */,
@@ -320,7 +321,6 @@
                 BFCF5A0320F865C9008E2A34 /* AppDelegate.swift */,
                 BFCF5A0520F865C9008E2A34 /* ViewController.swift */,
                 BFCF5A0720F865C9008E2A34 /* Main.storyboard */,
-                BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */,
                 BFCF5A0C20F865CB008E2A34 /* LaunchScreen.storyboard */,
                 BFCF5A0F20F865CB008E2A34 /* Info.plist */,
             );
@@ -850,7 +850,7 @@
             buildSettings = {
                 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
                 CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = Z599PZ7MZ9;
+                DEVELOPMENT_TEAM = D88S2V4T8S;
                 INFOPLIST_FILE = RestaurantReservation/Info.plist;
                 IPHONEOS_DEPLOYMENT_TARGET = 10.3;
                 LD_RUNPATH_SEARCH_PATHS = (
@@ -870,7 +870,7 @@
             buildSettings = {
                 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
                 CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = Z599PZ7MZ9;
+                DEVELOPMENT_TEAM = D88S2V4T8S;
                 INFOPLIST_FILE = RestaurantReservation/Info.plist;
                 IPHONEOS_DEPLOYMENT_TARGET = 10.3;
                 LD_RUNPATH_SEARCH_PATHS = (

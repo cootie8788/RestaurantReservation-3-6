@@ -58,7 +58,11 @@ class MenuTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if app.menuList.count > 0 {
@@ -89,9 +93,6 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
-
-   
-
     
     // MARK: - Navigation
 

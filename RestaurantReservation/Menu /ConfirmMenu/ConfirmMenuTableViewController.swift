@@ -41,6 +41,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         
         
         
+        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -49,19 +50,16 @@ class ConfirmMenuTableViewController: UITableViewController {
             
 //            print("\(String(data: data, encoding: .utf8))")
             
-            guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
-                assertionFailure("Fail decode")
-                return  }
-//            print("\(coupon)")
-            
-            self.coupon = coupon
-        
-            self.userDefault.setValue(coupon.coupon, forKey: "coupon")
-            self.userDefault.setValue(coupon.discount, forKey: "discount")
-            self.userDefault.synchronize()
-
+            if let coupon = try? self.decoder.decode(Coupon.self, from: data){
+                //            print("\(coupon)")
+                
+                self.coupon = coupon
+                
+                self.userDefault.setValue(coupon.coupon, forKey: "coupon")
+                self.userDefault.setValue(coupon.discount, forKey: "discount")
+                self.userDefault.synchronize()
+            }
             self.showAlert()
-            
             
         }
         
@@ -228,8 +226,6 @@ class ConfirmMenuTableViewController: UITableViewController {
                     print("\(respone.orderId)")
                     
                     if respone.orderId != "-1" {
-                        // waiter socket
-                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
                             
@@ -283,6 +279,10 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return app.cart.count
@@ -324,9 +324,14 @@ class ConfirmMenuTableViewController: UITableViewController {
         for (_,orderMenu)in app.cart {
             cartOrderMenu.append(orderMenu)
         }
+        guard let tableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) else {
+            assertionFailure("tableNumber is nil")
+            return
+        }
+        print(tableNumber)
         var order = [String: Any]()
         order["action"] = "giveMeOrder"
-        order["tableNumber"] = "尚未入座"
+        order["tableNumber"] = tableNumber
         let encoder = JSONEncoder()
         guard let jsonDataOrderMenu = try? encoder.encode(cartOrderMenu), let jsonStringOrderMenu = String(data: jsonDataOrderMenu, encoding: .utf8 ) else {
             assertionFailure("json toString Fail!")

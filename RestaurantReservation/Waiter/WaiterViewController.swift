@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Starscream
+
 var ordertest: String?
 
 class WaiterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -15,48 +15,6 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
     var waiterOrderMenu = [WaiterOrderMenu]()
     
     @IBOutlet weak var tableView: UITableView!
-    //    let socket = WebSocket(url: URL(string: "http://127.0.0.1:8080/RestaurantReservationApp_Web/CheckOrderWebSocket/amy")!)
-//
-//    var waiterOrder = WaiterOrder()
-//
-//    func websocketDidConnect(socket: WebSocketClient) {
-//        print("websocket is websocketDidConnect")
-//
-//    }
-//
-//    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-//        print("websocket is websocketDidDisconnect")
-//
-//    }
-//
-//    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-//        print("websocket is websocketDidReceiveMessage")
-//        print(text)
-//        guard let data = text.data(using: .utf8) else {
-//            assertionFailure("data is nil")
-//            return
-//        }
-//        let decoder = JSONDecoder()
-//        guard let orderData = try? decoder.decode(WaiterOrder.self, from: data) else {
-//            assertionFailure("decoder is fail!")
-//            return
-//        }
-//        print("\(orderData)")
-//
-//        let jsonData = orderData.jsonCheckOrderList?.data(using: .utf8)
-//        print("\(jsonData)")
-//        guard let ac = try? decoder.decode([WaiterOrderMenu].self, from: jsonData!) else {
-//            return
-//        }
-//        print("\(ac)")
-//
-//
-//    }
-//
-//    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-//        print("websocket is websocketDidReceiveData")
-//
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +66,10 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WaiterCell", for: indexPath) as? WaiterTableViewCell
-        cell?.waiterLabel?.text = "\(waiterOrderMenu[indexPath.row].orderName) 第\(waiterOrderMenu[indexPath.row].tableName)桌  數量：\(waiterOrderMenu[indexPath.row].count) 狀態：\(waiterOrderMenu[indexPath.row].status)"
+        cell?.waiterLabel?.text = "\(waiterOrderMenu[indexPath.row].orderName)"
+        cell?.tableLabel.text = "桌號：\(waiterOrderMenu[indexPath.row].tableName)"
+        cell?.countLabel.text = "數量：\(waiterOrderMenu[indexPath.row].count)"
+        cell?.statusLabel.text = "\(waiterOrderMenu[indexPath.row].status)"
         return cell!
     }
     
@@ -131,6 +92,8 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
         let actionCancel = UIAlertAction(title: "取消", style: .cancel)
         alertController.addAction(actionOK)
         alertController.addAction(actionCancel)
+        // present會延遲需寫這行來取消選取並把動畫設為false
+        tableView.deselectRow(at: indexPath, animated: false)
         self.present(alertController, animated: true)
     }
 
@@ -139,25 +102,6 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnPressed(_ sender: Any) {
-//        socket.delegate = self
-//        socket.connect()
-
-    }
-    
-    @IBAction func btnCheck(_ sender: Any) {
-//        if socket.isConnected {
-//            // do cool stuff.
-//            print("連到")
-//        }
-//        socket.disconnect()
-//        let json = JSONEncoder()
-//        let abc = ["aaa":123]
-//        let jsonEncoder = try? json.encode(abc)
-//        socket.write(data: jsonEncoder!)
-        commonWebSocketClient?.stopWebSocket()
-
-    }
     /*
     // MARK: - Navigation
 

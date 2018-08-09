@@ -75,7 +75,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-Lp-zih">
                                             <rect key="frame" x="16" y="11" width="343" height="78"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="555" translatesAutoresizingMaskIntoConstraints="NO" id="5Ei-vQ-Qx9">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="pic_pot" translatesAutoresizingMaskIntoConstraints="NO" id="5Ei-vQ-Qx9">
                                                     <rect key="frame" x="0.0" y="0.0" width="137" height="78"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="905" constant="78" id="fhO-V7-FZp"/>
@@ -449,7 +449,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="555" width="408" height="330"/>
         <image name="btn_tab_menu_m" width="28" height="28"/>
+        <image name="pic_pot" width="512" height="512"/>
     </resources>
 </document>
