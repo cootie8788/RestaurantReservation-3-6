@@ -84,6 +84,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellView" destination="aUs-XF-Khz" id="N44-AK-gu2"/>
                                             <outlet property="dateLabel" destination="Ead-jn-wqD" id="OYG-X7-xKA"/>
                                             <outlet property="personLabel" destination="5Fj-3S-FgY" id="EOT-QF-snS"/>
                                             <outlet property="view" destination="aUs-XF-Khz" id="B2o-XP-EKu"/>

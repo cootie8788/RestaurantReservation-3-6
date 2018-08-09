@@ -23,6 +23,13 @@ class NewOrderDetalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         if !orderMenu.isEmpty {
             let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
             guard let confirmOrderInt = Int(confirmOrderId!) else {
@@ -31,7 +38,13 @@ class NewOrderDetalViewController: UIViewController {
             }
             newOrderTableViewDetailControllerOrderID = confirmOrderInt
         }
+        downloadDetail()
         
+    }
+    
+    
+    
+    func downloadDetail() {
         let memberID = UserDefaults.standard.string(forKey: MemberKey.MemberID.rawValue)
         guard let memberIDInt = Int(memberID!) else {
             assertionFailure("get MemberID Fail")
@@ -66,6 +79,7 @@ class NewOrderDetalViewController: UIViewController {
             self.orderNumberLabel.text = "\(newOrderTableViewDetailControllerOrderID)"
             self.orderDateLabel.text = self.newOrderDate
         }
+        
     }
     
     /*
