@@ -66,11 +66,6 @@ class StockMenuTableViewController: UITableViewController  {
         
     }
     
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if app.menuList.count > 0 {
