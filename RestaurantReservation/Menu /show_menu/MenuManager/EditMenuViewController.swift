@@ -76,12 +76,13 @@ class EditMenuViewController: UIViewController {
             downloader.menuUpdata_image(fileName:#file, id, data) { (error, data) in
                 
                 print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
-            
+                
+                self.socket.sendMessage("notifyDataSetChanged")
             }
             
             RemoveRetrieveFileNames(id)
             
-            self.socket.sendMessage("notifyDataSetChanged")
+            
             
             deleteSW = true
             self.performSegue(withIdentifier: "goback", sender: nil)
@@ -97,11 +98,12 @@ class EditMenuViewController: UIViewController {
         Downloader.shared.menuDelete(fileName:#file,id) { (error, data) in
             
             print("menuDelete: \(String(describing: String(data: data, encoding: .utf8)))")
+            
+            self.socket.sendMessage("notifyDataSetChanged")
         }
         
         deleteSW = true
         self.performSegue(withIdentifier: "goback", sender: nil)
-        self.socket.sendMessage("notifyDataSetChanged")
         
     }
     

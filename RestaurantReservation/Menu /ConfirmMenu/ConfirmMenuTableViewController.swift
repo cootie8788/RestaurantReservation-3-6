@@ -40,7 +40,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         }
         
         
-        self.showAlert()
+        
         
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
@@ -50,19 +50,16 @@ class ConfirmMenuTableViewController: UITableViewController {
             
 //            print("\(String(data: data, encoding: .utf8))")
             
-            guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
-//                assertionFailure("Fail decode")
-                return  }
-//            print("\(coupon)")
-            
-            self.coupon = coupon
-        
-            self.userDefault.setValue(coupon.coupon, forKey: "coupon")
-            self.userDefault.setValue(coupon.discount, forKey: "discount")
-            self.userDefault.synchronize()
-
-            
-            
+            if let coupon = try? self.decoder.decode(Coupon.self, from: data){
+                //            print("\(coupon)")
+                
+                self.coupon = coupon
+                
+                self.userDefault.setValue(coupon.coupon, forKey: "coupon")
+                self.userDefault.setValue(coupon.discount, forKey: "discount")
+                self.userDefault.synchronize()
+            }
+            self.showAlert()
             
         }
         
