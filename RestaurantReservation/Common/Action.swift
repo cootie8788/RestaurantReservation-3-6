@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct RatingInfo: Codable {
     var id: Int
@@ -40,5 +41,11 @@ struct dateInfo: Codable {
     var date: String?
     var person: String?
     var memberId: Int
+}
+
+struct ImageId {
+    var id: Int
+    var image: UIImage
+    
 }
 

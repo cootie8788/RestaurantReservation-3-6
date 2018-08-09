@@ -87,6 +87,10 @@ class StockMenuTableViewController: UITableViewController  {
         return 0
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100 //or whatever you need
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockmenucell", for: indexPath) as! StockTableViewCell

@@ -9,40 +9,81 @@
 import UIKit
 import Cosmos
 
-class RatingNewViewController: UIViewController {
+class RatingNewViewController: UIViewController, UITextFieldDelegate {
     
     var controller: RatingViewController?
     let communicator = Communicator()
-    var comment: String?
     var member_name: String?
     var member_id: Int?
     var score: Double?
+    let userDefault = UserDefaults.standard
     
     @IBOutlet weak var ratingStar: CosmosView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var commentTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ratingStar.settings.minTouchRating = 0
         
-        member_name = "hello!"
-        member_id = 1
+        let member_name = userDefault.string(forKey: MemberKey.MemberName.rawValue)
         
         userNameLabel.text = member_name
         ratingStar.didFinishTouchingCosmos = scoreSaveFunction
+        commentTextField.delegate = self
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelBarBtnFnc))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "傳送", style: .plain, target: self, action: #selector(saveBarBtnFnc))
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @objc func cancelBarBtnFnc(){
         
-        comment = commentTextField.text
-        let controller = segue.destination as? RatingViewController
-        controller?.comment = comment
-        controller?.score = score
-        
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "ratingMainStoryBoard") else{
+            assertionFailure("ratingMainStoryBoard can't find!! (cancel)")
+            return
+        }
+        navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc func saveBarBtnFnc(){
+        
+        
+        let memberName = userDefault.string(forKey: MemberKey.MemberName.rawValue)
+        let memberID = userDefault.string(forKey: MemberKey.MemberID.rawValue)
+        
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "ratingMainStoryBoard") else{
+            assertionFailure("ratingMainStoryBoard can't find!! (save)")
+            return
+        }
+        
+        guard let score = score else {
+            showAlertController(titleText: "請輸入評分", messageText: "", okActionText: "知道了!", printText: "無輸入評分欄位", viewController: self)
+            return
+        }
+        
+        guard let comment = commentTextField.text , !comment.isEmpty else {
+            showAlertController(titleText: "請輸入評論", messageText: "", okActionText: "知道了!", printText: "無輸入評論欄位", viewController: self)
+            return
+        }
+        
+        guard let member_name = memberName else {
+            assertionFailure("Rating Page get member_name fail")
+            return
+        }
+        
+        guard let memberId = memberID, let member_id = Int(memberId) else {
+            assertionFailure("Rating Page get member_id fail")
+            return
+        }
+        
+        ratingInsert(comment: comment, member_name: member_name, member_id: member_id , score: score)
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
     func scoreSaveFunction(rating: Double){
         score = rating
     }
@@ -79,5 +120,16 @@ class RatingNewViewController: UIViewController {
                 showAlertController(titleText: "評分異常!", messageText: "請再傳送一次", okActionText: "知道了!", printText: "評分異常", viewController: self)
             }
         }
+    }
+    
+    // 點return就收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // 點背景收鍵盤
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
