@@ -19,10 +19,14 @@ class OldOrderDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let memberID = UserDefaults.standard.string(forKey: MemberKey.MemberID.rawValue)
+        guard let memberIDInt = Int(memberID!) else {
+            assertionFailure("get MemberID Fail")
+            return
+        }
         oldOrderDetailtableView.delegate = self
         oldOrderDetailtableView.dataSource = self
-        let action = ActionOrder(action: "checkAllOrder", memberId: 2, orderId: (oldCheckOrderDetail2?.orderId)!)
+        let action = ActionOrder(action: "checkAllOrder", memberId: memberIDInt, orderId: (oldCheckOrderDetail2?.orderId)!)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
         guard let uploadData = try? econder.encode(action) else {

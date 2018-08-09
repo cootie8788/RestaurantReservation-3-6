@@ -15,12 +15,16 @@ class NewMenuViewController: UIViewController {
     
     @IBAction func editImageBt(_ sender: UIButton) {
         
+        let cameraFunc = Camera(self,newImage)
+        
         let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
         let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+//            self.lauchPicker(forType: .photoLibrary)
+            cameraFunc.lauchPicker(forType: .photoLibrary)
         }
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+//            self.lauchPicker(forType: .camera)
+            cameraFunc.lauchPicker(forType: .camera)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(library)
@@ -42,12 +46,15 @@ class NewMenuViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
         view.addGestureRecognizer(tap)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
 
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -70,7 +77,7 @@ class NewMenuViewController: UIViewController {
         let alert = UIAlertController(title: "輸入錯誤警告", message: message, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "確定", style: .default)
-        let cancel = UIAlertAction(title: "取消", style: .cancel)
+//        let cancel = UIAlertAction(title: "取消", style: .cancel)
         alert.addAction(ok)
 //        alert.addAction(cancel)
         
@@ -83,13 +90,13 @@ class NewMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //目前只有一條    這是判斷回去的那一條
-        if let a = segue.destination as? MenuTableViewController{
+        if  segue.destination is MenuTableViewController{
             print("有回去嗎")
             
             guard let name = menu_name.text , !name.isEmpty  else {
                 showAlert("名字格式錯誤")
                 return  }
-            var type = menu_kind.selectedSegmentIndex + 1
+            let type = menu_kind.selectedSegmentIndex + 1
             guard let price = menu_price.text , !price.isEmpty  else {
                 showAlert("價錢格式錯誤")
                 return  }
@@ -112,7 +119,7 @@ class NewMenuViewController: UIViewController {
                 
                 print("menuInsert: \(String(describing: String(data: data, encoding: .utf8)))")
                 
-                self.socket.sendMessage("105")
+                self.socket.sendMessage("notifyDataSetChanged")
             }
      
         }

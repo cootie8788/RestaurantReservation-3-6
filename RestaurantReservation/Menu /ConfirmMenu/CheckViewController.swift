@@ -14,8 +14,8 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "insidecell", for: indexPath) as! InsideTableViewCell
        
         cell.menu_name.text = array[indexPath.row].name
-        cell.menu_count.text = array[indexPath.row].price
-        cell.menu_money.text = "\(array[indexPath.row].quantity)"
+        cell.menu_money.text = array[indexPath.row].price
+        cell.menu_count.text = "\(array[indexPath.row].quantity)"
         
         return cell
     }
@@ -27,7 +27,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     @IBOutlet weak var discount_text: UILabel!
     @IBOutlet weak var Tableview: UITableView!
     
-    
+    let app = UIApplication.shared.delegate as! AppDelegate
     let downloader = Downloader.shared
     let userDefault = UserDefaults()
     let decoder = JSONDecoder()
@@ -36,11 +36,29 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
     var socket = SocketClient.chatWebSocketClient
     
+    
+    
+    @IBAction func returnAction(_ sender: UIBarButtonItem) {
+        
+//        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.selectedIndex = 2
+        // 直接回到navigation最開頭
+        self.navigationController?.popToRootViewController(animated: true)
+        app.cart.removeAll()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        navigationItem.hidesBackButton = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        let app = UIApplication.shared.delegate as! AppDelegate
+        navigationItem.hidesBackButton = true
+        
+//        definesPresentationContext = true
+        
+        
         
         array_count = app.cart.count
         var total = 0
@@ -49,6 +67,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
             
             total += (value.quantity * (Int(value.price) ?? 0))
             array.append(value)
+            orderMenu.append(value)
         }
         
         let discount = self.userDefault.double(forKey: "discount")
@@ -68,10 +87,10 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         discount_text.text = "\(discount)折"
         
         if discount == 0{
-            total_text.text = "\(total)"
+            total_text.text = "$\(total)"
         }else{
             total = Int(Double(total) * discount)
-            total_text.text = "\(total)"
+            total_text.text = "$\(total)"
         }
         //  要刪除 之前存的偏好數值
         userDefault.removeObject(forKey: "coupon")
@@ -84,7 +103,8 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-//        socket.stopLinkServer()
+        socket.stopLinkServer()
+        
     }
     
     override func didReceiveMemoryWarning() {

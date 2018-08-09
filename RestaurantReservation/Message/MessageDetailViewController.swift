@@ -9,17 +9,14 @@
 import UIKit
 
 class MessageDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var messageDetailImageView: UIImageView!
     @IBOutlet weak var messageDetailTitleLabel: UILabel!
     @IBOutlet weak var messageDetailContentLabel: UILabel!
     @IBOutlet weak var messageDetailData: UILabel!
     @IBOutlet weak var messageCouponBtn: UIButton!
-    @IBOutlet weak var messageEditBtn: UIBarButtonItem!
     
-    @IBAction func messageCouponBtnPress(_ sender: Any) {
-    }
-    
+    let communicator = Communicator()
     var messageInfo: MessageInfo?
     var messageImage: UIImage?
     var member_authority_id: Int?
@@ -27,7 +24,7 @@ class MessageDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let member_authority_id = userDefault.string(forKey: MemberKey.Authority_id.rawValue)
         
         if let messageInfo = messageInfo{
@@ -77,21 +74,50 @@ class MessageDetailViewController: UIViewController {
         controller.messageID = messageID
         controller.messageCouponID = messageCouponID
         
-        
         navigationController?.pushViewController(controller, animated: true)
     }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let controller = segue.destination as? MessageManagerViewController
+//    }
+    
+    @IBAction func messageCouponBtnPress(_ sender: Any) {
+        
+        guard let member_ID = userDefault.string(forKey: MemberKey.MemberID.rawValue) else {
+            assertionFailure("member_authority_id is empty (coupon)")
+            return
+        }
+        
+        guard let CouponID = messageInfo?.coupon_id, let memberID = Int(member_ID) else {
+            assertionFailure("CouponID memberID is empty")
+            return
+        }
+        print("memberID \(memberID) CouponID \(CouponID)")
+        getCoupon(memberID: memberID, CouponID: CouponID)
+        
+    }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as? MessageManagerViewController
+    func getCoupon(memberID: Int,CouponID: Int){
+        var json = [String: Any]()
+        json["action"] = "couponInsert"
+        json["couponID"] = CouponID
+        json["memberID"] = memberID
         
-        
-
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
+            guard let data = data else{
+                return
+            }
+            
+            //output字串 data 轉 string
+            let respone = String(data: data, encoding: String.Encoding.utf8)
+            //檢查是否成功
+            if respone != "1" {
+                showAlertController(titleText: "領取折價卷失敗!", messageText: "請再領取一次", okActionText: "知道了!", printText: "留言回應異常", viewController: self)
+                return
+            }
+            
+        }
     }
-
 }

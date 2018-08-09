@@ -10,7 +10,8 @@ import UIKit
 import Photos
 
 class MessageManagerViewController: UIViewController, UITextFieldDelegate{
-
+    
+    @IBOutlet weak var messageScrollView: UIScrollView!
     @IBOutlet weak var messageNewTitleTextField: UITextField!
     @IBOutlet weak var messageNewStartTextField: UITextField!
     @IBOutlet weak var messageNewEndTextField: UITextField!
@@ -30,11 +31,12 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
     var messageEditDiscount = ""
     var messageEditContent = ""
     var messageEditImage = UIImage()
+    var messageOriginalImage: UIImage?
     var datePick = UIDatePicker()
     var startDay: Date?
     var endDay: Date?
     let userDefault = UserDefaults.standard
-
+    
     private let picker = UIImagePickerController()
     // if you want to set cropped image ratio 16 : 9 , put 16/9 !
     private let cropper = UIImageCropper(cropRatio: 4/3)
@@ -43,6 +45,10 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan" - not work here.
+
         
         messageNewTitleTextField.delegate = self
         messageNewStartTextField.delegate = self
@@ -64,10 +70,8 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
             messageNewEndTextField.text = messageEditEnd
             messageNewDiscountTextField.text = messageEditDiscount
             messageNewContentTextField.text = messageEditContent
-            
-            print(messageEditStart)
-            print(messageEditEnd)
             messageNewImageView.image = messageEditImage
+            messageOriginalImage = messageEditImage
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save , target: self, action: #selector(saveBarBtnFnc))
@@ -76,7 +80,28 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
         creatEndPicker()
         
     }
-
+    
+    
+    @objc func keyboardWillShow(notification:NSNotification){
+        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.messageScrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        messageScrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        messageScrollView.contentInset = contentInset
+    }
+    
+    @objc func dismissKeyBoard() {
+        self.view.endEditing(true)
+    }
+    
     @objc func saveBarBtnFnc() {
         
         guard let messageSaveTitle = messageNewTitleTextField.text, !messageSaveTitle.isEmpty else {
@@ -109,107 +134,123 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
             return
         }
         
+        
+        if messageSaveDiscount > 1 {
+            showAlertController(titleText: "折扣請介於0-1之間!", messageText: "", okActionText: "知道了!", printText: "messageSaveDiscount guard than 1", viewController: self)
+            return
+        }
+        
         guard let messageSaveContent = messageNewContentTextField.text, !messageSaveContent.isEmpty else {
             showAlertController(titleText: "請輸入優惠資訊!", messageText: "", okActionText: "知道了!", printText: "messageSaveContent is empty ", viewController: self)
             return
         }
         
-        guard let messageSaveImage = messageNewImageView.image, messageSaveImage != #imageLiteral(resourceName: "pic_pot") else {
+        guard var messageSaveImage = messageNewImageView.image, messageSaveImage != #imageLiteral(resourceName: "pic_pot") else {
             showAlertController(titleText: "請新增優惠訊息圖片!", messageText: "", okActionText: "知道了!", printText: "messageSaveImage is empty ", viewController: self)
             return
         }
         
+        
         if message_edit == "edit" {
-            
-            let message = MessageInfo(id: messageID, message_title: messageSaveTitle, message_content: messageSaveContent, coupon_id: messageCouponID, coupon_discount: messageSaveDiscount, coupon_start: messageSaveStart, coupon_end: messageSaveEnd)
-            
-            guard let messageSaveImage1 = messageSaveImage.resize(maxWidthHeight: 700) else {
-                return
-            }
-            let imageData = UIImageJPEGRepresentation(messageSaveImage1, 100)
-            guard let base64Data = imageData?.base64EncodedString() else {
-                return
-            }
-            var json = [String: Any]()
-            json["action"] = "messageUpdate"
-            let encoder = JSONEncoder()
-            guard let messageJson = try? encoder.encode(message) else {
-                return
-            }
-            guard let messageString = String(data: messageJson, encoding: .utf8) else {
-                return
-            }
-            json["message"] = messageString
-            json["imageBase64"] = base64Data
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
-                guard let data = data else{
-                    return
-                }
-                
-                //output字串 data 轉 string
-                let respone = String(data: data, encoding: String.Encoding.utf8)
-                //檢查是否成功
-                if respone != "1" {
-                    showAlertController(titleText: "優惠資訊更新失敗!", messageText: "請再儲存一次", okActionText: "知道了!", printText: "優惠資訊更新失敗", viewController: self)
-                    return
-                }
-                 print("更新儲存成功")
-                
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "messageMainStoryboard") else{
-                    assertionFailure("messageMainStoryboard can't find!!")
-                    return
-                }
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-
+            messageEdit(messageID: messageID, messageSaveTitle: messageSaveTitle, messageSaveContent: messageSaveContent, messageCouponID: messageCouponID, messageSaveDiscount: messageSaveDiscount, messageSaveStart: messageSaveStart, messageSaveEnd: messageSaveEnd, messageSaveImage: messageSaveImage)
         }
         
         if message_edit == "new" {
+            messageNew(messageID: 0, messageSaveTitle: messageSaveTitle, messageSaveContent: messageSaveContent, messageCouponID: 0, messageSaveDiscount: messageSaveDiscount, messageSaveStart: messageSaveStart, messageSaveEnd: messageSaveEnd, messageSaveImage: messageSaveImage)
+        }
+        
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "messageMainStoryboard") else{
+            assertionFailure("messageMainStoryboard can't find!! (edit)")
+            return
+        }
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func messageEdit(messageID: Int, messageSaveTitle: String, messageSaveContent: String, messageCouponID: Int, messageSaveDiscount: Double, messageSaveStart: String, messageSaveEnd: String ,messageSaveImage: UIImage) {
+        
+        let message = MessageInfo(id: messageID, message_title: messageSaveTitle, message_content: messageSaveContent, coupon_id: messageCouponID, coupon_discount: messageSaveDiscount, coupon_start: messageSaveStart, coupon_end: messageSaveEnd)
+        
+        var messageSaveImg = UIImage()
+        
+        if let messageOriginal = messageOriginalImage ,messageOriginal != messageSaveImage {
+            guard let messageSave = messageSaveImage.resize(maxWidthHeight: 400) else {
+                return
+            }
             
-            let message = MessageInfo(id: 0, message_title: messageSaveTitle, message_content: messageSaveContent, coupon_id: 0, coupon_discount: messageSaveDiscount, coupon_start: messageSaveStart, coupon_end: messageSaveEnd)
-            guard let messageSaveImage1 = messageSaveImage.resize(maxWidthHeight: 200) else{
+            messageSaveImg = messageSave
+        } else {
+            messageSaveImg = messageSaveImage
+        }
+        
+        let imageData = UIImagePNGRepresentation(messageSaveImg)
+
+        guard let base64Data = imageData?.base64EncodedString() else {
+            return
+        }
+        var json = [String: Any]()
+        json["action"] = "messageUpdate"
+        let encoder = JSONEncoder()
+        guard let messageJson = try? encoder.encode(message) else {
+            return
+        }
+        guard let messageString = String(data: messageJson, encoding: .utf8) else {
+            return
+        }
+        json["message"] = messageString
+        json["imageBase64"] = base64Data
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
+            guard let data = data else{
                 return
             }
-            let imageData = UIImageJPEGRepresentation(messageSaveImage1, 100)
-            guard let base64Data = imageData?.base64EncodedString() else {
+            
+            //output字串 data 轉 string
+            let respone = String(data: data, encoding: String.Encoding.utf8)
+            //檢查是否成功
+            if respone != "1" {
+                showAlertController(titleText: "優惠資訊更新異常!", messageText: "請再儲存一次", okActionText: "知道了!", printText: "優惠資訊更新異常", viewController: self)
                 return
-            }
-            var json = [String: Any]()
-            json["action"] = "messageInsert"
-            let encoder = JSONEncoder()
-            guard let messageJson = try? encoder.encode(message) else {
-                return
-            }
-            guard let messageString = String(data: messageJson, encoding: .utf8) else {
-                return
-            }
-            json["message"] = messageString
-            json["imageBase64"] = base64Data
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
-                guard let data = data else{
-                    return
-                }
-                
-                //output字串 data 轉 string
-                let respone = String(data: data, encoding: String.Encoding.utf8)
-                //檢查是否成功
-                if respone != "1" {
-                    showAlertController(titleText: "優惠資訊新增失敗!", messageText: "請再儲存一次", okActionText: "知道了!", printText: "優惠資訊新增失敗", viewController: self)
-                    return
-                }
-                print("新增儲存成功")
-                
-                guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "messageMainStoryboard") else{
-                    assertionFailure("messageMainStoryboard can't find!!")
-                    return
-                }
-                self.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }
-    
+
+    func messageNew(messageID: Int, messageSaveTitle: String, messageSaveContent: String, messageCouponID: Int, messageSaveDiscount: Double, messageSaveStart: String, messageSaveEnd: String ,messageSaveImage: UIImage) {
+        
+        let message = MessageInfo(id: messageID, message_title: messageSaveTitle, message_content: messageSaveContent, coupon_id: messageCouponID, coupon_discount: messageSaveDiscount, coupon_start: messageSaveStart, coupon_end: messageSaveEnd)
+        guard let messageSave = messageSaveImage.resize(maxWidthHeight: 200) else {
+            return
+        }
+        let imageData = UIImageJPEGRepresentation(messageSave, 100)
+        guard let base64Data = imageData?.base64EncodedString() else {
+            return
+        }
+        var json = [String: Any]()
+        json["action"] = "messageInsert"
+        let encoder = JSONEncoder()
+        guard let messageJson = try? encoder.encode(message) else {
+            return
+        }
+        guard let messageString = String(data: messageJson, encoding: .utf8) else {
+            return
+        }
+        json["message"] = messageString
+        json["imageBase64"] = base64Data
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
+            guard let data = data else{
+                return
+            }
+            
+            //output字串 data 轉 string
+            let respone = String(data: data, encoding: String.Encoding.utf8)
+            //檢查是否成功
+            if respone != "1" {
+                showAlertController(titleText: "優惠資訊新增異常!", messageText: "請再儲存一次", okActionText: "知道了!", printText: "優惠資訊新增異常", viewController: self)
+                return
+            }
+        }
+    }
+
     // 開始日期picker
     func creatStarPicker(){
         //格式化 顯示的 datePick
@@ -260,14 +301,14 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
         toolbar.setItems([doneButton], animated: true)
         messageNewEndTextField.inputAccessoryView = toolbar //要開啟虛擬鍵盤都需透故inputAccessoryView
         datePick.maximumDate = sevenDaysfromStar //設定最大日期
-
+        
         guard let start_Day = startDay else {
             return
         }
-        datePick.minimumDate = startDay //設定最小日期
+        datePick.minimumDate = start_Day //設定最小日期
     }
     
-//    //日期picker:計算未來或者過去的日期
+    //日期picker:計算未來或者過去的日期
     var sevenDaysfromStar: Date {
         return (Calendar.current as NSCalendar).date(byAdding: .year, value: 2, to: Date(), options: [])!
     }
@@ -281,17 +322,11 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
         messageNewEndTextField.text = dateFormatter.string(from: datePick.date)
         endDay = datePick.date
         
-//        print("E datePick.date \(datePick.date)")
+        print("E datePick.date \(datePick.date)")
         messageEditEnd += "\(messageNewEndTextField.text!)"
         print("gggggg:\(upload)")
         self.view.endEditing(true)
         
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func messageAddImageBtnPress(_ sender: Any) {
@@ -314,12 +349,13 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
         controller.addAction(pickPicAction)
         controller.addAction(cancelAction)
         self.present(controller, animated: true, completion: nil)
-    
+        
     }
     
-    // 點背景收鍵盤
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    // 點return就收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
@@ -331,3 +367,5 @@ extension MessageManagerViewController: UIImageCropperProtocol{
     }
     
 }
+
+

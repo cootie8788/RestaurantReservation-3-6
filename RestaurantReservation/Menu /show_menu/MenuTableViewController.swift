@@ -13,6 +13,8 @@ class MenuTableViewController: UITableViewController {
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
     
+    let reData = receiveData()
+    
     let socket = SocketClient.chatWebSocketClient
     
     @IBAction
@@ -20,59 +22,35 @@ class MenuTableViewController: UITableViewController {
         
     }
     
-    @IBAction
-    func reflush() {
-        downloadList()
-        tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
-    
-    func downloadList(){
-        app.downloadMenuList(self)
-    }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        downloadList()
         
         if socket.socket.delegate == nil{
             print("socket 連線")
             socket.startLinkServer()
         }
         
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        
+        reData.onSet(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
+        app.downloadMenuList(self)
         
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
+        // 建立 NotificationCenter 的 接收器
+//        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
+//
+//        tableView.refreshControl =  UIRefreshControl()
+//        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
+//        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("通知收到 \(message)")
-        
-        if message == "105"{
-//            reflush()
-            app.downloadMenuList(self)
-        }
-    }
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,13 +80,14 @@ class MenuTableViewController: UITableViewController {
         cell.cellImage.showImage(urlString: downloader.Menu_URL,
                                  id: app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].id)
         cell.cellitem.text = app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].name
-        cell.cellmoney.text = app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].price
+        cell.cellmoney.text =
+        "$\(app.menuList[meeu_switch.selectedSegmentIndex][indexPath.row].price)"
     
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        socket.sendMessage("3455555")
+
     }
 
    

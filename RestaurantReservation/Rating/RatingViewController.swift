@@ -33,7 +33,9 @@ class RatingViewController: UIViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose , target: self, action: #selector(newRatingBarBtnFnc))
         }
         
-        
+        if member_authority_id == "4" {
+            navigationItem.title = "評分管理"
+        }
     }
     
     @objc func newRatingBarBtnFnc(){
@@ -131,16 +133,11 @@ extension RatingViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         let commentID = array[indexPath.row].id
-        print("indexPath.row \(indexPath.row)")
-        print("commendID delete \(array[indexPath.row].id)")
-        
-        print("commendID delete \(array[indexPath.row].comment)")
-        print("commendID delete1 \(commentID)")
+
         ratingDelete(commendID: commentID)
 
         array.remove(at: indexPath.row)
         ratingShowTableView.deleteRows(at: [indexPath], with: .fade)
-        
         
     }
     

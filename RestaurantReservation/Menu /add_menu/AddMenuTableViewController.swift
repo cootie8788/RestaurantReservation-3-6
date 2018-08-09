@@ -7,52 +7,29 @@ class AddMenuTableViewController: UITableViewController {
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
     
-    @IBAction
-    func reflush() {
-        app.downloadMenuList(self)
-        tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
- 
+    let reData = receiveData()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        tableView.reloadData()
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
-        
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
+        reData.onSet(self)//監聽通知 與刷新
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("通知收到 \(message)")
-        
-        if message == "105"{
-            //            reflush()
-            app.downloadMenuList(self)
-        }
-    }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -69,7 +46,7 @@ class AddMenuTableViewController: UITableViewController {
         let price = app.menuList[2][indexPath.row].price
         let stock = app.menuList[2][indexPath.row].stock
         
-        var num = 0
+        
         
         if let num = app.cart[id]?.quantity {
             cell.orderMenu_cell_num.text = "\(num)"
@@ -80,13 +57,15 @@ class AddMenuTableViewController: UITableViewController {
 
         cell.orderMenu_cell_Image.showImage(urlString: downloader.Menu_URL,id: id)
         cell.orderMenu_cell_item.text = name
-        cell.orderMenu_cell_money.text = price
+        cell.orderMenu_cell_money.text = "$\(price)"
         
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
         cell.cellID = id          //給cell  所對應的orderMenu id
         cell.cellName = name
         cell.cellPrice = price
         cell.cellStock = stock
+        cell.type = 3
+        
         
         return cell
     }

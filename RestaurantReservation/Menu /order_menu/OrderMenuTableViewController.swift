@@ -29,7 +29,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         return (3,"jim")
     }
 
-  
+  /////////////////////////////////////////////////////////////////////////////////
     
     @IBOutlet weak var orderMenuSwitch: UISegmentedControl!
     
@@ -37,13 +37,6 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         tableView.reloadData()
     }
     
-    @IBAction
-    func reflush() {
-        downloadList()
-        tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
-   
     
     var num = 0
     
@@ -51,48 +44,41 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
     let downloader = Downloader.shared
     let decoder = JSONDecoder()
     let app = UIApplication.shared.delegate as! AppDelegate
+    let userDefault = UserDefaults()
     
+    let reData = receiveData()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+
         
-        tableView.reloadData()
+        let TableNumber = userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
         
         
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
+        switch TableNumber {
+        case "5":
+            self.navigationItem.title = "外帶"  //有tableMember
+        case "預訂點餐":
+            self.navigationItem.title = "預訂點餐"  
+        default:
+            self.navigationItem.title = "內用 \(TableNumber)號桌"  //有tableMember
+        }
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadList()
+//        navigationController?.pushViewController((navigationController?.viewControllers[0])!, animated: true)
+       
+//        downloadList()
         
-        // 建立 NotificationCenter 的 接收器
-        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: Notification.Name.init("reload"), object: nil)
         
-        tableView.refreshControl =  UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reflush), for: .valueChanged)
-        
+        reData.onSet(self)//監聽通知 與刷新
     }
     
-    @objc
-    func doSomething(_ notification : Notification){
-        // 取出 訊息
-        guard let message = notification.userInfo?["reload"] as? String else {
-            assertionFailure("Notification parse Fail")
-            return
-        }
-        print("通知收到 \(message)")
-        
-        if message == "105"{
-            //            reflush()
-            app.downloadMenuList(self)
-        }
-    }
-    
-    func downloadList(){
-        app.downloadMenuList(self)
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -137,7 +123,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         
         cell.orderMenu_cell_Image.showImage(urlString: downloader.Menu_URL,id: id)
         cell.orderMenu_cell_item.text = name
-        cell.orderMenu_cell_money.text = price
+        cell.orderMenu_cell_money.text = "$\(price)"
         
         cell.delegate = self  //所有的cell delegate都要
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
@@ -146,6 +132,8 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
         cell.cellPrice = price
         cell.cellStock = stock
         cell.type = orderMenuSwitch.selectedSegmentIndex + 1
+        
+        cell.backgroundColor = UIColor.white
         
         return cell
     }

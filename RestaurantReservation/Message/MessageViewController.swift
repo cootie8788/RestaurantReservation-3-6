@@ -22,26 +22,27 @@ class MessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getData()
+        //        getData()        
         let member_authority_id = userDefault.string(forKey: MemberKey.Authority_id.rawValue)
-        navigationItem.hidesBackButton = true
         
         messageShowTableView.refreshControl = UIRefreshControl()
         messageShowTableView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         
+        navigationItem.hidesBackButton = true
+        
         if member_authority_id == "1" {
             navigationItem.title = "優惠訊息"
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: nil, action: nil)
-
-        }
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage (named: "icon-ring"), style: .plain, target: self, action: #selector(serviceBtnPressed))
             
+        }
+        
         if member_authority_id == "4" {
             navigationItem.title = "優惠管理"
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose , target: self, action: #selector(newMessageBarBtnFnc))
-            
         }
+        
     }
-
+    
     @objc func newMessageBarBtnFnc(){
         userDefault.set("new", forKey: "messageEdit")
         userDefault.synchronize()
@@ -78,7 +79,7 @@ class MessageViewController: UIViewController {
                 return
             }
             
-//            print("array.count: \(self.array.count)")
+            //            print("array.count: \(self.array.count)")
             self.array = output
             self.getImage()
         }
@@ -87,7 +88,6 @@ class MessageViewController: UIViewController {
     func getImage(){
         for x in 0..<self.array.count {
             let id = self.array[x].id
-//            print("array[x].id: \(id)")
             communicator.doPost1(url: MESSAGE_URL, ["action": "getImage", "id": id , "imageSize": 375]) { (error, data) in
                 guard let data = data else{
                     return
@@ -111,13 +111,39 @@ class MessageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as? MessageDetailViewController
-        
         if let row = messageShowTableView.indexPathForSelectedRow?.row {
             controller?.messageInfo = array[row]
             controller?.messageImage = arrayimageId[row].image
         }
     }
     
+    @IBAction func serviceBtnPressed(_ sender: Any) {
+        
+        UserDefaults.standard.set("8", forKey: MemberKey.TableNumber.rawValue)
+        guard let tableNumber = UserDefaults.standard.string(forKey: MemberKey.TableNumber.rawValue) else {
+            let alertController = UIAlertController(title: "測試", message: "尚未入座", preferredStyle: .alert)
+            let action = UIAlertAction(title: "確定", style: .default)
+            alertController.addAction(action)
+            present(alertController, animated: true)
+            return
+        }
+        let alertController = UIAlertController(title: "測試", message: tableNumber, preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default)
+        alertController.addAction(action)
+        
+        var service = [String: Any]()
+        service["action"] = "callService"
+        service["tableNumber"] = tableNumber
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: service), let jsonString = String(data: jsonData, encoding: .utf8) else {
+            assertionFailure("Data to strint fail!")
+            return
+        }
+        
+        commonWebSocketClient?.sendMessage(jsonString)
+        
+        present(alertController, animated: true)
+    }
 }
 
 extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
@@ -129,8 +155,12 @@ extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageTableViewCell", for: indexPath) as! MessageTableViewCell
         let messageContent = array[indexPath.row].message_content
         if array_img.count == array.count{
+            let imageData = UIImageJPEGRepresentation(array_img[indexPath.row], 100)
+            let base64Data = imageData?.base64EncodedString()
+            
+            //            print("array_img (base64Data): \(base64Data)")
 //            print("Array Image Count : \(array_img.count),IndexPathRow : \(indexPath.row)")
-            let messageImage = arrayimageId[indexPath.row].image
+            let messageImage = array_img[indexPath.row]
             cell.messageImageView.image = messageImage
         }
         cell.messageContentLabel.text = messageContent

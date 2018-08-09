@@ -9,7 +9,7 @@
 import UIKit
 import Cosmos
 
-class RatingNewViewController: UIViewController {
+class RatingNewViewController: UIViewController, UITextFieldDelegate {
     
     var controller: RatingViewController?
     let communicator = Communicator()
@@ -31,7 +31,7 @@ class RatingNewViewController: UIViewController {
         
         userNameLabel.text = member_name
         ratingStar.didFinishTouchingCosmos = scoreSaveFunction
-        
+        commentTextField.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelBarBtnFnc))
         
@@ -120,6 +120,12 @@ class RatingNewViewController: UIViewController {
                 showAlertController(titleText: "評分異常!", messageText: "請再傳送一次", okActionText: "知道了!", printText: "評分異常", viewController: self)
             }
         }
+    }
+    
+    // 點return就收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     // 點背景收鍵盤

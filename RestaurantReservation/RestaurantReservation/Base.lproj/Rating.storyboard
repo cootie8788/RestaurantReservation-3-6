@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ratingTableViewCell" rowHeight="340" id="kcX-Zh-6Wh" customClass="RatingTableViewCell" customModule="RestaurantReservation" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ratingTableViewCell" rowHeight="340" id="kcX-Zh-6Wh" customClass="RatingTableViewCell" customModule="RestaurantReservation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="340"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kcX-Zh-6Wh" id="L7p-9i-Kqg">
@@ -141,9 +141,9 @@
                                                 <constraint firstItem="6zO-hn-PG9" firstAttribute="leading" secondItem="L7p-9i-Kqg" secondAttribute="leading" constant="15" id="CVI-AH-yWh"/>
                                                 <constraint firstItem="Rij-5l-aVO" firstAttribute="leading" secondItem="L7p-9i-Kqg" secondAttribute="leading" constant="40" id="dTe-bE-QCo"/>
                                                 <constraint firstItem="Rij-5l-aVO" firstAttribute="top" secondItem="L7p-9i-Kqg" secondAttribute="topMargin" constant="25" id="e1T-WT-cjl"/>
+                                                <constraint firstAttribute="trailing" secondItem="6zO-hn-PG9" secondAttribute="trailing" constant="15" id="hRr-sl-W0F"/>
                                                 <constraint firstAttribute="bottom" secondItem="6zO-hn-PG9" secondAttribute="bottom" constant="15" id="k5P-lg-cpg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rij-5l-aVO" secondAttribute="bottom" constant="30" id="qWV-es-orT"/>
-                                                <constraint firstAttribute="trailing" secondItem="6zO-hn-PG9" secondAttribute="trailing" constant="15" id="qgH-X5-0H9"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rij-5l-aVO" secondAttribute="trailing" constant="40" id="r1d-sf-04R"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRl-ft-utb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="1056"/>
+            <point key="canvasLocation" x="2144.8000000000002" y="1055.6221889055473"/>
         </scene>
         <!--撰寫評分-->
         <scene sceneID="wVW-9I-7BJ">

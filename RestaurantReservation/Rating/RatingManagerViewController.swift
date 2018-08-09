@@ -9,7 +9,7 @@
 import UIKit
 import Cosmos
 
-class RatingManagerViewController: UIViewController {
+class RatingManagerViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var ratingStar: CosmosView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -24,7 +24,8 @@ class RatingManagerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ratingStar.settings.minTouchRating = 0
+        
+        navigationItem.hidesBackButton = true
         
         guard let userName = ratingInfo?.member_name else {
             assertionFailure("userName invailed")
@@ -43,12 +44,12 @@ class RatingManagerViewController: UIViewController {
             responeTextField.text = commentResponse
         }
         
+        responeTextField.delegate = self
+        
         userNameLabel.text = userName
         ratingStar.isUserInteractionEnabled = false
         ratingStar.rating = ratingstar
         commentTextField.text = commentUser
-        
-        
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelResponseBtnFnc))
 
@@ -106,22 +107,22 @@ class RatingManagerViewController: UIViewController {
             let respone = String(data: data, encoding: String.Encoding.utf8)
             //檢查是否成功
             if respone != "1" {
-                showAlertController(titleText: "留言回應異常!", messageText: "請再刪除一次", okActionText: "知道了!", printText: "優惠資訊留言回應異常", viewController: self)
+                showAlertController(titleText: "留言回應異常!", messageText: "請再刪除一次", okActionText: "知道了!", printText: "留言回應異常", viewController: self)
                 return
             }
-            
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scoreSaveFunction(rating: Double){
         score = rating
     }
 
+    // 點return就收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     // 點背景收鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

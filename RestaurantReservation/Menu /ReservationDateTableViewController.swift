@@ -11,9 +11,9 @@ var upload = ""
 class ReservationDateTableViewController: UITableViewController {
     
     @IBOutlet weak var numberOfTextField: UITextField!//人數TextField
-    
     @IBOutlet weak var timeTextField: UITextField!//時間TextField
     @IBOutlet weak var dateTextField: UITextField! //日期TextField
+    
     let numberOfPeoples = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15","16", "17", "18", "19", "20"]
     let communicator =  CommunicatorOrder()
     var timePick = UIDatePicker()
@@ -22,15 +22,22 @@ class ReservationDateTableViewController: UITableViewController {
     var date = ""
     var time = ""
     var person = ""
-    
+    var memberIDInter = -1
     let userDefault = UserDefaults()
-//    let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue)
-//    let person = self.userDefault.string(forKey: "person")
-//    let date = self.userDefault.string(forKey: "date")
+    //    let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue)
+    //    let person = self.userDefault.string(forKey: "person")
+    //    let date = self.userDefault.string(forKey: "date")
     
     var selectPeople: String? //選擇人數
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        let memberID = UserDefaults.standard.string(forKey: MemberKey.MemberID.rawValue)
+        guard let memberIDInt = Int(memberID!) else {
+            assertionFailure("get MemberID Fail")
+            return
+        }
+        memberIDInter = memberIDInt
         creatDatePicker()
         creatTimePicker()
         createPeolePiceker()
@@ -39,10 +46,24 @@ class ReservationDateTableViewController: UITableViewController {
     
     var con : UINavigationController?
     
+    var firstAction = true
     
+    @IBAction func peopleAction(_ sender: UITextField) {
+        if firstAction {
+            firstAction = false
+            numberOfTextField.text = "1"
+            person = numberOfTextField.text!
+        }
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     // 創造時間picker
@@ -57,9 +78,6 @@ class ReservationDateTableViewController: UITableViewController {
         toolbar.setItems([doneButton], animated: true)
         timeTextField.inputAccessoryView = toolbar
     }
-    
-    
-    
     // 創造日期picker
     func creatDatePicker(){
         //格式化 顯示的 datePick
@@ -74,7 +92,7 @@ class ReservationDateTableViewController: UITableViewController {
         //toolbar 增加完成按紐
         let doneButton = UIBarButtonItem(title: "確定", style: .done, target: nil, action: #selector(doneClicked))
         toolbar.setItems([doneButton], animated: true)
-        dateTextField.inputAccessoryView = toolbar //要開啟虛擬鍵盤都需透故inputAccessoryView
+        dateTextField.inputAccessoryView = toolbar //要開啟虛擬鍵盤都需透過inputAccessoryView
         datePick.maximumDate = sevenDaysfromNow //設定最大日期
         datePick.minimumDate = datePick.date //設定最小日期
     }
@@ -89,14 +107,14 @@ class ReservationDateTableViewController: UITableViewController {
     //日期#selector
     @objc
     func doneClicked() {
+        //再次選擇前清除
+        upload = ""
         // 格式化顯示在TextField 日期
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateTextField.text = dateFormatter.string(from: datePick.date)
-        upload += "\(dateTextField.text!)" + " "
-        print("gggggg:\(upload)")
         self.view.endEditing(true)
-       
+        
     }
     
     //時間#selector
@@ -105,8 +123,8 @@ class ReservationDateTableViewController: UITableViewController {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
         timeTextField.text = timeFormatter.string(from: timePick.date)
-        upload += "\(timeTextField.text!)" + ":00"
-        print("ggg6666:\(upload)")
+        upload = dateTextField.text! + " " + timeTextField.text! + ":00"
+        print("upload:\(upload)")
         self.view.endEditing(true)
         
         userDefault.setValue(upload, forKey: "date")
@@ -151,20 +169,18 @@ class ReservationDateTableViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
             
         }else {
-//            self.present(con!, animated: true, completion: nil)
+            //            self.present(con!, animated: true, completion: nil)
             
             let alert = UIAlertController(title: "定位", message: "", preferredStyle: .alert)
             
             //定位確認扭 三個AlertAction 1繼續點餐. 2.取消 3.定位不點餐
-//            let continueAction = UIAlertAction(title: "繼續點餐", style: .default, handler: nil)
+            //            let continueAction = UIAlertAction(title: "繼續點餐", style: .default, handler: nil)
             let continueAction = UIAlertAction(title: "繼續點餐", style: .default) { (action) in
                 
-                guard let OrderMenu =
-                    self.storyboard?.instantiateViewController(withIdentifier: "OrderMenu")as? UINavigationController else {
-                        return
-                }
-                OrderMenu.modalPresentationStyle = .currentContext
-                self.present(OrderMenu, animated: true, completion: nil)
+                self.userDefault.setValue("預訂點餐", forKey: MemberKey.TableNumber.rawValue)
+                self.userDefault.synchronize()
+                self.performSegue(withIdentifier: "OrderMenu", sender: nil)
+                
             }
             
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -176,8 +192,11 @@ class ReservationDateTableViewController: UITableViewController {
                 let checkAction = UIAlertAction(title: "前往訂單查詢", style: .default, handler: { (action) in
                     // 在OrderTableViewController 設變數變數OrderID為staic
                     newOrderTableViewControllerOrderID = self.orderID.orderId
-                    print("bbbbbbbbb:\(newOrderTableViewControllerOrderID)")
+                    newOrderTableViewDetailControllerOrderID = self.orderID.orderId
+                    print("newOrderTableViewDetailControllerOrderID:\(newOrderTableViewControllerOrderID)")
+                    self.cancelTextField()
                     self.tabBarController?.selectedIndex = 2
+                    
                 })
                 let messageAction = UIAlertAction(title: "返回優惠訊息", style: .default, handler: { (action) in
                     self.tabBarController?.selectedIndex = 0
@@ -193,9 +212,16 @@ class ReservationDateTableViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    //清空時間人數文字
+    func cancelTextField() {
+        timeTextField.text = ""
+        dateTextField.text = ""
+        numberOfTextField.text = ""
+    }
+    
     //上傳時間日期人數方法
     func uploaddateTask() {
-        let action = dateInfo(action: "insert", date: upload, person: person, memberId: 2)
+        let action = dateInfo(action: "insert", date: upload, person: person, memberId: memberIDInter)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
         guard let uploadDate = try? econder.encode(action) else {
@@ -236,6 +262,7 @@ extension ReservationDateTableViewController: UIPickerViewDelegate, UIPickerView
         numberOfTextField.text = selectPeople
         person = numberOfTextField.text!
         
+        firstAction = false
         //人數取得
         userDefault.setValue(selectPeople, forKey: "person")
         userDefault.synchronize()

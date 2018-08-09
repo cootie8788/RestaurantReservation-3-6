@@ -26,6 +26,21 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     @IBAction func bar_Bt_action(_ sender: UIBarButtonItem) {
         
+        
+        guard  app.cart.count > 0 else{
+            
+            let alert2 = UIAlertController(title: "錯誤提示", message: "目前購物車為空", preferredStyle: .alert)
+            
+            let item2 = UIAlertAction(title: "確定", style: .default)
+            alert2.addAction(item2)
+            
+            present(alert2, animated: true, completion: nil)
+            
+            return
+        }
+        
+        
+        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -46,6 +61,8 @@ class ConfirmMenuTableViewController: UITableViewController {
             self.userDefault.synchronize()
 
             self.showAlert()
+            
+            
         }
         
     }
@@ -53,7 +70,11 @@ class ConfirmMenuTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-//        socket.startLinkServer()
+        if self.socket.socket.delegate == nil{
+            print("socket 連線")
+            self.socket.startLinkServer()
+        }
+
         
         var total = 0
         
@@ -70,27 +91,37 @@ class ConfirmMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        definesPresentationContext = true
+        
         for (_ ,value) in app.cart {
             array.append(value)
         }
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func nextpresent(){
-//        let checkvc =
-//            self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as! UINavigationController
         
-        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
-            assertionFailure("Fail present")
-            return  }
+//        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
+//            assertionFailure("Fail present")
+//            return  }
+//        
+//        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
+//        //上面是 CheckViewController 前的 UINavigationController
+//        self.present(checkvc, animated: true, completion: nil)
         
-        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
-        //上面是 CheckViewController 前的 UINavigationController
-        self.present(checkvc, animated: true, completion: nil)
+        
+        performSegue(withIdentifier: "CheckView", sender: nil)
+        
     }
     
     func showAlert(){
@@ -103,7 +134,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             let memberID =
                 self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
 //
-//            let table_member = self.userDefault.string(forKey: "table_member")
+            let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
             let person = self.userDefault.string(forKey: "person") ?? "0"
             let date = self.userDefault.string(forKey: "date") ?? ""
             
@@ -117,7 +148,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                 }
             
 //            let memberID = "1"
-            let table_member = "8"
+//            let table_member = "8"
 //            let person = "7"
 //            let date = Date()
 //            let dateFormatter = DateFormatter()
@@ -130,24 +161,26 @@ class ConfirmMenuTableViewController: UITableViewController {
             }
             
         
-            if  table_member == "7"{
+            if  table_member != "預訂點餐"{   // tableMemeber 這邊可能是抓不到
                 
                 
                 self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, table_member: table_member, doneHandler: { (error, data) in
                     
                     
-                    print("\(String(data: data, encoding: .utf8))")
+                    print("\(String(describing: String(data: data, encoding: .utf8)))")
 //                     string.data(using: .utf8)
         
                     let de = JSONDecoder()  //解碼可以解外面是String的"json格式"
 
                     guard let respone = try? de.decode(respone_orderId.self, from: data)  else {
                         assertionFailure("Fail orderInsert")
-                        return  }
+                        return  }   //de.decode 會失敗 閃退 ？？
 
                     print(respone.orderId)
                     
                     if respone.orderId != "-1" {
+                        // waiter socket
+                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
     
@@ -156,6 +189,9 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
+                            
+                            self.socket.sendMessage("notifyDataSetChanged")
+                            
                             self.nextpresent()
                         })
                         
@@ -181,7 +217,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                 
                 self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, person: person, data: date, doneHandler: { (error, data) in
                     
-                    print("\(String(data: data, encoding: .utf8))")
+                    print("\(String(describing: String(data: data, encoding: .utf8)))")
                     
                     let decdoe = JSONDecoder()  //解碼可以解外面是String的"json格式"
                     
@@ -192,6 +228,8 @@ class ConfirmMenuTableViewController: UITableViewController {
                     print("\(respone.orderId)")
                     
                     if respone.orderId != "-1" {
+                        // waiter socket
+                        self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
                             
@@ -200,6 +238,9 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
                             //                        print("input order ???\(order)")
+                            
+                            self.socket.sendMessage("notifyDataSetChanged")
+                            
                             self.nextpresent()
                         })
                         
@@ -227,8 +268,8 @@ class ConfirmMenuTableViewController: UITableViewController {
             
         
         }
-        let item2 = UIAlertAction(title: "項目2", style: .default)
-        let item3 = UIAlertAction(title: "項目3", style: .default)
+//        let item2 = UIAlertAction(title: "項目2", style: .default)
+//        let item3 = UIAlertAction(title: "項目3", style: .default)
         let cancel = UIAlertAction(title: "取消", style: .cancel)
         
         alert.addAction(item1)
@@ -266,7 +307,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         cell.tag = indexPath.row  //給cell  他自己所對應的table index
         cell.cellID = id          //給cell  所對應的orderMenu id
         cell.cellName = name
-        cell.cellPrice = price
+        cell.cellPrice = "$\(price)"
         cell.cellStock = stock
         
         cell.ctrler = self
@@ -274,6 +315,30 @@ class ConfirmMenuTableViewController: UITableViewController {
         cell.money_total = money_total
         
         return cell
+    }
+    
+    // waiter socket
+    func giveMeOrder() {
+        print(app.cart.count)
+        var cartOrderMenu = [OrderMenu]()
+        for (_,orderMenu)in app.cart {
+            cartOrderMenu.append(orderMenu)
+        }
+        var order = [String: Any]()
+        order["action"] = "giveMeOrder"
+        order["tableNumber"] = "尚未入座"
+        let encoder = JSONEncoder()
+        guard let jsonDataOrderMenu = try? encoder.encode(cartOrderMenu), let jsonStringOrderMenu = String(data: jsonDataOrderMenu, encoding: .utf8 ) else {
+            assertionFailure("json toString Fail!")
+            return
+        }
+        order["cart"] = jsonStringOrderMenu
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: order), let jsonString = String(data: jsonData, encoding: .utf8) else {
+            assertionFailure("json toString Fail!")
+            return
+        }
+        commonWebSocketClient?.sendMessage(jsonString)
     }
     
 
