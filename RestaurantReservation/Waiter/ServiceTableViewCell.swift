@@ -14,6 +14,7 @@ class ServiceTableViewCell: UITableViewCell {
     @IBOutlet weak var view: UIView!
     
     @IBOutlet weak var serviceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -41,7 +41,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     @IBAction func returnAction(_ sender: UIBarButtonItem) {
         
 //        self.navigationController?.popToRootViewController(animated: true)
-        self.tabBarController?.selectedIndex = 2
+//        self.tabBarController?.selectedIndex = 2
         // 直接回到navigation最開頭
         self.navigationController?.popToRootViewController(animated: true)
         app.cart.removeAll()
