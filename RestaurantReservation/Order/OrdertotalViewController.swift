@@ -17,6 +17,7 @@ class OrdertotalViewController: UIViewController {
     let communicator =  CommunicatorOrder()
     var dateOrder = ""
     var orderID = -1
+    var haveOrder = -1
     
     
     var oldCheckOrders = [OldCheckOrder]()
@@ -46,14 +47,9 @@ class OrdertotalViewController: UIViewController {
             return
         }
         newOrderTableViewControllerOrderID = confirmOrderInt
+        
         }
-       
         downNewOrder()
-        
-        
-        
-   
-        
         
     }
     
@@ -76,6 +72,7 @@ class OrdertotalViewController: UIViewController {
         switch OrderChangedSegmentControl.selectedSegmentIndex {
         case 0:
             downNewOrder()
+            
         case 1:
             downOldOrder()
         default:
@@ -92,6 +89,7 @@ class OrdertotalViewController: UIViewController {
         }
         print("memberIDInt: \(memberIDInt.description)")
         print("orderIDappear: \(newOrderTableViewControllerOrderID)")
+        
         let action = ActionOrder(action: "findById", memberId: memberIDInt, orderId: newOrderTableViewControllerOrderID)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
@@ -180,6 +178,7 @@ extension OrdertotalViewController: UITableViewDataSource {
             let newItem = newCheckOrder[indexPath.row]
             cell.dateLabel.text = "定位:\(newItem.date_order)"
             cell.personLabel.text = "內用人數:\(newItem.person)"
+            
             return cell
         }else {
             let oldOrderItems = oldCheckOrders[indexPath.row]
