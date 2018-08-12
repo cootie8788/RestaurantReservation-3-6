@@ -81,6 +81,7 @@
 		EA44C9152112E86200D5BCD3 /* RoundedPassCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44C9142112E86200D5BCD3 /* RoundedPassCodeView.swift */; };
 		EA44C9172112EBBC00D5BCD3 /* OrdertotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44C9162112EBBC00D5BCD3 /* OrdertotalTableViewCell.swift */; };
 		EA44C9192112ED0700D5BCD3 /* OrdertotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44C9182112ED0700D5BCD3 /* OrdertotalViewController.swift */; };
+		EA5409492120287200FD4F7E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EA5409482120287200FD4F7E /* .gitignore */; };
 		EAF3CFB8210F0A07004EF568 /* CommunicatorOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */; };
 		EAF3CFBA210F0A0F004EF568 /* CommonOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */; };
 		EAF3CFBC210F0A1B004EF568 /* NewandOldOeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */; };
@@ -169,6 +170,7 @@
 		EA44C9142112E86200D5BCD3 /* RoundedPassCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedPassCodeView.swift; sourceTree = "<group>"; };
 		EA44C9162112EBBC00D5BCD3 /* OrdertotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdertotalTableViewCell.swift; sourceTree = "<group>"; };
 		EA44C9182112ED0700D5BCD3 /* OrdertotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdertotalViewController.swift; sourceTree = "<group>"; };
+		EA5409482120287200FD4F7E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicatorOrder.swift; sourceTree = "<group>"; };
 		EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonOrder.swift; sourceTree = "<group>"; };
 		EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewandOldOeder.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		BFCF59F720F865C9008E2A34 = {
 			isa = PBXGroup;
 			children = (
+				EA5409482120287200FD4F7E /* .gitignore */,
 				BFCF5A0220F865C9008E2A34 /* RestaurantReservation */,
 				BFCF5A0A20F865CB008E2A34 /* Assets.xcassets */,
 				BFCF5A0120F865C9008E2A34 /* Products */,
@@ -496,6 +499,7 @@
 				BFCF5A0B20F865CB008E2A34 /* Assets.xcassets in Resources */,
 				38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
 				BFDA831D20F86B8B0050C738 /* Rating.storyboard in Resources */,
+				EA5409492120287200FD4F7E /* .gitignore in Resources */,
 				38256D2B21108FB90035FABA /* Service.storyboard in Resources */,
 				38256D2821108F630035FABA /* Waiter.storyboard in Resources */,
 				BFCF5A0920F865C9008E2A34 /* Main.storyboard in Resources */,
