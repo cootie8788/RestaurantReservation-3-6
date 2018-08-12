@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                assertionFailure("nil tableViewControl")
                 return}
             
-            DispatchQueue.main.async {
-                
+//            DispatchQueue.main.async {
+            
                 let filemanager = FileManager.default
                 
                 if let results = try?filemanager.contentsOfDirectory(atPath: self.cashesURL.path){
@@ -51,8 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 tableviewcontrol.tableView.reloadData()
-            }
-        }
+//            }
+            
+        }//Downloader.shared.test
     }
     
     

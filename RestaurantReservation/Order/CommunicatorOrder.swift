@@ -19,7 +19,7 @@ class CommunicatorOrder  {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application", forHTTPHeaderField: "Content")
-        
+    
         
         let task = URLSession.shared.uploadTask(with: request, from: data) { (output, response, error) in
             

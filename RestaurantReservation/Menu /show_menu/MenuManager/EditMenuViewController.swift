@@ -3,6 +3,15 @@
 import UIKit
 import Starscream
 
+extension EditMenuViewController: UIImageCropperProtocol{
+    
+    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
+        editImage.image = croppedImage
+        editImage.image = editImage.image?.resize(maxWidthHeight: 200)
+    }
+    
+}
+
 class EditMenuViewController: UIViewController {
     
     
@@ -21,10 +30,14 @@ class EditMenuViewController: UIViewController {
     
     var MenuTableC_sw = 0
     var MenuTableC_index = 0
+    var MenuTableC_index_id = 0
+    
     var deleteSW = false
     
     var socket = SocketClient.chatWebSocketClient
     
+    private let picker = UIImagePickerController()
+    private let cropper = UIImageCropper(cropRatio: 4/3)
     
     private let cashesURL :URL =
     {
@@ -48,18 +61,37 @@ class EditMenuViewController: UIViewController {
     @IBAction func EditImageBt(_ sender: UIButton) {
         
         
-        let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
-        let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+        cropper.picker = picker
+        cropper.cropButtonText = "擷取圖片"
+        cropper.cancelButtonText = "返回圖庫"
+        
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let takePicAction = UIAlertAction(title: "拍照", style: .default) { (_) in
+            self.picker.sourceType = .camera
+            self.present(self.picker, animated: true, completion: nil)
         }
-        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+        let pickPicAction = UIAlertAction(title: "從相簿選擇照片", style: .default) { (_) in
+            self.picker.sourceType = .photoLibrary
+            self.present(self.picker, animated: true, completion: nil)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(library)
-        alert.addAction(camera)
-        alert.addAction(cancel)
-        present(alert,animated: true)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        controller.addAction(takePicAction)
+        controller.addAction(pickPicAction)
+        controller.addAction(cancelAction)
+        self.present(controller, animated: true, completion: nil)
+        
+//        let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
+//        let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+//            self.lauchPicker(forType: .photoLibrary)
+//        }
+//        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+//            self.lauchPicker(forType: .camera)
+//        }
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+//        alert.addAction(library)
+//        alert.addAction(camera)
+//        alert.addAction(cancel)
+//        present(alert,animated: true)
         
 //        editImage.image = UIImage(named: "喵")
         
@@ -76,12 +108,13 @@ class EditMenuViewController: UIViewController {
             downloader.menuUpdata_image(fileName:#file, id, data) { (error, data) in
                 
                 print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
-            
+                
+                self.socket.sendMessage("notifyDataSetChanged")
             }
             
             RemoveRetrieveFileNames(id)
             
-            self.socket.sendMessage("notifyDataSetChanged")
+            
             
             deleteSW = true
             self.performSegue(withIdentifier: "goback", sender: nil)
@@ -97,11 +130,12 @@ class EditMenuViewController: UIViewController {
         Downloader.shared.menuDelete(fileName:#file,id) { (error, data) in
             
             print("menuDelete: \(String(describing: String(data: data, encoding: .utf8)))")
+            
+            self.socket.sendMessage("notifyDataSetChanged")
         }
         
         deleteSW = true
         self.performSegue(withIdentifier: "goback", sender: nil)
-        self.socket.sendMessage("notifyDataSetChanged")
         
     }
     
@@ -121,6 +155,10 @@ class EditMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cropper.delegate = self
+
+        editImage.showImage(urlString: MENU_URL, id: MenuTableC_index_id)
         
         navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
         //註冊收鍵盤
@@ -175,9 +213,10 @@ class EditMenuViewController: UIViewController {
                 return  }
             
             
-            if let image = editImage.image {
+            if let image = editImage.image{
                 //有圖的上傳
                 let menu = Menu(id: id, name: name, price: price, type: type, note: "", stock: 0)
+                
                 let data = UIImageJPEGRepresentation(image, 100)
                 
                 downloader.menu_with_image(fileName:#file,action: "menuUpdata", menu, data) { (error, data) in

@@ -41,6 +41,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         
         
         
+        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -61,7 +62,6 @@ class ConfirmMenuTableViewController: UITableViewController {
             self.userDefault.synchronize()
 
             self.showAlert()
-            
             
         }
         
@@ -281,6 +281,10 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return app.cart.count
