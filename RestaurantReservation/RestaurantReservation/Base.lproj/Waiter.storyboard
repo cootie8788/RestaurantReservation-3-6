@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,33 +50,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3d-84-C06">
-                                                    <rect key="frame" x="15" y="10" width="345" height="80"/>
+                                                    <rect key="frame" x="18" y="10" width="339" height="80"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SY-hH-dUY">
-                                                            <rect key="frame" x="5" y="31" width="335" height="19.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6SY-hH-dUY">
+                                                            <rect key="frame" x="8.5" y="28" width="322" height="24"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="石頭火鍋" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKA-qS-HSC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="石頭火鍋" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VKA-qS-HSC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="桌號：8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tew-Bz-MWW">
-                                                                    <rect key="frame" x="90" y="0.0" width="97.5" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="桌號：8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tew-Bz-MWW">
+                                                                    <rect key="frame" x="87" y="0.0" width="80.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="數量：10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-wO-Feh">
-                                                                    <rect key="frame" x="187.5" y="0.0" width="74" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="數量：10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-wO-Feh">
+                                                                    <rect key="frame" x="172.5" y="0.0" width="83" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="未出餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-Mq-FE0">
-                                                                    <rect key="frame" x="261.5" y="0.0" width="73.5" height="19.5"/>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="未出餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Il-Mq-FE0">
+                                                                    <rect key="frame" x="260.5" y="0.0" width="61.5" height="24"/>
                                                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -87,19 +86,13 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="mPJ-wO-Feh" firstAttribute="width" secondItem="6SY-hH-dUY" secondAttribute="width" multiplier="73.6:335" id="7Lm-Pu-c1J"/>
-                                                                <constraint firstItem="1Il-Mq-FE0" firstAttribute="width" secondItem="6SY-hH-dUY" secondAttribute="width" multiplier="73.8:335" id="McX-19-G4J"/>
-                                                                <constraint firstItem="VKA-qS-HSC" firstAttribute="width" secondItem="6SY-hH-dUY" secondAttribute="width" multiplier="90.4:335" id="jfS-H4-QWS"/>
-                                                                <constraint firstItem="tew-Bz-MWW" firstAttribute="width" secondItem="6SY-hH-dUY" secondAttribute="width" multiplier="97.2:335" id="mmI-DD-0sq"/>
-                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="6SY-hH-dUY" secondAttribute="trailing" constant="5" id="2rp-pa-Ay7"/>
-                                                        <constraint firstItem="6SY-hH-dUY" firstAttribute="leading" secondItem="s3d-84-C06" secondAttribute="leading" constant="5" id="5GG-fr-bsj"/>
-                                                        <constraint firstItem="6SY-hH-dUY" firstAttribute="centerY" secondItem="s3d-84-C06" secondAttribute="centerY" id="GYP-ry-Zx5"/>
+                                                        <constraint firstItem="6SY-hH-dUY" firstAttribute="centerY" secondItem="s3d-84-C06" secondAttribute="centerY" id="AUX-Lr-Ono"/>
+                                                        <constraint firstItem="6SY-hH-dUY" firstAttribute="width" secondItem="s3d-84-C06" secondAttribute="width" multiplier="19:20" id="EgX-wG-AOL"/>
+                                                        <constraint firstItem="6SY-hH-dUY" firstAttribute="centerX" secondItem="s3d-84-C06" secondAttribute="centerX" id="al5-63-Yng"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -109,10 +102,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="s3d-84-C06" firstAttribute="leading" secondItem="BcR-0p-ejw" secondAttribute="leadingMargin" id="CIU-0J-Jmw"/>
-                                                <constraint firstItem="s3d-84-C06" firstAttribute="top" secondItem="BcR-0p-ejw" secondAttribute="top" constant="10" id="gfU-6w-qav"/>
+                                                <constraint firstItem="s3d-84-C06" firstAttribute="top" secondItem="BcR-0p-ejw" secondAttribute="top" constant="10" id="0nq-MF-zBv"/>
+                                                <constraint firstItem="s3d-84-C06" firstAttribute="width" secondItem="BcR-0p-ejw" secondAttribute="width" multiplier="19:21" id="3aN-0h-YWW"/>
+                                                <constraint firstAttribute="bottom" secondItem="s3d-84-C06" secondAttribute="bottom" constant="10" id="pfu-YB-f3G"/>
                                                 <constraint firstItem="s3d-84-C06" firstAttribute="centerX" secondItem="BcR-0p-ejw" secondAttribute="centerX" id="vlK-tf-lTd"/>
-                                                <constraint firstAttribute="bottom" secondItem="s3d-84-C06" secondAttribute="bottom" constant="10" id="xDc-GS-Tgh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

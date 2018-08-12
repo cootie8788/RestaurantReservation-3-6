@@ -79,7 +79,6 @@ class MessageViewController: UIViewController {
                 return
             }
             
-            //            print("array.count: \(self.array.count)")
             self.array = output
             self.getImage()
         }
@@ -141,9 +140,11 @@ class MessageViewController: UIViewController {
         }
         
         commonWebSocketClient?.sendMessage(jsonString)
-        
         present(alertController, animated: true)
     }
+    
+    
+
 }
 
 extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
@@ -157,9 +158,6 @@ extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
         if array_img.count == array.count{
             let imageData = UIImageJPEGRepresentation(array_img[indexPath.row], 100)
             let base64Data = imageData?.base64EncodedString()
-            
-            //            print("array_img (base64Data): \(base64Data)")
-//            print("Array Image Count : \(array_img.count),IndexPathRow : \(indexPath.row)")
             let messageImage = array_img[indexPath.row]
             cell.messageImageView.image = messageImage
         }

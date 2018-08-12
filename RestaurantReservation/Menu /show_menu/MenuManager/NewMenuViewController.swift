@@ -4,17 +4,39 @@ import UIKit
 import Photos
 import Starscream
 
-class NewMenuViewController: UIViewController {
+class NewMenuViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newImage: UIImageView!
     @IBOutlet weak var menu_name: UITextField!
     @IBOutlet weak var menu_kind: UISegmentedControl!
     @IBOutlet weak var menu_price: UITextField!
     @IBOutlet weak var menu_stock: UITextField!
+
+    let downloader = Downloader.shared
+    let userDefault = UserDefaults()
+    let decoder = JSONDecoder()
+    let app = UIApplication.shared.delegate as! AppDelegate
     
+    var socket = SocketClient.chatWebSocketClient
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
+        
+        menu_name.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
+
+    }
     
     @IBAction func editImageBt(_ sender: UIButton) {
-        
         
         let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
         let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
@@ -30,44 +52,11 @@ class NewMenuViewController: UIViewController {
         present(alert,animated: true)
         
         
-//        newImage.image = UIImage(named: "喵")
-    }
-
-    let downloader = Downloader.shared
-    let userDefault = UserDefaults()
-    
-    let decoder = JSONDecoder()
-    let app = UIApplication.shared.delegate as! AppDelegate
-    
-    var socket = SocketClient.chatWebSocketClient
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
-        view.addGestureRecognizer(tap)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
-
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-
+        //        newImage.image = UIImage(named: "喵")
     }
     
     @IBAction func dismissKeybroad()  {
         view.endEditing(true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        
-        
     }
     
     func showAlert(_ message:String){
@@ -80,8 +69,6 @@ class NewMenuViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,6 +108,12 @@ class NewMenuViewController: UIViewController {
      
         }
 
+    }
+    
+    // 點return就收鍵盤
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }

@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,27 +50,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-Zz-KZO">
-                                                    <rect key="frame" x="15" y="10" width="345" height="80"/>
+                                                    <rect key="frame" x="18" y="10" width="339" height="80"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iBW-Hw-dHY">
-                                                            <rect key="frame" x="16" y="30" width="313" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iBW-Hw-dHY">
+                                                            <rect key="frame" x="8.5" y="28.5" width="322" height="24"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="桌號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPa-m0-zb3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="桌號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPa-m0-zb3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="61.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2df-0a-Tcy">
-                                                                    <rect key="frame" x="82" y="0.0" width="149" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="時間：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2df-0a-Tcy">
+                                                                    <rect key="frame" x="71.5" y="0.0" width="179" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未服務" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-dS-247">
-                                                                    <rect key="frame" x="261" y="0.0" width="52" height="20.5"/>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未服務" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-dS-247">
+                                                                    <rect key="frame" x="260.5" y="0.0" width="61.5" height="24"/>
                                                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -84,9 +84,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="iBW-Hw-dHY" secondAttribute="trailing" constant="16" id="2g3-86-AWU"/>
                                                         <constraint firstItem="iBW-Hw-dHY" firstAttribute="centerY" secondItem="B2i-Zz-KZO" secondAttribute="centerY" id="Q3F-RL-KTI"/>
-                                                        <constraint firstItem="iBW-Hw-dHY" firstAttribute="leading" secondItem="B2i-Zz-KZO" secondAttribute="leading" constant="16" id="ulI-3j-vaY"/>
+                                                        <constraint firstItem="iBW-Hw-dHY" firstAttribute="width" secondItem="B2i-Zz-KZO" secondAttribute="width" multiplier="19:20" id="bMY-O1-Rb5"/>
+                                                        <constraint firstItem="iBW-Hw-dHY" firstAttribute="centerX" secondItem="B2i-Zz-KZO" secondAttribute="centerX" id="cOV-Xi-AwJ"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -98,7 +98,7 @@
                                             <constraints>
                                                 <constraint firstItem="B2i-Zz-KZO" firstAttribute="centerX" secondItem="OXK-Fx-b3p" secondAttribute="centerX" id="5cx-2y-Kcc"/>
                                                 <constraint firstAttribute="bottom" secondItem="B2i-Zz-KZO" secondAttribute="bottom" constant="10" id="7kC-Zk-LOZ"/>
-                                                <constraint firstItem="B2i-Zz-KZO" firstAttribute="leading" secondItem="OXK-Fx-b3p" secondAttribute="leadingMargin" id="F1Q-F7-zpb"/>
+                                                <constraint firstItem="B2i-Zz-KZO" firstAttribute="width" secondItem="OXK-Fx-b3p" secondAttribute="width" multiplier="19:21" id="HUe-AO-ZXN"/>
                                                 <constraint firstItem="B2i-Zz-KZO" firstAttribute="top" secondItem="OXK-Fx-b3p" secondAttribute="top" constant="10" id="hvs-fq-FyH"/>
                                             </constraints>
                                         </tableViewCellContentView>

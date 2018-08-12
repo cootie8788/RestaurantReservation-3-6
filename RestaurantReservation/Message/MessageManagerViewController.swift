@@ -60,7 +60,6 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
         messageNewStartTextField.setBottomBorder()
         messageNewEndTextField.setBottomBorder()
         messageNewDiscountTextField.setBottomBorder()
-        messageNewImageView.image = #imageLiteral(resourceName: "pic_pot")
         
         // Do any additional setup after loading the view.
         
