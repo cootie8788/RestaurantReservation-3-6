@@ -54,6 +54,7 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         decodeFirst(jsonString)
+        print(jsonString)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
