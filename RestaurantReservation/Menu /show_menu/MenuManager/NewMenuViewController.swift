@@ -121,3 +121,11 @@ class NewMenuViewController: UIViewController, UITextFieldDelegate {
     }
 
 }
+
+extension NewMenuViewController: UIImageCropperProtocol{
+    
+    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
+        newImage.image = croppedImage
+    }
+    
+}

@@ -245,6 +245,11 @@
                                                 <state key="normal" title="刪除此菜單">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="deleteBt:" destination="nVf-tv-Ywa" eventType="touchUpInside" id="Gpl-cZ-r0z"/>
                                                 </connections>
