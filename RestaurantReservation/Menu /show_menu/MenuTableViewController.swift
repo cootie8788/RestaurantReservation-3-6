@@ -17,6 +17,8 @@ class MenuTableViewController: UITableViewController {
     
     let socket = SocketClient.chatWebSocketClient
     
+    var indexPath:IndexPath?
+    
     @IBAction
     func goback(segue:UIStoryboardSegue)  {
         
@@ -48,8 +50,7 @@ class MenuTableViewController: UITableViewController {
 //        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中")
     }
     
-    
-    
+
     
     
     override func didReceiveMemoryWarning() {
@@ -91,8 +92,13 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
+        self.indexPath = indexPath
+        
+        
     }
+    
+    
     
     // MARK: - Navigation
 
@@ -103,7 +109,14 @@ class MenuTableViewController: UITableViewController {
             
             control.MenuTableC_sw = meeu_switch.selectedSegmentIndex
             control.MenuTableC_index = (self.tableView.indexPathForSelectedRow!.row)
+            
+            let index = (self.tableView.indexPathForSelectedRow!.row)
+            let id = app.menuList[meeu_switch.selectedSegmentIndex][index].id
+            
+            control.MenuTableC_index_id = id
+
         }
+        
     }
     
 

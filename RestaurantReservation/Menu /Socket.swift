@@ -95,8 +95,8 @@ class SocketClient : WebSocketDelegate{
 
             
 
-            DispatchQueue.main.async {
-                
+//            DispatchQueue.main.async {
+            
                 app.menuList = MenuArray
                 print("\(app.menuList)\n")
                 
@@ -115,8 +115,9 @@ class SocketClient : WebSocketDelegate{
                 
                 let message : [String:String] = ["reload" : text]
                 NotificationCenter.default.post(name: Notification.Name.init("reload"), object: nil, userInfo: message)
-            }
-        }
+//            }
+            
+        }//shared.test
         
 
 //        let message : [String:String] = ["reload" : text]

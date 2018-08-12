@@ -259,8 +259,9 @@ class Downloader {
                 return
             }
 
-            
-            doneHandler(nil,data)
+            DispatchQueue.main.async {
+                doneHandler(nil,data)
+            }
             
         }
         task.resume()
@@ -300,7 +301,11 @@ class Downloader {
                 return
             }
             
-            doneHandler(control,nil,data)
+            
+            DispatchQueue.main.async {
+                doneHandler(control,nil,data)
+            }
+            
             
         }
         task.resume()
