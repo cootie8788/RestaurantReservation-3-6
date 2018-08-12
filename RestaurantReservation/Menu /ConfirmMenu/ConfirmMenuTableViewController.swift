@@ -50,7 +50,7 @@ class ConfirmMenuTableViewController: UITableViewController {
 //            print("\(String(data: data, encoding: .utf8))")
             
             guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
-                assertionFailure("Fail decode")
+//                assertionFailure("Fail decode")
                 return  }
 //            print("\(coupon)")
             
