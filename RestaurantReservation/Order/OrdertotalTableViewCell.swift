@@ -9,6 +9,7 @@
 import UIKit
 
 class OrdertotalTableViewCell: UITableViewCell {
+    @IBOutlet weak var orderStatus: UILabel!
     @IBOutlet weak var cellView: UIView!
     
     @IBOutlet weak var personLabel: UILabel!
@@ -20,8 +21,8 @@ class OrdertotalTableViewCell: UITableViewCell {
         view.layer.shadowOffset = CGSize(width: 5, height: 5)
         view.layer.shadowOpacity = 0.6 //陰影透明度
         view.layer.shadowRadius = 5 //應影半徑
-        view.layer.shadowColor = UIColor(red: 44.0/255.0, green: 62.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
-        cellView.backgroundColor = UIColor.red
+        view.layer.shadowColor = UIColor(red: 44.0/255.0, green: 62.0/255.0, blue: 80.0/255.0, alpha: 0.8).cgColor
+       
     
     }
 

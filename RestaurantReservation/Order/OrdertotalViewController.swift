@@ -18,7 +18,8 @@ class OrdertotalViewController: UIViewController {
     var dateOrder = ""
     var orderID = -1
     var haveOrder = -1
-    
+    var menuOrderId = 1
+  
     
     var oldCheckOrders = [OldCheckOrder]()
     var oldCheckOrder = OldCheckOrder()
@@ -28,7 +29,8 @@ class OrdertotalViewController: UIViewController {
         super.viewDidLoad()
         orderTotalTableView.delegate = self
         orderTotalTableView.dataSource = self
-
+        
+        
         
         //設定segmentedControl顏色
         let font = UIFont(name: "HelveticaNeue-Bold", size: 23.0)
@@ -40,21 +42,23 @@ class OrdertotalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !orderMenu.isEmpty {
-        let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
-        guard let confirmOrderInt = Int(confirmOrderId!) else {
-            assertionFailure("get MemberID Fail")
-            return
-        }
-        newOrderTableViewControllerOrderID = confirmOrderInt
         
+        if !orderMenu.isEmpty {
+            let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
+            guard let confirmOrderInt = Int(confirmOrderId!) else {
+                assertionFailure("get MemberID Fail")
+                return
+            }
+            newOrderTableViewControllerOrderID = confirmOrderInt
+              menuOrderId = confirmOrderInt
         }
         downNewOrder()
-        
+        orderTotalTableView.reloadData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
     }
     
@@ -72,7 +76,6 @@ class OrdertotalViewController: UIViewController {
         switch OrderChangedSegmentControl.selectedSegmentIndex {
         case 0:
             downNewOrder()
-            
         case 1:
             downOldOrder()
         default:
@@ -89,7 +92,7 @@ class OrdertotalViewController: UIViewController {
         }
         print("memberIDInt: \(memberIDInt.description)")
         print("orderIDappear: \(newOrderTableViewControllerOrderID)")
-        
+         
         let action = ActionOrder(action: "findById", memberId: memberIDInt, orderId: newOrderTableViewControllerOrderID)
         let econder = JSONEncoder()
         econder.outputFormatting = .init()
@@ -107,6 +110,7 @@ class OrdertotalViewController: UIViewController {
                 assertionFailure("get output fail")
                 return
             }
+            
             self.newCheckOrder = output
             self.orderTotalTableView.reloadData()
             for newCheckOrder in self.newCheckOrder {
@@ -167,6 +171,7 @@ extension OrdertotalViewController: UITableViewDataSource {
         if OrderChangedSegmentControl.selectedSegmentIndex == 0 {
             return newCheckOrder.count
         }else {
+            
             return oldCheckOrders.count
         }
     }
@@ -178,7 +183,14 @@ extension OrdertotalViewController: UITableViewDataSource {
             let newItem = newCheckOrder[indexPath.row]
             cell.dateLabel.text = "定位:\(newItem.date_order)"
             cell.personLabel.text = "內用人數:\(newItem.person)"
-            
+            if !orderMenu.isEmpty {
+                cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 239.0/255.0, blue: 213.0/255.0, alpha: 1.0)
+                cell.orderStatus.text = "已點餐"
+                return cell
+            }else if orderMenu.isEmpty {
+                cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 106.0/255.0, blue: 106.0/255.0, alpha: 0.7)
+                cell.orderStatus.text = "尚未點餐"
+            }
             return cell
         }else {
             let oldOrderItems = oldCheckOrders[indexPath.row]

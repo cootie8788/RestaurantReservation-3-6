@@ -44,6 +44,8 @@ class ReservationDateTableViewController: UITableViewController {
         
     }
     
+ 
+    
     var con : UINavigationController?
     
     var firstAction = true
@@ -184,7 +186,7 @@ class ReservationDateTableViewController: UITableViewController {
             }
             
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            let notOrder = UIAlertAction(title: "定位不點餐", style: .default) { (action) in
+            let notOrder = UIAlertAction(title: "定位現場點餐", style: .default) { (action) in
                 
                 self.uploaddateTask() //上傳時間日期人數
                 //定位不點餐裡面的Alert
@@ -193,7 +195,7 @@ class ReservationDateTableViewController: UITableViewController {
                     // 在OrderTableViewController 設變數變數OrderID為staic
                     newOrderTableViewControllerOrderID = self.orderID.orderId
                     newOrderTableViewDetailControllerOrderID = self.orderID.orderId
-                    print("newOrderTableViewDetailControllerOrderID:\(newOrderTableViewControllerOrderID)")
+                   
                     self.cancelTextField()
                     self.tabBarController?.selectedIndex = 2
                     
