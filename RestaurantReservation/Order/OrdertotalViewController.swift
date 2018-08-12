@@ -42,7 +42,7 @@ class OrdertotalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("不要打開")
         if !orderMenu.isEmpty {
             let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
             guard let confirmOrderInt = Int(confirmOrderId!) else {
