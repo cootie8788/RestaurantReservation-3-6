@@ -32,10 +32,6 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
-    }
-    
     func decodeFirst(_ jsonString: String) {
         guard let data = jsonString.data(using: .utf8) else {
             assertionFailure("data is nil")
@@ -58,6 +54,7 @@ class WaiterViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         decodeFirst(jsonString)
+        print(jsonString)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IBq-zu-RdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IBq-zu-RdZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -59,8 +59,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLw-HN-Pei">
+                                                            <rect key="frame" x="215" y="42" width="116" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.73864038809999999" green="0.79039193890000004" blue="0.99193829300000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Fj-3S-FgY" secondAttribute="trailing" id="Dbd-EJ-aJA"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ead-jn-wqD" secondAttribute="trailing" constant="50" id="NaJ-EC-ey2"/>
@@ -86,6 +93,7 @@
                                         <connections>
                                             <outlet property="cellView" destination="aUs-XF-Khz" id="N44-AK-gu2"/>
                                             <outlet property="dateLabel" destination="Ead-jn-wqD" id="OYG-X7-xKA"/>
+                                            <outlet property="orderStatus" destination="gLw-HN-Pei" id="PXO-BC-RsL"/>
                                             <outlet property="personLabel" destination="5Fj-3S-FgY" id="EOT-QF-snS"/>
                                             <outlet property="view" destination="aUs-XF-Khz" id="B2o-XP-EKu"/>
                                         </connections>

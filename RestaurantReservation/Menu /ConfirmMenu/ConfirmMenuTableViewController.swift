@@ -50,15 +50,17 @@ class ConfirmMenuTableViewController: UITableViewController {
             
 //            print("\(String(data: data, encoding: .utf8))")
             
-            if let coupon = try? self.decoder.decode(Coupon.self, from: data){
-                //            print("\(coupon)")
-                
-                self.coupon = coupon
-                
-                self.userDefault.setValue(coupon.coupon, forKey: "coupon")
-                self.userDefault.setValue(coupon.discount, forKey: "discount")
-                self.userDefault.synchronize()
-            }
+            guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
+//                assertionFailure("Fail decode")
+                return  }
+//            print("\(coupon)")
+            
+            self.coupon = coupon
+        
+            self.userDefault.setValue(coupon.coupon, forKey: "coupon")
+            self.userDefault.setValue(coupon.discount, forKey: "discount")
+            self.userDefault.synchronize()
+
             self.showAlert()
             
         }
