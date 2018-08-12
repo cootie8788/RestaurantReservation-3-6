@@ -19,6 +19,8 @@ class NewMenuViewController: UIViewController, UITextFieldDelegate {
     
     var socket = SocketClient.chatWebSocketClient
     
+    private let picker = UIImagePickerController()
+    private let cropper = UIImageCropper(cropRatio: 4/3)
     
     override func viewDidAppear(_ animated: Bool) {
         navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
@@ -31,6 +33,8 @@ class NewMenuViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cropper.delegate = self
         
         navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"
 

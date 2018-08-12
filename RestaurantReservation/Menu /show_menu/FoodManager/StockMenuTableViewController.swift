@@ -46,9 +46,26 @@ class StockMenuTableViewController: UITableViewController  {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
     // MARK: - Table view data source
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let pop =
+            self.storyboard?.instantiateViewController(withIdentifier: "popview") as? popViewController else{
+                return
+        }
+        
+        pop.menu_id = app.menuList[Segmented_SW.selectedSegmentIndex][indexPath.row].id
+        
+        pop.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        pop.modalPresentationStyle = .overCurrentContext //必須覆蓋過去
+        self.present(pop, animated: true)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if app.menuList.count > 0 {
