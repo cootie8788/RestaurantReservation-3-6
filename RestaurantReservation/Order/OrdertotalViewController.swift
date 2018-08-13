@@ -183,7 +183,7 @@ extension OrdertotalViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! OrdertotalTableViewCell
         if OrderChangedSegmentControl.selectedSegmentIndex == 0 {
             let newItem = newCheckOrder[indexPath.row]
-            cell.dateLabel.text = "定位:\(newItem.date_order)"
+            cell.dateLabel.text = "訂位:\(newItem.date_order)"
             cell.personLabel.text = "內用人數:\(newItem.person)"
             if !orderMenu.isEmpty {
                 cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 239.0/255.0, blue: 213.0/255.0, alpha: 1.0)
