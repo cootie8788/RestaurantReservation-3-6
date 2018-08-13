@@ -52,6 +52,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             
             guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
 //                assertionFailure("Fail decode")
+                self.showAlert()
                 return  }
 //            print("\(coupon)")
             
@@ -262,7 +263,15 @@ class ConfirmMenuTableViewController: UITableViewController {
         
         alert = UIAlertController(title: "選擇優惠卷", message: nil, preferredStyle: .alert)
         
-        let item1 = UIAlertAction(title: "使用 " + (coupon?.coupon)! + " 優惠卷" ?? "無優惠卷"
+
+        var couponString = ""
+        if let coupon = self.coupon?.coupon {
+            couponString = "使用 " + coupon + " 優惠卷"
+        }else{
+            couponString = "沒有可用優惠卷"
+        }
+        
+        let item1 = UIAlertAction(title: couponString
             , style: .default) { (alert) in
             
             useDiscount = true
@@ -270,7 +279,7 @@ class ConfirmMenuTableViewController: UITableViewController {
         }
  
         
-        let cancel = UIAlertAction(title: "不使用", style: .default) { (action) in
+        let cancel = UIAlertAction(title: "不使用優惠卷", style: .default) { (action) in
             
             var money = "\(self.totalMoney)"
             useDiscount = false
@@ -280,7 +289,9 @@ class ConfirmMenuTableViewController: UITableViewController {
         let item2 = UIAlertAction(title: "取消", style: .cancel)
         
         alert.addAction(item1)
-        alert.addAction(cancel)
+        if couponString != "沒有可用優惠卷" {
+           alert.addAction(cancel)
+        }
         alert.addAction(item2)
         
         present(alert, animated: true, completion: nil)
