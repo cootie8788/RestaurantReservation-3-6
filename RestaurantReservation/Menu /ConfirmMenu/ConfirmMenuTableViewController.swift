@@ -3,6 +3,8 @@
 import UIKit
 import Starscream
 
+var useDiscount = true
+
 
 class ConfirmMenuTableViewController: UITableViewController {
     
@@ -22,7 +24,7 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     var socket = SocketClient.chatWebSocketClient
     
-   
+    var alert : UIAlertController!
     
     @IBAction func bar_Bt_action(_ sender: UIBarButtonItem) {
         
@@ -40,8 +42,6 @@ class ConfirmMenuTableViewController: UITableViewController {
         }
         
         
-        
-        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -52,6 +52,7 @@ class ConfirmMenuTableViewController: UITableViewController {
             
             guard let coupon = try? self.decoder.decode(Coupon.self, from: data)  else {
 //                assertionFailure("Fail decode")
+                self.showAlert()
                 return  }
 //            print("\(coupon)")
             
@@ -96,11 +97,15 @@ class ConfirmMenuTableViewController: UITableViewController {
         for (_ ,value) in app.cart {
             array.append(value)
         }
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
+//        view.addGestureRecognizer(tap)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    @objc
+    func dismissKeybroad()  {
         
-        
+        dismiss(animated: true, completion: nil)
         
     }
     
@@ -111,56 +116,45 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     func nextpresent(){
         
-//        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
-//            assertionFailure("Fail present")
-//            return  }
-//        
-//        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
-//        //上面是 CheckViewController 前的 UINavigationController
-//        self.present(checkvc, animated: true, completion: nil)
-        
-        
         performSegue(withIdentifier: "CheckView", sender: nil)
-        
     }
     
     func showAlert(){
-        let alert = UIAlertController(title: "選擇優惠卷", message: nil, preferredStyle: .alert)
         
-        let item1 = UIAlertAction(title: coupon?.coupon ?? "無", style: .default) { (alert) in
-            
-            //判斷 用哪一種 table上傳
-            
-            let memberID =
-                self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
-//
-            let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
-            let person = self.userDefault.string(forKey: "person") ?? "0"
-            let date = self.userDefault.string(forKey: "date") ?? ""
-            
-            var money = "\(self.totalMoney)"
-            
-                let discount = self.userDefault.double(forKey: "discount")
-                if discount == 0{
-                    money = "\(self.totalMoney)"
-                }else{
-                    money = "\(Int(Double(self.totalMoney) * discount))"
-                }
-            
-//            let memberID = "1"
-//            let table_member = "8"
-//            let person = "7"
-//            let date = Date()
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyy-MM-dd"
-            
-            var cart = [OrderMenu]()
-            
-            for (_ , orderMenu) in self.app.cart{
-                cart.append(orderMenu)
-            }
-            
+        //判斷 用哪一種 table上傳
+    
+        //            let memberID = "1"
+        //            let table_member = "8"
+        //            let person = "7"
+        //            let date = Date()
+        //            let dateFormatter = DateFormatter()
+        //            dateFormatter.dateFormat = "yyy-MM-dd"
         
+        let memberID =
+            self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
+        //
+        let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
+        let person = self.userDefault.string(forKey: "person") ?? "0"
+        let date = self.userDefault.string(forKey: "date") ?? ""
+        
+        var money = "\(self.totalMoney)"
+        
+        let discount = self.userDefault.double(forKey: "discount")
+        if discount == 0{
+            money = "\(self.totalMoney)"
+        }else{
+            money = "\(Int(Double(self.totalMoney) * discount))"
+        }
+        
+        var cart = [OrderMenu]()
+        
+        for (_ , orderMenu) in self.app.cart{
+            cart.append(orderMenu)
+        }
+        
+        
+        func UpDate(){
+            
             if  table_member != "預訂點餐"{   // tableMemeber 這邊可能是抓不到
                 
                 
@@ -168,14 +162,14 @@ class ConfirmMenuTableViewController: UITableViewController {
                     
                     
                     print("\(String(describing: String(data: data, encoding: .utf8)))")
-//                     string.data(using: .utf8)
-        
+                    //                     string.data(using: .utf8)
+                    
                     let de = JSONDecoder()  //解碼可以解外面是String的"json格式"
-
+                    
                     guard let respone = try? de.decode(respone_orderId.self, from: data)  else {
                         assertionFailure("Fail orderInsert")
                         return  }   //de.decode 會失敗 閃退 ？？
-
+                    
                     print(respone.orderId)
                     
                     if respone.orderId != "-1" {
@@ -183,7 +177,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                         self.giveMeOrder()
                         print("上傳成功")
                         DispatchQueue.main.async(execute: {
-    
+                            
                             self.userDefault.setValue(respone.orderId, forKey: "orderid")
                             self.userDefault.synchronize()
                             
@@ -194,9 +188,6 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.nextpresent()
                         })
-                        
-                        
-                        
                     }else{
                         print("上傳失敗")
                         
@@ -208,8 +199,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.present(alert_result, animated: true, completion: nil)
                         })
-                        
-                    }
+                    }//else
                     
                 })//orderInsert
                 
@@ -254,26 +244,46 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.present(alert_result, animated: true, completion: nil)
                         })
-                        
-                    }
+                    }//else
                     
-
                 })//orderInsert
                 
             }
-            
-            
-            
-        
         }
-//        let item2 = UIAlertAction(title: "項目2", style: .default)
-//        let item3 = UIAlertAction(title: "項目3", style: .default)
-        let cancel = UIAlertAction(title: "取消", style: .cancel)
+        
+        
+        alert = UIAlertController(title: "選擇優惠卷", message: nil, preferredStyle: .alert)
+        
+
+        var couponString = ""
+        if let coupon = self.coupon?.coupon {
+            couponString = "使用 " + coupon + " 優惠卷"
+        }else{
+            couponString = "沒有可用優惠卷"
+        }
+        
+        let item1 = UIAlertAction(title: couponString
+            , style: .default) { (alert) in
+            
+            useDiscount = true
+            UpDate()
+        }
+ 
+        
+        let cancel = UIAlertAction(title: "不使用優惠卷", style: .default) { (action) in
+            
+            var money = "\(self.totalMoney)"
+            useDiscount = false
+            UpDate()
+        }
+        
+        let item2 = UIAlertAction(title: "取消", style: .cancel)
         
         alert.addAction(item1)
-        //        alert.addAction(item2)
-        //        alert.addAction(item3)
-        alert.addAction(cancel)
+        if couponString != "沒有可用優惠卷" {
+           alert.addAction(cancel)
+        }
+        alert.addAction(item2)
         
         present(alert, animated: true, completion: nil)
     }

@@ -165,7 +165,7 @@ class ReservationDateTableViewController: UITableViewController {
     //定位確認扭
     @IBAction func confirmBarBtn(_ sender: UIBarButtonItem) {
         if (timeTextField.text?.isEmpty)! || (dateTextField.text?.isEmpty)! || (numberOfTextField.text?.isEmpty)! {
-            let alert = UIAlertController(title: "請填寫定位資訊", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "請填寫訂位資訊", message: "", preferredStyle: .alert)
             let action = UIAlertAction(title: "確定", style: .cancel, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
@@ -173,7 +173,7 @@ class ReservationDateTableViewController: UITableViewController {
         }else {
             //            self.present(con!, animated: true, completion: nil)
             
-            let alert = UIAlertController(title: "定位", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "訂位", message: "", preferredStyle: .alert)
             
             //定位確認扭 三個AlertAction 1繼續點餐. 2.取消 3.定位不點餐
             //            let continueAction = UIAlertAction(title: "繼續點餐", style: .default, handler: nil)
@@ -186,11 +186,11 @@ class ReservationDateTableViewController: UITableViewController {
             }
             
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            let notOrder = UIAlertAction(title: "定位現場點餐", style: .default) { (action) in
+            let notOrder = UIAlertAction(title: "訂位到現場點餐", style: .default) { (action) in
                 
                 self.uploaddateTask() //上傳時間日期人數
                 //定位不點餐裡面的Alert
-                let alert = UIAlertController(title: "定位完成", message: "若要稍後點餐請至訂單查詢修改", preferredStyle: .alert)
+                let alert = UIAlertController(title: "訂位完成", message: "若要稍後點餐請至訂單查詢修改", preferredStyle: .alert)
                 let checkAction = UIAlertAction(title: "前往訂單查詢", style: .default, handler: { (action) in
                     // 在OrderTableViewController 設變數變數OrderID為staic
                     newOrderTableViewControllerOrderID = self.orderID.orderId

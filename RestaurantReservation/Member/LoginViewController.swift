@@ -80,6 +80,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.userDeafult.removeObject(forKey: MemberKey.TableNumber.rawValue)
                 self.userDeafult.removeObject(forKey: "person")
                 self.userDeafult.removeObject(forKey: "date")
+                self.userDeafult.removeObject(forKey: "coupon")
+                self.userDeafult.removeObject(forKey: "discount")
+    
                 
                 self.userDeafult.set(login.memberId, forKey: MemberKey.MemberID.rawValue)
                 self.userDeafult.set(login.authority_id, forKey: MemberKey.Authority_id.rawValue)
