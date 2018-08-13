@@ -116,15 +116,6 @@ class ConfirmMenuTableViewController: UITableViewController {
     
     func nextpresent(){
         
-//        guard let checkvc =  self.storyboard?.instantiateViewController(withIdentifier: "checkvc") as? UINavigationController else {
-//            assertionFailure("Fail present")
-//            return  }
-//        
-//        checkvc.modalPresentationStyle = .currentContext//設定覆蓋目前內容
-//        //上面是 CheckViewController 前的 UINavigationController
-//        self.present(checkvc, animated: true, completion: nil)
-        
-        
         performSegue(withIdentifier: "CheckView", sender: nil)
     }
     

@@ -35,6 +35,7 @@ class MenuTableViewController: UITableViewController {
         }
         
         reData.onSet(self)
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
