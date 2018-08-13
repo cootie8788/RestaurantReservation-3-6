@@ -92,11 +92,13 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
         
         if member?.password != oldPasswordTextField.text {
             print("密碼錯誤")
+            alert(message: "密碼錯誤")
             return
         }
         
         if newPasswordTextField.text != againPasswordTextField.text {
             print("再次輸入密碼錯誤")
+            alert(message: "再次輸入密碼錯誤")
             return
         }
         
@@ -107,6 +109,7 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
         
         if name.isEmpty || password.isEmpty || phone.isEmpty {
             print("空的")
+            alert(message: "姓名或密碼或電話請勿空白")
             return
         }
         member?.name = name
@@ -162,7 +165,7 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
     
     @objc func moveTextFieldUp(aNotification:Notification){
         imageView.isHidden = true
-        //取出詳情
+        // 取出詳情
         let info = aNotification.userInfo
         // 取出尺寸值
         let sizeValue = info![UIKeyboardFrameEndUserInfoKey] as!
@@ -170,7 +173,7 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
         
         // 將尺寸值轉換為CGSize
         let size = sizeValue.cgRectValue.size
-        //拿出高度
+        // 拿出高度
         let height = size.height
         // 把底部距離改為0
         self.bottonConstraint.constant = +height
@@ -178,6 +181,12 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
         UIView.animate(withDuration: 0.25){
             self.view.layoutIfNeeded()
         }
+    }
+    func alert(message: String){
+        let controller = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "確定", style: .default, handler: nil)
+        controller.addAction(action)
+        present(controller, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

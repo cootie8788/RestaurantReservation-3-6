@@ -45,6 +45,8 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
         // 直接回到navigation最開頭
         self.navigationController?.popToRootViewController(animated: true)
         app.cart.removeAll()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,11 +86,25 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
         orderid.text = order
         date.text = stringTime
-        let display_discount = 10 * discount
-        discount_text.text = "\(display_discount)折"
+        let display_discount = Int(10 * discount)
         
-        if discount == 0{
+        if useDiscount == false{
+            discount_text.text = ""
+            useDiscount == true
+        } else {
+            discount_text.text = "\(display_discount)折"
+            
+            if display_discount == 0 {
+                discount_text.text = ""
+            }
+        }
+        
+        
+        print("\(useDiscount)")
+        
+        if discount == 0 || useDiscount == false{
             total_text.text = "$\(total)"
+            useDiscount == true
         }else{
             total = Int(Double(total) * discount)
             total_text.text = "$\(total)"

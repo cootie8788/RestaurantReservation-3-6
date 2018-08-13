@@ -13,7 +13,8 @@ class CommonWebSocketClient: WebSocketDelegate {
     var url: URL
     var socket: WebSocketClient
     init(url: String) {
-        self.url = URL(string: url)!
+        let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        self.url = URL(string: encodedString!)!
         self.socket = WebSocket(url: self.url)
     }
     
