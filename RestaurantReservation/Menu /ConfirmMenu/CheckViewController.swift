@@ -84,7 +84,7 @@ class CheckViewController: UIViewController , UITableViewDataSource,UITableViewD
     
         orderid.text = order
         date.text = stringTime
-        let display_discount = 10 * discount
+        let display_discount = Int(10 * discount)
         
         if useDiscount == false{
             discount_text.text = ""
