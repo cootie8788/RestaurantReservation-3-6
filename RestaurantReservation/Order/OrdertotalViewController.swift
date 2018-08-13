@@ -19,6 +19,7 @@ class OrdertotalViewController: UIViewController {
     var orderID = -1
     var haveOrder = -1
     var menuOrderId = 1
+    
   
     
     var oldCheckOrders = [OldCheckOrder]()
@@ -42,7 +43,7 @@ class OrdertotalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("不要打開")
+        print("不要")
         if !orderMenu.isEmpty {
             let confirmOrderId = UserDefaults.standard.string(forKey: "orderid")
             guard let confirmOrderInt = Int(confirmOrderId!) else {
@@ -150,10 +151,11 @@ class OrdertotalViewController: UIViewController {
             }
             self.oldCheckOrders = output
             self.orderTotalTableView.reloadData()
-            //  for orderId in self.oldCheckOrders {
-            //  self.oldCheckOrder.orderId = orderId.orderId
-            //
-            //  }
+//            for orderId in self.oldCheckOrders {
+//            self.oldCheckOrder.orderId = orderId.orderId
+//
+//
+//              }
         }
         
     }
@@ -171,12 +173,12 @@ extension OrdertotalViewController: UITableViewDataSource {
         if OrderChangedSegmentControl.selectedSegmentIndex == 0 {
             return newCheckOrder.count
         }else {
-            
             return oldCheckOrders.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cellID = "cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! OrdertotalTableViewCell
         if OrderChangedSegmentControl.selectedSegmentIndex == 0 {
@@ -188,11 +190,13 @@ extension OrdertotalViewController: UITableViewDataSource {
                 cell.orderStatus.text = "已點餐"
                 return cell
             }else if orderMenu.isEmpty {
-                cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 106.0/255.0, blue: 106.0/255.0, alpha: 0.7)
+                cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 106.0/255.0, blue: 106.0/255.0, alpha: 0.5)
                 cell.orderStatus.text = "尚未點餐"
             }
             return cell
         }else {
+            cell.cellView.backgroundColor = UIColor.white
+            cell.orderStatus.text = ""
             let oldOrderItems = oldCheckOrders[indexPath.row]
             cell.dateLabel.text = "時間:\(oldOrderItems.date_order)"
             cell.personLabel.text = "用餐人數:\(oldOrderItems.person)"

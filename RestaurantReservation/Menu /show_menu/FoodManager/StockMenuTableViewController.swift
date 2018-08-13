@@ -35,6 +35,7 @@ extension StockMenuTableViewController: UIPickerViewDataSource {
 
 class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate {
 
+    @IBOutlet var StockMenuTableView: UITableView!
     @IBOutlet weak var Segmented_SW: UISegmentedControl!
     @IBAction func Segmentedaction(_ sender: UISegmentedControl) {
         tableView.reloadData()
@@ -108,7 +109,7 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
                                 width: WIDTH,
                                 height: 200)//本身的高
         pickview.delegate = self
-        pickview.backgroundColor = UIColor(red: 133/255, green: 180/255, blue: 226/255, alpha: 1)
+        pickview.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         view.addSubview(pickview)
         
         
@@ -149,6 +150,7 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
         }
         self.num = 0
         self.menu_id = 0
+    
     }
 
     @IBAction func dismissKeybroad()  {
@@ -185,6 +187,13 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
         let id = app.menuList[Segmented_SW.selectedSegmentIndex][indexPath.row].id
         menu_id = id
 
+        print("view.bounds.height \(view.bounds.height)")
+        
+        guard let tabBarHeight = tabBarController?.tabBar.frame.size.height else {
+            assertionFailure("Fail to get tabBarHeight")
+            return
+        }
+       
         pickview.frame.origin.y == self.HEIGHT ? viewslide(false) : viewslide(true)
         pickview.selectRow(0, inComponent: 0, animated: true)
         pickview.selectRow(0, inComponent: 1, animated: true)
