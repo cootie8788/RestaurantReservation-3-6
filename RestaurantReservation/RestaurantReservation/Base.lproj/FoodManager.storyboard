@@ -203,6 +203,7 @@
                     <navigationItem key="navigationItem" title="食材管理" id="27o-BD-FUK"/>
                     <connections>
                         <outlet property="Segmented_SW" destination="mlY-GC-Pow" id="6HE-r4-Vxc"/>
+                        <outlet property="StockMenuTableView" destination="96u-6B-UVE" id="IfW-g0-tW8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhN-H0-EeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
