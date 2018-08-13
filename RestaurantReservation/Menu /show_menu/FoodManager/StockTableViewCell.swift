@@ -25,7 +25,7 @@ class StockTableViewCell: UITableViewCell ,popViewControllerDelegate ,StockMenuP
     
     @IBAction func changeStockBt(_ sender: UIButton) {
         
-        controler?.delegate = self
+//        controler?.delegate = self
         
         
         guard let controler = controler else{
@@ -54,7 +54,9 @@ class StockTableViewCell: UITableViewCell ,popViewControllerDelegate ,StockMenuP
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
+        controler?.delegate = self
+        
         // Configure the view for the selected state
     }
 

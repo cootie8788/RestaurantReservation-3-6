@@ -28,7 +28,7 @@ extension StockMenuTableViewController: UIPickerViewDataSource {
 //        print("\(num)")
         
         self.delegate?.displayBtNum(num)
-        pickViewSelect = true
+//        pickViewSelect = true
     }
     
 }
@@ -66,11 +66,17 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
     
     func viewslide(_ BOOL: Bool, completion: ((Bool) -> Void)! = nil) {
         
+//        if BOOL == true{
+//            pickview.removeFromSuperview()
+//            return
+//        }
+        
         UIView.animate(withDuration: 0.3,
                        delay: 0,
                        options: [.curveEaseInOut],
                        animations: { () -> Void in
                         self.pickview.frame.origin.y = BOOL ? self.HEIGHT : self.HEIGHT - 300
+                        self.toolbar.frame.origin.y = BOOL ? self.HEIGHT : self.HEIGHT - 344
         },//位移的高
                        completion: nil)
     }
@@ -86,6 +92,8 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
     var selectIndex = 0
     
     let reData = receiveData()
+    
+    var toolbar : UIToolbar!
     
     
     override func viewDidLoad() {
@@ -103,19 +111,26 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
         pickview.backgroundColor = UIColor(red: 133/255, green: 180/255, blue: 226/255, alpha: 1)
         view.addSubview(pickview)
         
+        
+        //        let toolbarY = view.bounds.height - 300 - 44   在pickView上加入toolBar
+        toolbar = UIToolbar(frame: CGRect(x: 0, y: HEIGHT, width: view.bounds.width, height: 44))
+        
+        var items = [UIBarButtonItem]()
+        
+        items.append( UIBarButtonItem(title: "確定", style: .done, target: self, action: #selector(UIbuttonAtion)) )
+        
+        toolbar.items = items
+        self.view.addSubview(toolbar)
+        
+        
         tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeybroad))
         view.addGestureRecognizer(tap!)
         tap?.isEnabled = false
         
-//        let button = UIBarButtonItem(title: "確定", style: .done, target: nil, action: #selector(UIbuttonAtion))
-//        view.addSubview(button)
     }
     @objc
     func UIbuttonAtion() {
         
-    }
-
-    @IBAction func dismissKeybroad()  {
         viewslide(true)
         tap?.isEnabled = false
         
@@ -123,24 +138,32 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
             return
         }
         
-        guard pickViewSelect == true else{
-            return
-        }
-        pickViewSelect = false
-        
-        print("menu_id:   \(menu_id)")
-        
-        
+//        print("menu_id:   \(menu_id)")
         downloader.menuUpdata_stock(fileName: #file,self.num, menu_id: menu_id) { (error, data) in
-
+            
             print("menuUpdata_with_image: \(String(describing: String(data: data, encoding: .utf8)))")
-
+            
             self.socket.sendMessage("notifyDataSetChanged")
             
             print("發送出")
         }
         self.num = 0
         self.menu_id = 0
+    }
+
+    @IBAction func dismissKeybroad()  {
+        viewslide(true)
+        tap?.isEnabled = false
+        
+        tableView.reloadData()//針對 pickView即時顯示輸入的 還原輸入
+        self.num = 0
+        self.menu_id = 0
+//        toolbar.removeFromSuperview()
+        
+//        guard pickViewSelect == true else{
+//            return
+//        }
+//        pickViewSelect = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -158,6 +181,7 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         let id = app.menuList[Segmented_SW.selectedSegmentIndex][indexPath.row].id
         menu_id = id
 
@@ -167,6 +191,7 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
         pickview.selectRow(0, inComponent: 2, animated: true)
         
         tap?.isEnabled = true
+        
         
 //        guard let pop =
 //            self.storyboard?.instantiateViewController(withIdentifier: "popview") as? popViewController else{
@@ -220,7 +245,7 @@ class StockMenuTableViewController: UITableViewController , UIPickerViewDelegate
 //        cell.menu_stock.addTarget(self, action: #selector(self.buttonpressed), for: .touchDown)
 //        cell.tableHight = HEIGHT
 //        cell.pickview = self.pickview
-        
+
         return cell
     }
     
