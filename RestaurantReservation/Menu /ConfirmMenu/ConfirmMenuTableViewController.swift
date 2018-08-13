@@ -42,8 +42,6 @@ class ConfirmMenuTableViewController: UITableViewController {
         }
         
         
-        
-        
         let member_id = self.userDefault.integer(forKey: MemberKey.MemberID.rawValue) ?? -1
 //        print("member_id: \(member_id)")
         
@@ -109,11 +107,6 @@ class ConfirmMenuTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
         
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        
-        
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,177 +125,43 @@ class ConfirmMenuTableViewController: UITableViewController {
         
         
         performSegue(withIdentifier: "CheckView", sender: nil)
-        
     }
     
     func showAlert(){
-        alert = UIAlertController(title: "選擇優惠卷", message: nil, preferredStyle: .alert)
         
-        let item1 = UIAlertAction(title: "使用 " + (coupon?.coupon)! + " 優惠卷" ?? "無優惠卷"
-            , style: .default) { (alert) in
-            
-            //判斷 用哪一種 table上傳
-            
-            let memberID =
-                self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
-//
-            let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
-            let person = self.userDefault.string(forKey: "person") ?? "0"
-            let date = self.userDefault.string(forKey: "date") ?? ""
-            
-            var money = "\(self.totalMoney)"
-            
-                let discount = self.userDefault.double(forKey: "discount")
-                if discount == 0{
-                    money = "\(self.totalMoney)"
-                }else{
-                    money = "\(Int(Double(self.totalMoney) * discount))"
-                }
-            
-//            let memberID = "1"
-//            let table_member = "8"
-//            let person = "7"
-//            let date = Date()
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyy-MM-dd"
-            
-            var cart = [OrderMenu]()
-            
-            for (_ , orderMenu) in self.app.cart{
-                cart.append(orderMenu)
-            }
-            
-            useDiscount = true
-                
-        
-            if  table_member != "預訂點餐"{   // tableMemeber 這邊可能是抓不到
-                
-                
-                self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, table_member: table_member, doneHandler: { (error, data) in
-                    
-                    
-                    print("\(String(describing: String(data: data, encoding: .utf8)))")
-//                     string.data(using: .utf8)
-        
-                    let de = JSONDecoder()  //解碼可以解外面是String的"json格式"
-
-                    guard let respone = try? de.decode(respone_orderId.self, from: data)  else {
-                        assertionFailure("Fail orderInsert")
-                        return  }   //de.decode 會失敗 閃退 ？？
-
-                    print(respone.orderId)
-                    
-                    if respone.orderId != "-1" {
-                        // waiter socket
-                        self.giveMeOrder()
-                        print("上傳成功")
-                        DispatchQueue.main.async(execute: {
+        //判斷 用哪一種 table上傳
     
-                            self.userDefault.setValue(respone.orderId, forKey: "orderid")
-                            self.userDefault.synchronize()
-                            
-                            //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
-                            //                        print("input order ???\(order)")
-                            
-                            self.socket.sendMessage("notifyDataSetChanged")
-                            
-                            self.nextpresent()
-                        })
-                        
-                        
-                        
-                    }else{
-                        print("上傳失敗")
-                        
-                        DispatchQueue.main.async(execute: {
-                            let alert_result = UIAlertController(title: "上傳失敗", message: nil, preferredStyle: .alert)
-                            
-                            let ok = UIAlertAction(title: "確定", style: .default)
-                            alert_result.addAction(ok)
-                            
-                            self.present(alert_result, animated: true, completion: nil)
-                        })
-                        
-                    }
-                    
-                })//orderInsert
-                
-            }else{
-                
-                self.downloader.orderInsert(fileName:#file,total_money: money, memberID: memberID, cart: cart, person: person, data: date, doneHandler: { (error, data) in
-                    
-                    print("\(String(describing: String(data: data, encoding: .utf8)))")
-                    
-                    let decdoe = JSONDecoder()  //解碼可以解外面是String的"json格式"
-                    
-                    guard let respone = try? decdoe.decode(respone_orderId.self, from: data)  else {
-                        assertionFailure("Fail orderInsert")
-                        return  }
-                    
-                    
-                    
-                    print("\(respone.orderId)")
-                    
-                    if respone.orderId != "-1" {
-                        print("上傳成功")
-                        DispatchQueue.main.async(execute: {
-                            
-                            self.userDefault.setValue(respone.orderId, forKey: "orderid")
-                            self.userDefault.synchronize()
-                            
-                            //                        let order = self.userDefault.string(forKey: "orderid") ?? "-1"
-                            //                        print("input order ???\(order)")
-                            
-                            self.socket.sendMessage("notifyDataSetChanged")
-                            
-                            self.nextpresent()
-                        })
-                        
-                        
-                    }else{
-                        print("上傳失敗")
-                        
-                        DispatchQueue.main.async(execute: {
-                            let alert_result = UIAlertController(title: "上傳失敗", message: nil, preferredStyle: .alert)
-                            
-                            let ok = UIAlertAction(title: "確定", style: .default)
-                            alert_result.addAction(ok)
-                            
-                            self.present(alert_result, animated: true, completion: nil)
-                        })
-                        
-                    }
-                    
-
-                })//orderInsert
-                
-            }
-            
-            
-            
+        //            let memberID = "1"
+        //            let table_member = "8"
+        //            let person = "7"
+        //            let date = Date()
+        //            let dateFormatter = DateFormatter()
+        //            dateFormatter.dateFormat = "yyy-MM-dd"
         
+        let memberID =
+            self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
+        //
+        let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
+        let person = self.userDefault.string(forKey: "person") ?? "0"
+        let date = self.userDefault.string(forKey: "date") ?? ""
+        
+        var money = "\(self.totalMoney)"
+        
+        let discount = self.userDefault.double(forKey: "discount")
+        if discount == 0{
+            money = "\(self.totalMoney)"
+        }else{
+            money = "\(Int(Double(self.totalMoney) * discount))"
         }
         
-//        let item3 = UIAlertAction(title: "項目3", style: .default)
-        let cancel = UIAlertAction(title: "不使用", style: .default) { (action) in
-            
-            let memberID =
-                self.userDefault.string(forKey: MemberKey.MemberID.rawValue) ?? "-1"
-            //
-            let table_member = self.userDefault.string(forKey: MemberKey.TableNumber.rawValue) ?? "預訂點餐"
-            let person = self.userDefault.string(forKey: "person") ?? "0"
-            let date = self.userDefault.string(forKey: "date") ?? ""
-            
-            var money = "\(self.totalMoney)"
-            
-            useDiscount = false
-            
-            var cart = [OrderMenu]()
-            
-            for (_ , orderMenu) in self.app.cart{
-                cart.append(orderMenu)
-            }
-            
+        var cart = [OrderMenu]()
+        
+        for (_ , orderMenu) in self.app.cart{
+            cart.append(orderMenu)
+        }
+        
+        
+        func UpDate(){
             
             if  table_member != "預訂點餐"{   // tableMemeber 這邊可能是抓不到
                 
@@ -337,9 +196,6 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.nextpresent()
                         })
-                        
-                        
-                        
                     }else{
                         print("上傳失敗")
                         
@@ -351,8 +207,7 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.present(alert_result, animated: true, completion: nil)
                         })
-                        
-                    }
+                    }//else
                     
                 })//orderInsert
                 
@@ -397,22 +252,34 @@ class ConfirmMenuTableViewController: UITableViewController {
                             
                             self.present(alert_result, animated: true, completion: nil)
                         })
-                        
-                    }
-                    
+                    }//else
                     
                 })//orderInsert
                 
             }
+        }
+        
+        
+        alert = UIAlertController(title: "選擇優惠卷", message: nil, preferredStyle: .alert)
+        
+        let item1 = UIAlertAction(title: "使用 " + (coupon?.coupon)! + " 優惠卷" ?? "無優惠卷"
+            , style: .default) { (alert) in
             
+            useDiscount = true
+            UpDate()
+        }
+ 
+        
+        let cancel = UIAlertAction(title: "不使用", style: .default) { (action) in
             
+            var money = "\(self.totalMoney)"
+            useDiscount = false
+            UpDate()
         }
         
         let item2 = UIAlertAction(title: "取消", style: .cancel)
         
         alert.addAction(item1)
-        
-        //        alert.addAction(item3)
         alert.addAction(cancel)
         alert.addAction(item2)
         
