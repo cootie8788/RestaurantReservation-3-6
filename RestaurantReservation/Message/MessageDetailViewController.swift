@@ -114,12 +114,12 @@ class MessageDetailViewController: UIViewController {
             let respone = String(data: data, encoding: String.Encoding.utf8)
             //檢查是否成功
             if respone == "1" {
-                showAlertController(titleText: "成功領取折價卷!", messageText: "", okActionText: "知道了!", printText: "成功領取優惠券", viewController: self)
+                showAlertController(titleText: "成功領取折價卷!", messageText: "", okActionText: "確認", printText: "成功領取優惠券", viewController: self)
                 return
             }
             
             if respone != "1" {
-                showAlertController(titleText: "領取折價卷失敗!", messageText: "請再領取一次", okActionText: "知道了!", printText: "領舉優惠卷異常", viewController: self)
+                showAlertController(titleText: "領取折價卷失敗!", messageText: "請再領取一次", okActionText: "確認", printText: "領舉優惠卷異常", viewController: self)
                 return
             }
             
