@@ -4,6 +4,15 @@ import UIKit
 import Photos
 import Starscream
 
+extension NewMenuViewController: UIImageCropperProtocol{
+    
+    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
+        newImage.image = croppedImage
+        newImage.image = newImage.image?.resize(maxWidthHeight: 200)
+    }
+    
+}
+
 class NewMenuViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newImage: UIImageView!
@@ -42,18 +51,37 @@ class NewMenuViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editImageBt(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
-        let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
-            self.lauchPicker(forType: .photoLibrary)
+        cropper.picker = picker
+        cropper.cropButtonText = "擷取圖片"
+        cropper.cancelButtonText = "返回圖庫"
+        
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let takePicAction = UIAlertAction(title: "拍照", style: .default) { (_) in
+            self.picker.sourceType = .camera
+            self.present(self.picker, animated: true, completion: nil)
         }
-        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.lauchPicker(forType: .camera)
+        let pickPicAction = UIAlertAction(title: "從相簿選擇照片", style: .default) { (_) in
+            self.picker.sourceType = .photoLibrary
+            self.present(self.picker, animated: true, completion: nil)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(library)
-        alert.addAction(camera)
-        alert.addAction(cancel)
-        present(alert,animated: true)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        controller.addAction(takePicAction)
+        controller.addAction(pickPicAction)
+        controller.addAction(cancelAction)
+        self.present(controller, animated: true, completion: nil)
+        
+//        let alert = UIAlertController(title: "Choose photo from:", message: nil, preferredStyle: .alert)
+//        let library = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+//            self.lauchPicker(forType: .photoLibrary)
+//        }
+//        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+//            self.lauchPicker(forType: .camera)
+//        }
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+//        alert.addAction(library)
+//        alert.addAction(camera)
+//        alert.addAction(cancel)
+//        present(alert,animated: true)
         
         
         //        newImage.image = UIImage(named: "喵")
@@ -122,10 +150,4 @@ class NewMenuViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-extension NewMenuViewController: UIImageCropperProtocol{
-    
-    func didCropImage(originalImage: UIImage?, croppedImage: UIImage?) {
-        newImage.image = croppedImage
-    }
-    
-}
+

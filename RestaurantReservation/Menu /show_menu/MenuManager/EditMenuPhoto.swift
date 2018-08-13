@@ -23,12 +23,17 @@ extension EditMenuViewController: UIImagePickerControllerDelegate ,UINavigationC
         picker.sourceType = forType
         picker.delegate = self
         
+        
+        
         present(picker, animated: true)
     }
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) { //會帶回來字典 跟使用者的內容
         //            print("didFinishPickingMediaWithInfo: \(info)")
         //info裡面儲存很多資訊、假如是拍照得到的照片->甚至可以得到亮度...等等攝影資訊
+        
         guard let type = info[UIImagePickerControllerMediaType]as? String else {
             return assertionFailure("Invalid type") }
         
