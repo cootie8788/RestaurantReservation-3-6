@@ -62,7 +62,7 @@ class EditMenuViewController: UIViewController {
         
         cropper.picker = picker
         cropper.cropButtonText = "擷取圖片"
-        cropper.cancelButtonText = "返回圖庫"
+        cropper.cancelButtonText = "返回"
         
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let takePicAction = UIAlertAction(title: "拍照", style: .default) { (_) in

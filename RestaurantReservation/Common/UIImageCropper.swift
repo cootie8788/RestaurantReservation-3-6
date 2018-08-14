@@ -35,9 +35,9 @@ public class UIImageCropper: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     /// Crop button text
-    public var cropButtonText: String = "Crop"
+    public var cropButtonText: String = "擷取圖片"
     /// Retake/Cancel button text
-    public var cancelButtonText: String = "Retake"
+    public var cancelButtonText: String = "返回"
     
     /// original image from camera or gallery
     public var image: UIImage? {
