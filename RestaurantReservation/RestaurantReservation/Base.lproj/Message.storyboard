@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JiR-Bg-0NV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JiR-Bg-0NV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -463,6 +462,7 @@
                         <outlet property="messageNewStartTextField" destination="OrT-hj-Zmi" id="QcY-Oq-pqg"/>
                         <outlet property="messageNewTitleTextField" destination="XOf-rv-VwS" id="Yeq-Lq-xze"/>
                         <outlet property="messageScrollView" destination="J29-Fw-e1G" id="iDt-SQ-w17"/>
+                        <outlet property="newPictureUIButton" destination="RxY-ky-ppX" id="Gla-BE-QdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24Q-Lv-oMG" userLabel="First Responder" sceneMemberID="firstResponder"/>

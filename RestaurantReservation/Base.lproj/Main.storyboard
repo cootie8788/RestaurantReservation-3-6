@@ -34,7 +34,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入密碼(4-8字元)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6c-tn-bif">
                                                 <rect key="frame" x="0.0" y="43" width="354" height="30"/>
@@ -107,6 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3ET-5r-Q59"/>
                     <connections>
+                        <outlet property="bottonConstraint" destination="gca-Iy-tTz" id="imE-CC-dZF"/>
                         <outlet property="emailTextFiedl" destination="HVD-q9-9Ru" id="ycH-uo-zlh"/>
                         <outlet property="passwordTextField" destination="p6c-tn-bif" id="0vB-98-ywG"/>
                     </connections>
@@ -187,7 +188,7 @@
                                                 <rect key="frame" x="89" y="0.0" width="285.66666666666669" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -238,7 +239,7 @@
                                                 <rect key="frame" x="89" y="0.0" width="285.66666666666669" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
