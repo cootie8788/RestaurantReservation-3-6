@@ -60,7 +60,6 @@ class EditMenuViewController: UIViewController {
     
     @IBAction func EditImageBt(_ sender: UIButton) {
         
-        
         cropper.picker = picker
         cropper.cropButtonText = "擷取圖片"
         cropper.cancelButtonText = "返回圖庫"
@@ -157,7 +156,9 @@ class EditMenuViewController: UIViewController {
         super.viewDidLoad()
         
         cropper.delegate = self
-
+        
+        
+        
         editImage.showImage(urlString: MENU_URL, id: MenuTableC_index_id)
         
         navigationItem.leftBarButtonItems?.first?.title = "jimoslgj"

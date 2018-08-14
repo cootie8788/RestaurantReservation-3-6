@@ -164,7 +164,7 @@ class MemberReviseViewController: UIViewController,SSRadioButtonControllerDelega
     // 當鍵盤即將升起時會執行方法
     
     @objc func moveTextFieldUp(aNotification:Notification){
-        imageView.isHidden = true
+//        imageView.isHidden = true
         // 取出詳情
         let info = aNotification.userInfo
         // 取出尺寸值

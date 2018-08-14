@@ -257,7 +257,8 @@ class ConfirmMenuTableViewController: UITableViewController {
 
         var couponString = ""
         if let coupon = self.coupon?.coupon {
-            couponString = "使用 " + coupon + " 優惠卷"
+//            couponString = "使用 " + coupon + " 優惠卷"
+            couponString = "父親節優惠卷"
         }else{
             couponString = "沒有可用優惠卷"
         }
