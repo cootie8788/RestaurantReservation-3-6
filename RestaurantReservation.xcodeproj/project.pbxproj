@@ -71,6 +71,7 @@
 		CEA07DEB210512ED004032CA /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07DEA210512ED004032CA /* SSRadioButton.swift */; };
 		CEA07DED21051317004032CA /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */; };
 		CEBC459B211306AA000EE05E /* WaiterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC459A211306AA000EE05E /* WaiterTableViewCell.swift */; };
+		CED8EE1A2122A305005D3F53 /* OrderMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */; };
 		CEDD9E392111F415005A0AE5 /* CommonWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD9E382111F415005A0AE5 /* CommonWebSocketClient.swift */; };
 		CEF7D4F521082B99007CBE91 /* MemberStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F421082B99007CBE91 /* MemberStruct.swift */; };
 		CEF7D4F721082BFA007CBE91 /* MemberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */; };
@@ -159,6 +160,7 @@
 		CEA07DEA210512ED004032CA /* SSRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		CEBC459A211306AA000EE05E /* WaiterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterTableViewCell.swift; sourceTree = "<group>"; };
+		CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMainTableViewController.swift; sourceTree = "<group>"; };
 		CEDD9E382111F415005A0AE5 /* CommonWebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebSocketClient.swift; sourceTree = "<group>"; };
 		CEF7D4F421082B99007CBE91 /* MemberStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStruct.swift; sourceTree = "<group>"; };
 		CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAPI.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				EA44C9142112E86200D5BCD3 /* RoundedPassCodeView.swift */,
+				CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */,
 				EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */,
 				EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */,
 				EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */,
@@ -612,6 +615,7 @@
 				BFCF5A0420F865C9008E2A34 /* AppDelegate.swift in Sources */,
 				BF92A2B020FE2A3C00406C20 /* Common.swift in Sources */,
 				38256D2021108D470035FABA /* WaiterViewController.swift in Sources */,
+				CED8EE1A2122A305005D3F53 /* OrderMainTableViewController.swift in Sources */,
 				CEA07DEB210512ED004032CA /* SSRadioButton.swift in Sources */,
 				380399C4210F61C00039F41F /* ConfirmMenuTableViewController.swift in Sources */,
 				BF6623A221202CBA00957485 /* RatingManagerViewController.swift in Sources */,
