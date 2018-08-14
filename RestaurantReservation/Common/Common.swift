@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 
-let HOST_URL = "http://localhost:8080/RestaurantReservationApp_Web"
-//let HOST_URL = "http://192.168.50.192:8080/RestaurantReservationApp_Web"
-//let HOST_URL = "http://192.168.50.65:8080/RestaurantReservationApp_Web"
+//let HOST_URL = "http://localhost:8080/RestaurantReservationApp_Web"
+let HOST_URL = "http://192.168.197.46:8080/RestaurantReservationApp_Web"
 let CHECK_ORDER_URL = HOST_URL + "/CheckOrderServlet"
 let MENU_URL = HOST_URL + "/MenuServlet"
 let MESSAGE_URL = HOST_URL + "/MessageServlet"
