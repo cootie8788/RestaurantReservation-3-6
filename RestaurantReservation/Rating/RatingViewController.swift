@@ -149,6 +149,7 @@ extension RatingViewController : UITableViewDelegate,UITableViewDataSource{
             return .none
         }
         return .delete
+        
     }
     
     
@@ -191,7 +192,7 @@ extension RatingViewController : UITableViewDelegate,UITableViewDataSource{
             let respone = String(data: data, encoding: String.Encoding.utf8)
             //檢查是否成功
             if respone != "1" {
-                showAlertController(titleText: "留言刪除異常!", messageText: "請再刪除一次", okActionText: "知道了!", printText: "優惠資訊留言刪除異常", viewController: self)
+                showAlertController(titleText: "留言刪除異常!", messageText: "請再刪除一次", okActionText: "知道了!", printText: "留言刪除異常", viewController: self)
                 return
             }
             
