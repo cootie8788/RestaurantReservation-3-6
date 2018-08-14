@@ -232,7 +232,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EpH-jA-jbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6768.8000000000002" y="-173.16341829085459"/>
+            <point key="canvasLocation" x="6802" y="-154"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="APE-HW-YBB">
@@ -250,12 +250,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wr2-r0-VOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6769" y="-947"/>
+            <point key="canvasLocation" x="6729" y="-949"/>
         </scene>
         <!--訂位/點餐-->
         <scene sceneID="eaT-AM-1UM">
             <objects>
-                <tableViewController id="im7-Wq-pmU" sceneMemberID="viewController">
+                <tableViewController id="im7-Wq-pmU" customClass="OrderMainTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Agj-4Z-33t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,7 +374,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="K1l-IY-5mg" kind="show" id="Mn8-co-n4N"/>
+                                            <segue destination="K1l-IY-5mg" kind="show" identifier="QRcode" id="Mn8-co-n4N"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="254" id="CL0-L7-0RM">
