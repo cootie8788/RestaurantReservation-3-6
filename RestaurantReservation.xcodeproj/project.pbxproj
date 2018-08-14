@@ -41,8 +41,6 @@
 		38256D2D2110907E0035FABA /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D2C2110907E0035FABA /* ServiceViewController.swift */; };
 		38256D32211095630035FABA /* FoodManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D30211095630035FABA /* FoodManager.storyboard */; };
 		38256D352110979B0035FABA /* MenuManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D332110979B0035FABA /* MenuManager.storyboard */; };
-		38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D36211097AC0035FABA /* RatingManager.storyboard */; };
-		38256D3B211099210035FABA /* MessageManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D39211099210035FABA /* MessageManager.storyboard */; };
 		38256D3D21109B990035FABA /* MessageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3C21109B990035FABA /* MessageManagerViewController.swift */; };
 		38CF4D9021142EFA0059C185 /* UIImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */; };
 		38CF4D9121142EFA0059C185 /* UIImage+FixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */; };
@@ -127,8 +125,6 @@
 		38256D2C2110907E0035FABA /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		38256D31211095630035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/FoodManager.storyboard; sourceTree = "<group>"; };
 		38256D342110979B0035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MenuManager.storyboard; sourceTree = "<group>"; };
-		38256D37211097AC0035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/RatingManager.storyboard; sourceTree = "<group>"; };
-		38256D3A211099210035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MessageManager.storyboard; sourceTree = "<group>"; };
 		38256D3C21109B990035FABA /* MessageManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManagerViewController.swift; sourceTree = "<group>"; };
 		38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCropper.swift; sourceTree = "<group>"; };
 		38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FixOrientation.swift"; sourceTree = "<group>"; };
@@ -395,8 +391,6 @@
 				38256D2921108FB90035FABA /* Service.storyboard */,
 				38256D30211095630035FABA /* FoodManager.storyboard */,
 				38256D332110979B0035FABA /* MenuManager.storyboard */,
-				38256D36211097AC0035FABA /* RatingManager.storyboard */,
-				38256D39211099210035FABA /* MessageManager.storyboard */,
 				38256D2621108F630035FABA /* Waiter.storyboard */,
 				BFDA831B20F86B8B0050C738 /* Rating.storyboard */,
 				38256D1821108CDA0035FABA /* Menu.storyboard */,
@@ -495,8 +489,6 @@
 				38256D352110979B0035FABA /* MenuManager.storyboard in Resources */,
 				BFDA831120F86B250050C738 /* Member.storyboard in Resources */,
 				BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */,
-				38256D3B211099210035FABA /* MessageManager.storyboard in Resources */,
-				38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */,
 				38256D1C21108CDA0035FABA /* Menu.storyboard in Resources */,
 				BF41D9D7211DB41000A29B47 /* Assets.xcassets in Resources */,
 				38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
@@ -675,22 +667,6 @@
 				38256D342110979B0035FABA /* Base */,
 			);
 			name = MenuManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D36211097AC0035FABA /* RatingManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D37211097AC0035FABA /* Base */,
-			);
-			name = RatingManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D39211099210035FABA /* MessageManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D3A211099210035FABA /* Base */,
-			);
-			name = MessageManager.storyboard;
 			sourceTree = "<group>";
 		};
 		BFCF5A0720F865C9008E2A34 /* Main.storyboard */ = {

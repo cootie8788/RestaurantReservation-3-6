@@ -11,6 +11,8 @@ import Photos
 
 class MessageManagerViewController: UIViewController, UITextFieldDelegate{
     
+    @IBOutlet weak var newPictureUIButton: UIButton!
+    
     @IBOutlet weak var messageScrollView: UIScrollView!
     @IBOutlet weak var messageNewTitleTextField: UITextField!
     @IBOutlet weak var messageNewStartTextField: UITextField!
@@ -71,6 +73,7 @@ class MessageManagerViewController: UIViewController, UITextFieldDelegate{
             messageNewContentTextField.text = messageEditContent
             messageNewImageView.image = messageEditImage
             messageOriginalImage = messageEditImage
+            newPictureUIButton.setTitle("更新圖片", for: .normal) 
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save , target: self, action: #selector(saveBarBtnFnc))
