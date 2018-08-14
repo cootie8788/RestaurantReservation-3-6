@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,7 +14,7 @@
         <scene sceneID="oPY-5V-SqL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ByE-hV-z1v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="服務鈴" image="btn_tab_rating" id="6s5-To-egb"/>
+                    <tabBarItem key="tabBarItem" title="服務鈴" image="icon-ring" id="6s5-To-egb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BAb-yU-YeL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -131,6 +130,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_tab_rating" width="28" height="28"/>
+        <image name="icon-ring" width="24" height="24"/>
     </resources>
 </document>
