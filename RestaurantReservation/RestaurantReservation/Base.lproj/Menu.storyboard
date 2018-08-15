@@ -232,7 +232,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EpH-jA-jbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6768.8000000000002" y="-173.16341829085459"/>
+            <point key="canvasLocation" x="6802" y="-154"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="APE-HW-YBB">
@@ -250,12 +250,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wr2-r0-VOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6769" y="-947"/>
+            <point key="canvasLocation" x="6729" y="-949"/>
         </scene>
         <!--訂位/點餐-->
         <scene sceneID="eaT-AM-1UM">
             <objects>
-                <tableViewController id="im7-Wq-pmU" sceneMemberID="viewController">
+                <tableViewController id="im7-Wq-pmU" customClass="OrderMainTableViewController" customModule="RestaurantReservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Agj-4Z-33t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,7 +374,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="K1l-IY-5mg" kind="show" id="Mn8-co-n4N"/>
+                                            <segue destination="K1l-IY-5mg" kind="show" identifier="QRcode" id="Mn8-co-n4N"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="254" id="CL0-L7-0RM">
@@ -997,27 +997,27 @@
                                                     <rect key="frame" x="19" y="18.5" width="337.5" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="大眾牛" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i48-I0-76f">
-                                                            <rect key="frame" x="0.0" y="0.0" width="190.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="186" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4MO-J1-XaW">
-                                                            <rect key="frame" x="240.5" y="0.0" width="9.5" height="24"/>
+                                                            <rect key="frame" x="236" y="0.0" width="9.5" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n6s-aF-389">
-                                                            <rect key="frame" x="300" y="0.0" width="37.5" height="24"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="37.5" id="5x9-eB-Umc"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="295.5" y="0.0" width="42" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="n6s-aF-389" firstAttribute="width" secondItem="Q6m-er-XdB" secondAttribute="width" multiplier="1:8" id="SL3-1l-By5"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>

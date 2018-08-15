@@ -64,6 +64,7 @@ class OrderMenuTableViewController: UITableViewController, OrderMenuTableViewCel
             self.navigationItem.title = "內用 \(TableNumber)號桌"  //有tableMember
             navigationController?.delegate = self
         }
+        tableView.reloadData()
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {

@@ -1,79 +1,54 @@
+//
+//  OrderMainTableViewController.swift
+//  RestaurantReservation
+//
+//  Created by user on 2018/8/14.
+//  Copyright © 2018年 Peggy Tsai. All rights reserved.
+//
 
 import UIKit
 
-class AddMenuTableViewController: UITableViewController {
-    
-    let downloader = Downloader.shared
-    let decoder = JSONDecoder()
-    let app = UIApplication.shared.delegate as! AppDelegate
-    
-    let reData = receiveData()
+class OrderMainTableViewController: UITableViewController {
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        tableView.reloadData()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        reData.onSet(self)//監聽通知 與刷新
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-  
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-    
-    
-    // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return app.menuList[2].count
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ordermenucell", for: indexPath) as! OrderMenuTableViewCell
-        
-        let id = app.menuList[2][indexPath.row].id
-        let name = app.menuList[2][indexPath.row].name
-        let price = app.menuList[2][indexPath.row].price
-        let stock = app.menuList[2][indexPath.row].stock
-        
-        
-        
-        if let num = app.cart[id]?.quantity {
-            cell.orderMenu_cell_num.text = "\(num)"
-            print("\(num)")
-        }else{
-            cell.orderMenu_cell_num.text = "0"
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("\(indexPath)")
+        if indexPath.row == 2 {
+            let alert = UIAlertController(title: "提示", message: "請掃描桌面的QR code，以利進行點餐服務", preferredStyle: .alert)
+            let action = UIAlertAction(title: "確定", style: .default) { (alert) in
+                self.performSegue(withIdentifier: "QRcode", sender: nil)
+            }
+            let cancel = UIAlertAction(title: "取消", style: .cancel)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            present(alert, animated: true)
         }
+        return indexPath
+    }
+    // MARK: - Table view data source
 
-        cell.orderMenu_cell_Image.showImage(urlString: downloader.Menu_URL,id: id)
-        cell.orderMenu_cell_item.text = name
-        cell.orderMenu_cell_money.text = "$\(price)"
-        
-        cell.tag = indexPath.row  //給cell  他自己所對應的table index
-        cell.cellID = id          //給cell  所對應的orderMenu id
-        cell.cellName = name
-        cell.cellPrice = price
-        cell.cellStock = stock
-        cell.type = 3
-        
-        
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -110,14 +85,15 @@ class AddMenuTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
     }
-    */
+
 
 }

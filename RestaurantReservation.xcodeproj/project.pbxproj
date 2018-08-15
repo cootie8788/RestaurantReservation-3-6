@@ -41,8 +41,6 @@
 		38256D2D2110907E0035FABA /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D2C2110907E0035FABA /* ServiceViewController.swift */; };
 		38256D32211095630035FABA /* FoodManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D30211095630035FABA /* FoodManager.storyboard */; };
 		38256D352110979B0035FABA /* MenuManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D332110979B0035FABA /* MenuManager.storyboard */; };
-		38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D36211097AC0035FABA /* RatingManager.storyboard */; };
-		38256D3B211099210035FABA /* MessageManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38256D39211099210035FABA /* MessageManager.storyboard */; };
 		38256D3D21109B990035FABA /* MessageManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38256D3C21109B990035FABA /* MessageManagerViewController.swift */; };
 		38CF4D9021142EFA0059C185 /* UIImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */; };
 		38CF4D9121142EFA0059C185 /* UIImage+FixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */; };
@@ -73,6 +71,7 @@
 		CEA07DEB210512ED004032CA /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07DEA210512ED004032CA /* SSRadioButton.swift */; };
 		CEA07DED21051317004032CA /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */; };
 		CEBC459B211306AA000EE05E /* WaiterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC459A211306AA000EE05E /* WaiterTableViewCell.swift */; };
+		CED8EE1A2122A305005D3F53 /* OrderMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */; };
 		CEDD9E392111F415005A0AE5 /* CommonWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD9E382111F415005A0AE5 /* CommonWebSocketClient.swift */; };
 		CEF7D4F521082B99007CBE91 /* MemberStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F421082B99007CBE91 /* MemberStruct.swift */; };
 		CEF7D4F721082BFA007CBE91 /* MemberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */; };
@@ -127,8 +126,6 @@
 		38256D2C2110907E0035FABA /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		38256D31211095630035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/FoodManager.storyboard; sourceTree = "<group>"; };
 		38256D342110979B0035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MenuManager.storyboard; sourceTree = "<group>"; };
-		38256D37211097AC0035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/RatingManager.storyboard; sourceTree = "<group>"; };
-		38256D3A211099210035FABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RestaurantReservation/Base.lproj/MessageManager.storyboard; sourceTree = "<group>"; };
 		38256D3C21109B990035FABA /* MessageManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManagerViewController.swift; sourceTree = "<group>"; };
 		38CF4D8E21142EFA0059C185 /* UIImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCropper.swift; sourceTree = "<group>"; };
 		38CF4D8F21142EFA0059C185 /* UIImage+FixOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FixOrientation.swift"; sourceTree = "<group>"; };
@@ -163,6 +160,7 @@
 		CEA07DEA210512ED004032CA /* SSRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		CEA07DEC21051317004032CA /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		CEBC459A211306AA000EE05E /* WaiterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterTableViewCell.swift; sourceTree = "<group>"; };
+		CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMainTableViewController.swift; sourceTree = "<group>"; };
 		CEDD9E382111F415005A0AE5 /* CommonWebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebSocketClient.swift; sourceTree = "<group>"; };
 		CEF7D4F421082B99007CBE91 /* MemberStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberStruct.swift; sourceTree = "<group>"; };
 		CEF7D4F621082BFA007CBE91 /* MemberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAPI.swift; sourceTree = "<group>"; };
@@ -358,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				EA44C9142112E86200D5BCD3 /* RoundedPassCodeView.swift */,
+				CED8EE192122A305005D3F53 /* OrderMainTableViewController.swift */,
 				EAF3CFB7210F0A07004EF568 /* CommunicatorOrder.swift */,
 				EAF3CFB9210F0A0F004EF568 /* CommonOrder.swift */,
 				EAF3CFBB210F0A1B004EF568 /* NewandOldOeder.swift */,
@@ -395,8 +394,6 @@
 				38256D2921108FB90035FABA /* Service.storyboard */,
 				38256D30211095630035FABA /* FoodManager.storyboard */,
 				38256D332110979B0035FABA /* MenuManager.storyboard */,
-				38256D36211097AC0035FABA /* RatingManager.storyboard */,
-				38256D39211099210035FABA /* MessageManager.storyboard */,
 				38256D2621108F630035FABA /* Waiter.storyboard */,
 				BFDA831B20F86B8B0050C738 /* Rating.storyboard */,
 				38256D1821108CDA0035FABA /* Menu.storyboard */,
@@ -495,8 +492,6 @@
 				38256D352110979B0035FABA /* MenuManager.storyboard in Resources */,
 				BFDA831120F86B250050C738 /* Member.storyboard in Resources */,
 				BFCF5A0E20F865CB008E2A34 /* LaunchScreen.storyboard in Resources */,
-				38256D3B211099210035FABA /* MessageManager.storyboard in Resources */,
-				38256D38211097AC0035FABA /* RatingManager.storyboard in Resources */,
 				38256D1C21108CDA0035FABA /* Menu.storyboard in Resources */,
 				BF41D9D7211DB41000A29B47 /* Assets.xcassets in Resources */,
 				38256D1D21108CDA0035FABA /* Order.storyboard in Resources */,
@@ -620,6 +615,7 @@
 				BFCF5A0420F865C9008E2A34 /* AppDelegate.swift in Sources */,
 				BF92A2B020FE2A3C00406C20 /* Common.swift in Sources */,
 				38256D2021108D470035FABA /* WaiterViewController.swift in Sources */,
+				CED8EE1A2122A305005D3F53 /* OrderMainTableViewController.swift in Sources */,
 				CEA07DEB210512ED004032CA /* SSRadioButton.swift in Sources */,
 				380399C4210F61C00039F41F /* ConfirmMenuTableViewController.swift in Sources */,
 				BF6623A221202CBA00957485 /* RatingManagerViewController.swift in Sources */,
@@ -675,22 +671,6 @@
 				38256D342110979B0035FABA /* Base */,
 			);
 			name = MenuManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D36211097AC0035FABA /* RatingManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D37211097AC0035FABA /* Base */,
-			);
-			name = RatingManager.storyboard;
-			sourceTree = "<group>";
-		};
-		38256D39211099210035FABA /* MessageManager.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38256D3A211099210035FABA /* Base */,
-			);
-			name = MessageManager.storyboard;
 			sourceTree = "<group>";
 		};
 		BFCF5A0720F865C9008E2A34 /* Main.storyboard */ = {

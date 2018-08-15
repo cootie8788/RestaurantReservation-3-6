@@ -55,6 +55,9 @@ class MessageViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        array = []
+        array_img = []
+        arrayimageId = []
         getData()
         messageShowTableView.refreshControl?.attributedTitle = NSAttributedString(string: "更新中...")
     }
@@ -62,6 +65,7 @@ class MessageViewController: UIViewController {
     @objc func handleRefresh(){
         array = []
         array_img = []
+        arrayimageId = []
         getData()
         messageShowTableView.reloadData()
         messageShowTableView.refreshControl?.endRefreshing()
@@ -108,6 +112,31 @@ class MessageViewController: UIViewController {
         }
     }
     
+    func messageDelete(messageID: Int){
+        
+        print("messageID \(messageID)")
+        
+        var json = [String: Any]()
+        json["action"] = "messageDelete"
+        json["message_id"] = messageID
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        communicator.doPost(url: MESSAGE_URL, data: jsonData!) { (error, data) in
+            guard let data = data else{
+                return
+            }
+            
+            //output字串 data 轉 string
+            let respone = String(data: data, encoding: String.Encoding.utf8)
+            //檢查是否成功
+            if respone != "1" {
+                showAlertController(titleText: "優惠訊息刪除異常!", messageText: "請再刪除一次", okActionText: "知道了!", printText: "優惠資訊刪除異常", viewController: self)
+                return
+            }
+            
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as? MessageDetailViewController
         if let row = messageShowTableView.indexPathForSelectedRow?.row {
@@ -144,6 +173,7 @@ class MessageViewController: UIViewController {
     }
     
     
+    
 
 }
 
@@ -164,5 +194,28 @@ extension MessageViewController: UITableViewDelegate,UITableViewDataSource{
         cell.messageContentLabel.text = messageContent
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let messageID = array[indexPath.row].id
+        
+        messageDelete(messageID: messageID)
+        
+        array.remove(at: indexPath.row)
+        messageShowTableView.deleteRows(at: [indexPath], with: .fade)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        
+        let member_authority_id = userDefault.string(forKey: MemberKey.Authority_id.rawValue)
+        
+        if member_authority_id == "1" {
+            return .none
+        }
+        return .delete
+        
+    }
+    
     
 }

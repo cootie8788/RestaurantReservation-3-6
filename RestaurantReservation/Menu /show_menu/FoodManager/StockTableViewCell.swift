@@ -28,21 +28,21 @@ class StockTableViewCell: UITableViewCell ,popViewControllerDelegate ,StockMenuP
 //        controler?.delegate = self
         
         
-        guard let controler = controler else{
-            return
-        }
-        guard let pop =
-            controler.storyboard?.instantiateViewController(withIdentifier: "popview") as? popViewController else{
-                return
-        }
-
-        pop.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        pop.modalPresentationStyle = .overCurrentContext //必須覆蓋過去
-
-        pop.menu_id = self.tag
-        pop.delegate = self
-
-        controler.present(pop, animated: true)
+//        guard let controler = controler else{
+//            return
+//        }
+//        guard let pop =
+//            controler.storyboard?.instantiateViewController(withIdentifier: "popview") as? popViewController else{
+//                return
+//        }
+//
+//        pop.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+//        pop.modalPresentationStyle = .overCurrentContext //必須覆蓋過去
+//
+//        pop.menu_id = self.tag
+//        pop.delegate = self
+//
+//        controler.present(pop, animated: true)
         
     }
  

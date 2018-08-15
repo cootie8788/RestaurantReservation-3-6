@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextFiedl: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var bottonConstraint: NSLayoutConstraint!
     let memberAPI = MemberAPI()
     let userDeafult = UserDefaults.standard
     
@@ -24,6 +25,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 註冊（我在意鍵盤即將升起）的通知
+        NotificationCenter.default.addObserver(self, selector:#selector(moveTextFieldUp(aNotification:)),name: .UIKeyboardWillShow, object:nil)
         
         ordertest = ""
         
@@ -134,12 +138,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // 點return就收鍵盤
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        bottonConstraint.constant = 30
         return true
     }
     
     // 點背景收鍵盤
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        bottonConstraint.constant = 30
+    }
+    // 當鍵盤即將升起時會執行方法
+    @objc func moveTextFieldUp(aNotification:Notification){
+        // 把底部距離改為0
+        self.bottonConstraint.constant = +100
+        // 利用動畫增加延遲感
+        UIView.animate(withDuration: 0.25){
+            self.view.layoutIfNeeded()
+        }
     }
     
     /*

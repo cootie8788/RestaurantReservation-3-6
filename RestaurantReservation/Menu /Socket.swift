@@ -6,8 +6,10 @@ import Starscream
 
 class SocketClient : WebSocketDelegate{
 
+
+    static let SocketUrl = HOST_URL + "/updateStock/"
 //    static let SocketUrl = "http://localhost:8080/RestaurantReservationApp_Web/updateStock/"
-    static let SocketUrl = "http://192.168.50.65:8080/RestaurantReservationApp_Web/updateStock/"
+//    static let SocketUrl = "http://192.168.197.46:8080/RestaurantReservationApp_Web/updateStock/"
     static let chatWebSocketClient =
         SocketClient(url:
             SocketUrl+"\(UserDefaults.standard.integer(forKey: MemberKey.MemberID.rawValue))")
